@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 export const metadata = {
   title: "About Us | TEAM CAMA Elite Performance",
@@ -14,10 +15,12 @@ export default function About() {
       <section className="relative h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10"></div>
-          <img
-            className="w-full h-full object-cover object-[center_35%] opacity-30 scale-105"
+          <Image
+            className="object-cover object-[center_35%] opacity-30 scale-105"
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg"
             alt="refined martial arts studio interior"
+            fill
+            priority
           />
         </div>
         <div className="relative z-20 px-12 md:px-24 max-w-5xl mx-auto text-center">
@@ -39,11 +42,14 @@ export default function About() {
             <div className="lg:col-span-5">
               <div className="relative">
                 <div className="absolute -inset-4 border border-outline/20 translate-x-4 translate-y-4 -z-10"></div>
-                <img
-                  className="w-full aspect-[4/5] object-cover brightness-90 grayscale hover:grayscale-0 transition-all duration-700"
-                  src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454206078-TinaPunch.a70188e0743931b9209d.jpg"
-                  alt="focused martial artist hands wrapping with precision"
-                />
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    className="object-cover brightness-90 grayscale hover:grayscale-0 transition-all duration-700"
+                    src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454206078-TinaPunch.a70188e0743931b9209d.jpg"
+                    alt="focused martial artist hands wrapping with precision"
+                    fill
+                  />
+                </div>
               </div>
             </div>
             <div className="lg:col-span-7">
@@ -85,10 +91,11 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
-                <img
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                <Image
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Sensei.6067b8adb6fab92c15fa.png"
                   alt="refined portrait of Elias Vance, martial arts master"
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -99,10 +106,11 @@ export default function About() {
             </div>
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
-                <img
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                <Image
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Angelo.jpg"
                   alt="refined portrait of Sarah Chen, BJJ black belt"
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -113,10 +121,11 @@ export default function About() {
             </div>
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
-                <img
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                <Image
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454139445-CouchIsaiah.f4a7545a8931b4a9d08d.jpg"
                   alt="Isaiah Ferguson"
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>

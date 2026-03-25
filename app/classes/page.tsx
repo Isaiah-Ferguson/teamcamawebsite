@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import ScheduleModal from "../components/ScheduleModal";
+import ContactModal from "../components/ContactModal";
 
 export default function Classes() {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   return (
     <>
       <Navigation />
@@ -29,11 +32,12 @@ export default function Classes() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative group order-1 lg:order-1">
               <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
-              <div className="overflow-hidden">
-                <img
+              <div className="overflow-hidden relative aspect-[4/5]">
+                <Image
                   alt="Muay Thai"
-                  className="w-full aspect-[4/5] object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                  className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg"
+                  fill
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
@@ -93,11 +97,12 @@ export default function Classes() {
             </div>
             <div className="relative group order-1 lg:order-2">
               <div className="absolute -bottom-4 -right-4 w-32 h-32 border-b border-r border-primary/40 z-10"></div>
-              <div className="overflow-hidden">
-                <img
+              <div className="overflow-hidden relative aspect-[4/5]">
+                <Image
                   alt="BJJ"
-                  className="w-full aspect-[4/5] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg"
+                  fill
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
@@ -109,11 +114,12 @@ export default function Classes() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative group order-1 lg:order-1">
               <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
-              <div className="overflow-hidden">
-                <img
+              <div className="overflow-hidden relative aspect-[4/5]">
+                <Image
                   alt="TaeKwon Do"
-                  className="w-full aspect-[4/5] object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                  className="object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454188428-Sammy1.d8998c22e6dc126eb917.jpg"
+                  fill
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
@@ -136,7 +142,7 @@ export default function Classes() {
                   <p className="text-white text-sm font-medium">Tue / Thu</p>
                   <p className="text-on-surface/60 text-xs italic">5:30 — 8:30</p>
                   <p className="text-white text-sm font-medium">Sat</p>
-                  <p className="text-on-surface/60 text-xs italic">9:30 AM — 11:30PM</p>
+                  <p className="text-on-surface/60 text-xs italic">9:30 AM — 11:30 AM</p>
                 </div>
                   
                 </div>
@@ -159,7 +165,10 @@ export default function Classes() {
               Your first session is a technical assessment at no cost. Experience the standard of elite performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <button className="px-12 py-5 elite-gradient text-white font-body font-bold text-xs uppercase tracking-[0.3em]">
+              <button 
+                onClick={() => setIsContactOpen(true)}
+                className="px-12 py-5 elite-gradient text-white font-body font-bold text-xs uppercase tracking-[0.3em]"
+              >
                 Contact Us
               </button>
               <button 
@@ -175,6 +184,7 @@ export default function Classes() {
 
       <Footer />
       <ScheduleModal isOpen={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 }

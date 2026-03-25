@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ContactModal from "./components/ContactModal";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -21,10 +22,12 @@ export default function Home() {
 
       <section className="relative h-screen w-full overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             alt="High Intensity Martial Arts"
             className="w-full h-full object-cover grayscale opacity-40"
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg"
+            fill
+            priority
           />
           <div className="absolute inset-0 hero-gradient"></div>
         </div>
@@ -111,10 +114,11 @@ export default function Home() {
         <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <img
+              <Image
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
                 alt="Taekwondo"
+                fill
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
@@ -126,10 +130,11 @@ export default function Home() {
               </div>
             </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-            <img
+            <Image
               className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
               src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
               alt="Muay Thai"
+              fill
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
             <div className="absolute bottom-10 left-8 right-8 space-y-4">
@@ -141,10 +146,11 @@ export default function Home() {
             </div>
           </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <img
+              <Image
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
                 alt="Jiu Jitsu"
+                fill
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
