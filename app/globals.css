@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: #DA291C;
+  --color-background: #131313;
+  --color-surface: #1C1B1B;
+  --color-surface-variant: #353535;
+  --color-on-surface: #E6BDB7;
+  --color-outline: #5C403B;
+  --font-headline: var(--font-noto-serif);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+.glass-nav {
+  background: rgba(19, 19, 19, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.elegant-gradient {
+  background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 1) 100%);
+}
+
+.text-refined-stroke {
+  -webkit-text-stroke: 0.5px #5C403B;
+  color: transparent;
+}
+
+.hero-gradient {
+  background: linear-gradient(to right, rgba(19,19,19,1) 0%, rgba(19,19,19,0.8) 40%, rgba(19,19,19,0) 100%);
+}
+
+.elite-gradient {
+  background: linear-gradient(135deg, #DA291C 0%, #931d14 100%);
+}
+
+.premium-glass {
+  background: rgba(28, 27, 27, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.subtle-border {
+  border-bottom: 1px solid rgba(92, 64, 59, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #DA291C;
 }
