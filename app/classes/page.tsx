@@ -141,12 +141,11 @@ export default function Classes() {
                   <p className="text-white text-sm font-medium">Sat</p>
                   <p className="text-on-surface/60 text-xs italic">9:30 AM — 11:30 AM</p>
                 </div>
-                  
-                </div>
                 <div className="space-y-2">
                   <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Focus</p>
                   <p className="text-white text-sm font-medium">Kicking &amp; Speed</p>
                   <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
+                </div>
               </div>
             </div>
           </div>
