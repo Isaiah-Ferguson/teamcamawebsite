@@ -92,7 +92,7 @@ export default function About() {
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
                 <Image
-                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Sensei.6067b8adb6fab92c15fa.png"
                   alt="refined portrait of Elias Vance, martial arts master"
                   fill
@@ -107,7 +107,7 @@ export default function About() {
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
                 <Image
-                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Angelo.jpg"
                   alt="refined portrait of Sarah Chen, BJJ black belt"
                   fill
@@ -122,7 +122,7 @@ export default function About() {
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
                 <Image
-                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale hover:grayscale-0"
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454139445-CouchIsaiah.f4a7545a8931b4a9d08d.jpg"
                   alt="Isaiah Ferguson"
                   fill

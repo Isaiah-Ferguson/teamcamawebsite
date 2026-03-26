@@ -33,10 +33,10 @@ export default function Contact() {
                       </svg>
                       <div>
                         <p className="font-label text-[10px] tracking-[0.2em] text-on-surface/40 uppercase font-bold mb-2">
-                          The Atelier
+                          The Location
                         </p>
                         <p className="font-body text-white leading-relaxed">
-                          8909 Thornton Road Suite #2
+                          8855 Thornton Road Suite B
                         </p>
                       </div>
                     </div>
@@ -46,7 +46,7 @@ export default function Contact() {
                       </svg>
                       <div>
                         <p className="font-label text-[10px] tracking-[0.2em] text-on-surface/40 uppercase font-bold mb-2">
-                          Priority Line
+                          Phone Number
                         </p>
                         <p className="font-body text-white">209 482-1352</p>
                       </div>
@@ -57,7 +57,7 @@ export default function Contact() {
                       </svg>
                       <div>
                         <p className="font-label text-[10px] tracking-[0.2em] text-on-surface/40 uppercase font-bold mb-2">
-                          Concierge
+                          Email
                         </p>
                         <p className="font-body text-white">Cama5638@gmail.com</p>
                       </div>
@@ -95,7 +95,7 @@ export default function Contact() {
 
               <div className="aspect-[4/3] w-full relative overflow-hidden border border-outline/20">
                 <iframe
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8909+Thornton+Road+Suite+2,+Stockton,+CA+95209&zoom=15"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209&zoom=15"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: 'grayscale(100%) contrast(1.1) brightness(0.75)' }}

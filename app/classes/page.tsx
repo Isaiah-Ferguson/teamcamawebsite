@@ -50,7 +50,7 @@ export default function Classes() {
                 <div className="h-1 w-12 bg-primary"></div>
               </div>
               <p className="text-on-surface/70 leading-relaxed font-light text-lg">
-                Known as the &quot;Art of Eight Limbs,&quot; this striking system utilizes shins, elbows, knees, and fists with clinical efficiency. Perfect for those seeking explosive power and conditioning.
+                Known as the &quot;Art of Eight Limbs,&quot; Muay Thai focuses on using punches, kicks, knees, and elbows to develop strength, conditioning, and effective technique.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
                 <div className="space-y-2">
@@ -64,9 +64,6 @@ export default function Classes() {
                   <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
                 </div>
               </div>
-              <button className="group flex items-center gap-4 text-xs font-bold tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">
-                Begin Your Training <span className="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></span>
-              </button>
             </div>
           </div>
 
@@ -148,10 +145,9 @@ export default function Classes() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Focus</p>
+                  <p className="text-white text-sm font-medium">Kicking &amp; Speed</p>
+                  <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
               </div>
-              <button className="group flex items-center gap-4 text-xs font-bold tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">
-                Join The Lab <span className="w-8 h-[1px] bg-primary group-hover:w-12 transition-all"></span>
-              </button>
             </div>
           </div>
         </section>
@@ -159,10 +155,10 @@ export default function Classes() {
         <section className="mt-48 px-8 py-32 bg-surface text-center border-y border-outline/10">
           <div className="max-w-4xl mx-auto space-y-10">
             <h3 className="font-headline text-5xl md:text-6xl font-bold text-white leading-tight uppercase tracking-tighter">
-              Ready For The <span className="italic text-primary">Strike?</span>
+              Start Your <span className="italic text-primary">Training?</span>
             </h3>
             <p className="text-on-surface/60 text-lg max-w-xl mx-auto font-light">
-              Your first session is a technical assessment at no cost. Experience the standard of elite performance.
+              Try your first session at no cost and see what we’re all about.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
               <button 

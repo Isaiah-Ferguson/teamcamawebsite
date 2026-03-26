@@ -115,7 +115,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
               <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
                 alt="Taekwondo"
                 fill
@@ -131,7 +131,7 @@ export default function Home() {
             </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
             <Image
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
               src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
               alt="Muay Thai"
               fill
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
               <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
                 alt="Jiu Jitsu"
                 fill

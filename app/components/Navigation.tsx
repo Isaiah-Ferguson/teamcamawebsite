@@ -69,12 +69,18 @@ export default function Navigation() {
             CONTACT
           </Link>
         </div>
-        <button 
-          onClick={() => setIsContactOpen(true)}
-          className="bg-primary text-white font-body font-bold text-xs px-6 py-2.5 tracking-widest uppercase transition-all duration-200 active:scale-95 hover:bg-opacity-90"
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-on-surface hover:text-white transition-colors duration-300"
         >
-          JOIN NOW
-        </button>
+          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span className="font-body text-xs font-medium">8855 Thornton Rd Suite B, Stockton</span>
+        </a>
       </div>
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </nav>
