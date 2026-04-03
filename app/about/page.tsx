@@ -20,6 +20,7 @@ export default function About() {
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg"
             alt="refined martial arts studio interior"
             fill
+            sizes="100vw"
             priority
           />
         </div>
@@ -48,6 +49,7 @@ export default function About() {
                     src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454206078-TinaPunch.a70188e0743931b9209d.jpg"
                     alt="focused martial artist hands wrapping with precision"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                   />
                 </div>
               </div>
@@ -85,7 +87,7 @@ export default function About() {
             <h2 className="font-headline font-bold text-4xl md:text-5xl text-white italic mb-4">The Instructors</h2>
             <div className="h-px w-24 bg-primary mx-auto"></div>
             <p className="text-primary font-label tracking-[0.2em] text-[10px] mt-6 uppercase">
-              Master Instruction &amp; Mentorship
+              Guiding students through discipline, character, and mastery—on and off the mat.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -96,13 +98,20 @@ export default function About() {
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Sensei.6067b8adb6fab92c15fa.png"
                   alt="refined portrait of Elias Vance, martial arts master"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Louie Concepcion</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Head Coach</p>
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-                Louie Concepcion, Head Instructor and founder of TEAM CAMA, has dedicated his life to mastering and teaching martial arts. He began his journey in Taekwondo in the 1980s, training with the Olympic team before transitioning to Brazilian Jiu-Jitsu in the early 2000s. He earned his black belt under Charles Gracie and has also studied Muay Thai under Master Toddy. With decades of experience, he continues to lead and mentor the next generation of martial artists.              </p>
+Louie Concepcion, a Stockton native, brings over 35 years of martial arts experience across multiple disciplines and under a variety of respected instructors. His background includes Traditional and Olympic-style Taekwondo, Brazilian Jiu-Jitsu, Kickboxing, Filipino Martial Arts, and Jeet Kune Do Concepts.
+</p>
+<br />
+<p  className="text-on-surface/70 text-sm leading-relaxed font-light">Driven by a lifelong passion for martial arts, he founded this academy to share his knowledge, promote the values of humility and discipline, and inspire the next generation of students.
+</p>
+<br />
+<p  className="text-on-surface/70 text-sm leading-relaxed font-light"> Mr. Concepcion holds a 3rd Dan Black Belt in Taekwondo (certified by the Kukkiwon) and is a Black Belt in Brazilian Jiu-Jitsu under Charles Gracie.</p>
             </div>
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
@@ -111,13 +120,18 @@ export default function About() {
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Angelo.jpg"
                   alt="refined portrait of Sarah Chen, BJJ black belt"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Angelo Garcia</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Brazilian Jiu Jitsu Instructor</p>
-              <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-                Angelo Garcia has been training Brazilian Jiu-Jitsu since 2009 and earned his Gracie black belt through years of dedication. As an artist and martial artist, he brings creativity and attention to detail into his training. He’s passionate about family and committed to helping the next generation of Jiu-Jitsu athletes grow.              </p>
+              <p className="text-on-surface/70 text-sm leading-relaxed font-light">Angelo Garcia has been training Brazilian Jiu-Jitsu since 2009 and earned his Gracie Black Belt through years of dedication. As an instructor at C.A.M.A., he works effectively with both children and adults, bringing a strong foundation in both Gi and No-Gi Jiu-Jitsu.</p>
+              <br />
+              <p className="text-on-surface/70 text-sm leading-relaxed font-light">Blending the mindset of both an artist and martial artist, Angelo brings creativity and attention to detail into his training and teaching. He is constantly striving to improve his technical ability and instruction, never shying away from hard training.</p>
+              <br />
+              <p className="text-on-surface/70 text-sm leading-relaxed font-light">As an avid student, competitor, and practitioner, Angelo is committed to lifelong growth in martial arts and is passionate about helping others develop their skills. He takes pride in supporting the next generation of Jiu-Jitsu athletes and sharing his knowledge with those willing to learn.</p>
+
             </div>
             <div className="group">
               <div className="aspect-[4/5] overflow-hidden bg-background mb-8 relative">
@@ -126,13 +140,22 @@ export default function About() {
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454139445-CouchIsaiah.f4a7545a8931b4a9d08d.jpg"
                   alt="Isaiah Ferguson"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Isaiah Ferguson</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Brazilian Jiu Jitsu & Muay Thai Coach</p>
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-                I started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and haven’t looked back since. It’s been a huge part of my life ever since. I earned my black belt in Brazilian Jiu-Jitsu in 2021 and continue to train and improve every day.              </p>
+                I started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and haven&quot;t looked back since. It&quot;s been a huge part of my life ever since. I earned my black belt in Brazilian Jiu-Jitsu in 2021 and continue to train and improve every day.
+              </p>
+              <br />
+              <p className="text-on-surface/70 text-sm leading-relaxed font-light">
+                As an instructor for C.A.M.A.&quot;s Jiu-Jitsu and Muay Thai programs, Isaiah is a longtime student of the academy and a dedicated, humble practitioner of its teachings. His discipline and work ethic have led to success in both kickboxing and Jiu-Jitsu competition.
+              </p>
+              <br />
+              <p className="text-on-surface/70 text-sm leading-relaxed font-light">
+  In addition to his striking background, he holds the rank of Black Belt in Brazilian Jiu-Jitsu. Isaiah believes that a strong body leads to a strong mind, and he strives to instill that mindset in every student he teaches.              </p>
             </div>
           </div>
         </div>

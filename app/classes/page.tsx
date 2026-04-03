@@ -38,6 +38,7 @@ export default function Classes() {
                   className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
@@ -54,12 +55,12 @@ export default function Classes() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Schedule</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
                   <p className="text-white text-sm font-medium">Mon / Wed / Fri</p>
                   <p className="text-on-surface/60 text-xs italic">7:15 — 8:15</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Focus</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
                   <p className="text-white text-sm font-medium">Striking & Defense</p>
                   <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
                 </div>
@@ -80,13 +81,13 @@ export default function Classes() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Schedule</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
 
                   <p className="text-white text-sm font-medium">Mon / Wed / Fri</p>
                   <p className="text-on-surface/60 text-xs italic">5:30 — 8:30</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Focus</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
                   <p className="text-white text-sm font-medium">Grappling &amp; Leverage</p>
                   <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
                 </div>
@@ -100,6 +101,7 @@ export default function Classes() {
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
@@ -113,19 +115,20 @@ export default function Classes() {
               <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
               <div className="overflow-hidden relative aspect-[4/5]">
                 <Image
-                  alt="TaeKwon Do"
+                  alt="TaeKwonDo"
                   className="object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                   src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454188428-Sammy1.d8998c22e6dc126eb917.jpg"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
-                Sammy
+                Samantha Espinosa
               </div>
             </div>
             <div className="space-y-10 lg:pl-12 order-2 lg:order-2">
               <div className="space-y-4">
-                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">TaeKwon Do</h2>
+                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">TaeKwonDo</h2>
                 <div className="h-1 w-12 bg-primary"></div>
               </div>
               <p className="text-on-surface/70 leading-relaxed font-light text-lg">
@@ -135,14 +138,14 @@ export default function Classes() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Schedule</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
                   <p className="text-white text-sm font-medium">Tue / Thu</p>
                   <p className="text-on-surface/60 text-xs italic">5:30 — 8:30</p>
                   <p className="text-white text-sm font-medium">Sat</p>
                   <p className="text-on-surface/60 text-xs italic">9:30 AM — 11:30 AM</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">Focus</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
                   <p className="text-white text-sm font-medium">Kicking &amp; Speed</p>
                   <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
                 </div>

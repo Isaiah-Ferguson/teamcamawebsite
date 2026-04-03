@@ -27,6 +27,7 @@ export default function Home() {
             className="w-full h-full object-cover grayscale opacity-40"
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg"
             fill
+            sizes="100vw"
             priority
           />
           <div className="absolute inset-0 hero-gradient"></div>
@@ -34,7 +35,7 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-8 lg:px-12 max-w-7xl">
           <div className="max-w-3xl">
             <p className="font-label text-primary font-bold tracking-[0.4em] uppercase mb-6 text-xs border-l-2 border-primary pl-4">
-              Est. 2010
+              Est. 2011
             </p>
             <h1 className="font-headline text-6xl md:text-8xl font-bold leading-tight text-white mb-8 tracking-tight">
               Team <br /> <span className="italic font-normal text-on-surface/40">Cama</span>
@@ -82,7 +83,8 @@ export default function Home() {
               </div>
               <h3 className="font-headline text-2xl font-bold text-white tracking-tight">INTEGRITY</h3>
               <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                Our instructors are former world-class competitors and tactical specialists with decades of proven results.
+                Do what is right, even when no one is watching.
+                Your character is revealed in how you train, not just how you perform.
               </p>
             </div>
             <div className="space-y-6 group">
@@ -90,7 +92,8 @@ export default function Home() {
               </div>
               <h3 className="font-headline text-2xl font-bold text-white tracking-tight">RESPECT</h3>
               <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                Utilizing biomechanical analysis to optimize striking patterns and grappling efficiency for maximum leverage.
+                Show up when it&apos;s hard, and push when it&apos;s uncomfortable.
+                Consistency in training builds strength, skill, and mindset.
               </p>
             </div>
             <div className="space-y-6 group">
@@ -98,7 +101,8 @@ export default function Home() {
               </div>
               <h3 className="font-headline text-2xl font-bold text-white tracking-tight">DISCIPLINE</h3>
               <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                A high-intensity, controlled environment designed for rapid skill acquisition and extreme physical conditioning.
+                Honor your instructors, your training partners, and yourself.
+                Growth comes from humility and treating others with purpose and control.
               </p>
             </div>
           </div>
@@ -119,6 +123,7 @@ export default function Home() {
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
                 alt="Taekwondo"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
@@ -135,6 +140,7 @@ export default function Home() {
               src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
               alt="Muay Thai"
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
             <div className="absolute bottom-10 left-8 right-8 space-y-4">
@@ -151,6 +157,7 @@ export default function Home() {
                 src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
                 alt="Jiu Jitsu"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">

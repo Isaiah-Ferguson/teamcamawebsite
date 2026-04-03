@@ -118,20 +118,22 @@ export default function Contact() {
                 <form className="space-y-12">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="relative">
-                      <label className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
-                        Full Identity
+                      <label htmlFor="Name" className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
+                        First and Last Name
                       </label>
                       <input
+                        id="Name"
                         className="w-full bg-transparent subtle-border border-0 focus:border-b-2 focus:border-primary focus:ring-0 text-white py-4 px-0 font-body placeholder:text-surface-variant transition-all outline-none"
                         placeholder="Your Name"
                         type="text"
                       />
                     </div>
                     <div className="relative">
-                      <label className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
-                        Digital Address
+                      <label htmlFor="Email" className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
+                        Email Address
                       </label>
                       <input
+                        id="Email"
                         className="w-full bg-transparent subtle-border border-0 focus:border-b-2 focus:border-primary focus:ring-0 text-white py-4 px-0 font-body placeholder:text-surface-variant transition-all outline-none"
                         placeholder="email@domain.com"
                         type="email"
@@ -139,10 +141,10 @@ export default function Contact() {
                     </div>
                   </div>
                   <div className="relative">
-                    <label className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
+                    <label htmlFor="ClassSelect" className="block font-label text-[10px] tracking-widest text-on-surface/50 mb-3 uppercase font-semibold">
                       Focus of Interest
                     </label>
-                    <select className="w-full bg-transparent subtle-border border-0 focus:border-b-2 focus:border-primary focus:ring-0 text-white py-4 px-0 font-body transition-all appearance-none cursor-pointer">
+                    <select id="ClassSelect" className="w-full bg-transparent subtle-border border-0 focus:border-b-2 focus:border-primary focus:ring-0 text-white py-4 px-0 font-body transition-all appearance-none cursor-pointer">
                       <option className="bg-surface text-white">BRAZILIAN JIU-JITSU</option>
                       <option className="bg-surface text-white">MUAY THAI</option>
                       <option className="bg-surface text-white">TAEKWON DO</option>

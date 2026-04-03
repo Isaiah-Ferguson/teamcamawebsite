@@ -9,6 +9,7 @@ import ContactModal from "./ContactModal";
 export default function Navigation() {
   const pathname = usePathname();
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => pathname === path;
 
@@ -19,7 +20,7 @@ export default function Navigation() {
           <Image
             alt="TEAM CAMA"
             className="h-10 w-auto"
-            src="https://lh3.googleusercontent.com/aida/ADBb0uhPMF8ZFQNiUt6w3XzZzVC7F3jp3oOlCRT_eQPMw9xr679hsB0Mdr72IbrnvO1OJAFeEYC8UVWQ1VnnlYEA3YTp5yFFF7WoVBCNj80XCC3hAqGn2Ac8OaWv0h_j-6XN7Tb0-N6hGFpvVNhZ2oouWngzflTXHebE62VERVdRI3yLmxPiCtJwTIc84fMncHijsr0o6HkY0LuEDemaawndJMmpzszNtXy6wK-vezxCgsVLPjXgScx0zA6MffQaw8akFd1t5ESJumag8g"
+            src="https://preblobaccount.blob.core.windows.net/prerecordedblob/TeamLogo.png"
             width={120}
             height={40}
           />
@@ -81,7 +82,51 @@ export default function Navigation() {
           </svg>
           <span className="font-body text-xs font-medium">8855 Thornton Rd Suite B, Stockton</span>
         </a>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+          aria-label="Toggle menu"
+        >
+          <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline/15 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className="flex flex-col px-8 py-6 space-y-4">
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/") ? "text-primary" : "text-on-surface"}`}
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            HOME
+          </Link>
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/about") ? "text-primary" : "text-on-surface"}`}
+            href="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            ABOUT
+          </Link>
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/classes") ? "text-primary" : "text-on-surface"}`}
+            href="/classes"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            CLASSES
+          </Link>
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/contact") ? "text-primary" : "text-on-surface"}`}
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            CONTACT
+          </Link>
+        </div>
+      </div>
+
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </nav>
   );

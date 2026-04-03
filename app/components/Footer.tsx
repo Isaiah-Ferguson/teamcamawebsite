@@ -10,7 +10,7 @@ export default function Footer() {
             <Image
               alt="TEAM CAMA"
               className="h-8 w-auto opacity-80"
-              src="https://lh3.googleusercontent.com/aida/ADBb0uhPMF8ZFQNiUt6w3XzZzVC7F3jp3oOlCRT_eQPMw9xr679hsB0Mdr72IbrnvO1OJAFeEYC8UVWQ1VnnlYEA3YTp5yFFF7WoVBCNj80XCC3hAqGn2Ac8OaWv0h_j-6XN7Tb0-N6hGFpvVNhZ2oouWngzflTXHebE62VERVdRI3yLmxPiCtJwTIc84fMncHijsr0o6HkY0LuEDemaawndJMmpzszNtXy6wK-vezxCgsVLPjXgScx0zA6MffQaw8akFd1t5ESJumag8g"
+              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/TeamLogo.png"
               width={96}
               height={32}
             />
@@ -28,28 +28,28 @@ export default function Footer() {
             </div>
         </div>
         <div className="flex flex-col gap-4">
-          <h4 className="font-body font-bold text-white text-xs uppercase tracking-[0.2em] mb-2">
+          <h4 className="font-body font-bold text-white text-md uppercase tracking-[0.2em] mb-2">
             Class Schedule
           </h4>
           <div className="space-y-4">
             <div>
-              <p className="text-primary font-body text-xs uppercase tracking-widest font-bold mb-1">Muay Thai</p>
-              <p className="text-on-surface/60 font-body text-[10px] tracking-wider">Mon / Wed / Fri: 7:15 PM - 8:15 PM</p>
+              <p className="text-primary font-body text-sm uppercase tracking-widest font-bold mb-1">Muay Thai</p>
+              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Mon / Wed / Fri: 7:15 PM - 8:15 PM</p>
             </div>
             <div>
-              <p className="text-primary font-body text-xs uppercase tracking-widest font-bold mb-1">BJJ</p>
-              <p className="text-on-surface/60 font-body text-[10px] tracking-wider">Mon / Wed / Fri: 5:30 PM - 8:30 PM</p>
+              <p className="text-primary font-body text-sm uppercase tracking-widest font-bold mb-1">BJJ</p>
+              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Mon / Wed / Fri: 5:30 PM - 8:30 PM</p>
             </div>
             <div>
-              <p className="text-primary font-body text-xs uppercase tracking-widest font-bold mb-1">Taekwondo</p>
-              <p className="text-on-surface/60 font-body text-[10px] tracking-wider">Tue / Thu: 5:30 PM - 8:30 PM</p>
-              <p className="text-on-surface/60 font-body text-[10px] tracking-wider">Sat: 9:30 AM - 11:30 AM</p>
+              <p className="text-primary font-body text-sm uppercase tracking-widest font-bold mb-1">Taekwondo</p>
+              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Tue / Thu: 5:30 PM - 8:30 PM</p>
+              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Sat: 9:30 AM - 11:30 AM</p>
             </div>
           </div>
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-2">
-            <h4 className="font-body font-bold text-white text-xs uppercase tracking-[0.2em] mb-2">
+            <h4 className="font-body font-bold text-white text-md uppercase tracking-[0.2em] mb-2">
               Contact
             </h4>
             <p className="text-on-surface/60 font-body text-xs uppercase tracking-widest">
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
           <div className="mt-8 md:mt-0">
             <p className="text-on-surface/40 font-body text-[10px] tracking-[0.2em] uppercase">
-              © est. 2010 TEAM CAMA. ALL RIGHTS RESERVED.
+              © est. 2011 Concepcion Academy of Martial Arts. ALL RIGHTS RESERVED.
             </p>
           </div>
         </div>
