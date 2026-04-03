@@ -84,7 +84,7 @@ export default function Classes() {
                   <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
 
                   <p className="text-white text-sm font-medium">Mon / Wed / Fri</p>
-                  <p className="text-on-surface/60 text-xs italic">5:30 — 8:30</p>
+                  <p className="text-on-surface/60 text-xs italic">5:30 — 7:15</p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>

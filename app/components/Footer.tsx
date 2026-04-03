@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-primary font-body text-sm uppercase tracking-widest font-bold mb-1">BJJ</p>
-              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Mon / Wed / Fri: 5:30 PM - 8:30 PM</p>
+              <p className="text-on-surface/60 font-body text-[12px] tracking-wider">Mon / Wed / Fri: 5:30 PM - 7:15 PM</p>
             </div>
             <div>
               <p className="text-primary font-body text-sm uppercase tracking-widest font-bold mb-1">Taekwondo</p>
