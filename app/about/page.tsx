@@ -29,7 +29,7 @@ export default function About() {
             THE ART OF DISCIPLINE
           </span>
           <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white italic">
-            Refined <span className="font-normal text-refined-stroke">Mastery</span>
+            TEAM <span className="font-normal text-refined-stroke">CAMA</span>
           </h1>
           <p className="mt-10 text-on-surface/80 max-w-2xl mx-auto text-lg leading-relaxed font-light">
                 &quot;We do not rise to the level of our expectations, we fall to the level of our <span className="text-primary font-bold not-italic">training</span>.&quot;
@@ -147,7 +147,7 @@ Louie Concepcion, a Stockton native, brings over 35 years of martial arts experi
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Isaiah Ferguson</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Brazilian Jiu Jitsu & Muay Thai Coach</p>
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-                Isaiah started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and haven&quot;t looked back since. It&quot;s been a huge part of his life ever since. Isaiah earned his black belt in Brazilian Jiu-Jitsu in 2021 and continue to train and improve every day.
+                Isaiah started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and hasn&quot;t looked back since. It&quot;s been a huge part of his life ever since. Isaiah earned his black belt in Brazilian Jiu-Jitsu in 2021 and continues to train and improve every day.
               </p>
               <br />
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
