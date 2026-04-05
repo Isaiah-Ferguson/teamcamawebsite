@@ -157,7 +157,7 @@ export default function Classes() {
         <section className="mt-48 px-8 py-32 bg-surface text-center border-y border-outline/10">
           <div className="max-w-4xl mx-auto space-y-10">
             <h3 className="font-headline text-5xl md:text-6xl font-bold text-white leading-tight uppercase tracking-tighter">
-              Start Your <span className="italic text-primary">Training?</span>
+              Start Your <span className="italic text-primary">Journey</span>
             </h3>
             <p className="text-on-surface/60 text-lg max-w-xl mx-auto font-light">
               Try your first session at no cost and see what we’re all about.

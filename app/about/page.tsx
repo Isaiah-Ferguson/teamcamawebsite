@@ -147,7 +147,7 @@ Louie Concepcion, a Stockton native, brings over 35 years of martial arts experi
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Isaiah Ferguson</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Brazilian Jiu Jitsu & Muay Thai Coach</p>
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-                I started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and haven&quot;t looked back since. It&quot;s been a huge part of my life ever since. I earned my black belt in Brazilian Jiu-Jitsu in 2021 and continue to train and improve every day.
+                Isaiah started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and haven&quot;t looked back since. It&quot;s been a huge part of his life ever since. Isaiah earned his black belt in Brazilian Jiu-Jitsu in 2021 and continue to train and improve every day.
               </p>
               <br />
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
@@ -155,7 +155,8 @@ Louie Concepcion, a Stockton native, brings over 35 years of martial arts experi
               </p>
               <br />
               <p className="text-on-surface/70 text-sm leading-relaxed font-light">
-  In addition to his striking background, he holds the rank of Black Belt in Brazilian Jiu-Jitsu. Isaiah believes that a strong body leads to a strong mind, and he strives to instill that mindset in every student he teaches.              </p>
+                Isaiah believes that a strong body leads to a strong mind, and he strives to instill that mindset in every student he teaches.
+              </p>
             </div>
           </div>
         </div>

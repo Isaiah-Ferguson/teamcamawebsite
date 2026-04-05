@@ -93,12 +93,12 @@ export default function Contact() {
                   </div>
                 </div>
 
-              <div className="aspect-[4/3] w-full relative overflow-hidden border border-outline/20">
+              <div className="aspect-[4/3] w-full relative overflow-hidden border border-outline/20 lg:hidden">
                 <iframe
                   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209&zoom=15"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'grayscale(100%) contrast(1.1) brightness(0.75)' }}
+                  style={{ border: 0, }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -158,6 +158,27 @@ export default function Contact() {
                     SUBMIT INQUIRY
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+
+          {/* Full-width Google Maps for desktop */}
+          <div className="hidden lg:block max-w-7xl mx-auto mt-16">
+            <div className="aspect-[21/9] w-full relative overflow-hidden border border-outline/20">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209&zoom=15"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(100%) contrast(1.1) brightness(0.75)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
+              ></iframe>
+              <div className="absolute bottom-6 left-6 premium-glass px-5 py-2.5 border border-white/10 pointer-events-none">
+                <p className="font-label text-[9px] tracking-[0.2em] text-white uppercase font-bold">
+                  ESTABLISHMENT HQ
+                </p>
               </div>
             </div>
           </div>
