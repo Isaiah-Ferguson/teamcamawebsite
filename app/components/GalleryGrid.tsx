@@ -19,12 +19,12 @@ const galleryItems: GalleryItem[] = [
   { id: 3, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/sanjuan.jpg", alt: "Team photo 1", category: "team", year: "2011" },
   { id: 4, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg", alt: "Competition photo 2", category: "competition", year: "2023" },
   { id: 5, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/CamaEvent2.jpg", alt: "Events photo 1", category: "events", year: "2023" },
-  { id: 6, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454118059-AllieWinston.f34e2d843f6ffea4ff03.jpg", alt: "Training photo 2", category: "training", year: "2023" },
+  { id: 6, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454118059-AllieWinston.f34e2d843f6ffea4ff03.jpg", alt: "Training photo 2", category: "training", year: "2022" },
   { id: 7, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/IsaiahAngelo.jpg", alt: "Competition photo 3", category: "competition", year: "2012" },
-  { id: 8, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/Champ.jpg", alt: "Team photo 2", category: "team", year: "2022" },
+  { id: 8, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/Champ.jpg", alt: "Team photo 2", category: "team", year: "2026" },
   { id: 9, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/CamaEvent.jpg", alt: "Events photo 2", category: "events", year: "2022" },
   { id: 10, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454170311-mt.af299f34191e0ac632da.jpg", alt: "Training photo 3", category: "team", year: "2021" },
-  { id: 11, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/AllieComp.jpg", alt: "Competition photo 4", category: "competition", year: "2021" },
+  { id: 11, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/AllieComp.jpg", alt: "Competition photo 4", category: "competition", year: "2024" },
   { id: 12, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/2024.jpg", alt: "Team photo 3", category: "team", year: "2024" },
 ];
 
