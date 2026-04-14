@@ -51,6 +51,16 @@ export default function Navigation() {
           </Link>
           <Link
             className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 ${
+              isActive("/gallery")
+                ? "text-primary border-b border-primary pb-1"
+                : "text-on-surface hover:text-white"
+            }`}
+            href="/gallery"
+          >
+            GALLERY
+          </Link>
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 ${
               isActive("/classes")
                 ? "text-primary border-b border-primary pb-1"
                 : "text-on-surface hover:text-white"
@@ -109,6 +119,13 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             ABOUT
+          </Link>
+          <Link
+            className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/gallery") ? "text-primary" : "text-on-surface"}`}
+            href="/gallery"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            GALLERY
           </Link>
           <Link
             className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/classes") ? "text-primary" : "text-on-surface"}`}

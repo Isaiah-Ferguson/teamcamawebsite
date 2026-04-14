@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Image from "next/image";
+import OurJourney from "../components/OurJourney";
 
 export const metadata = {
   title: "About Us | TEAM CAMA Elite Performance",
@@ -46,8 +47,8 @@ export default function About() {
                 <div className="relative aspect-[4/5]">
                   <Image
                     className="object-cover brightness-90 grayscale hover:grayscale-0 transition-all duration-700"
-                    src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454206078-TinaPunch.a70188e0743931b9209d.jpg"
-                    alt="focused martial artist hands wrapping with precision"
+                    src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Allie.jpg"
+                    alt="Team Cama Competition"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
@@ -80,6 +81,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <OurJourney />
 
       <section className="py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-12">
