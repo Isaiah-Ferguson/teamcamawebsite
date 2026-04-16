@@ -24,7 +24,7 @@ body {
 }
 
 .elegant-gradient {
-  background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 1) 100%);
+  background: linear-gradient(135deg, #E85D04 0%, #C2410C 100%);
 }
 
 .text-refined-stroke {
@@ -37,7 +37,7 @@ body {
 }
 
 .elite-gradient {
-  background: linear-gradient(135deg, #DA291C 0%, #931d14 100%);
+  background: linear-gradient(135deg, #E85D04 0%, #C2410C 100%);
 }
 
 .premium-glass {

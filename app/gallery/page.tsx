@@ -11,6 +11,7 @@ export default function Gallery() {
   return (
     <>
       <Navigation />
+      <main className="pt-22 pb-20">
 
       <section className="relative h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -34,6 +35,8 @@ export default function Gallery() {
           <GalleryGrid />
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </>
