@@ -194,7 +194,7 @@ export default function About() {
               <h4 className="font-headline font-bold text-xl text-white italic mb-1">Samantha Espenosa</h4>
               <p className="text-primary font-label text-[10px] tracking-widest uppercase mb-4">Taekwondo Instructor</p>
               <InstructorBio>
-                Bio Comming Soon...
+Bio Coming Soon...
               </InstructorBio>
             </div>
             {/* New Instructor 2 */}
