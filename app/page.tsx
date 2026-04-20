@@ -53,14 +53,14 @@ export default function Home() {
                 onClick={scrollToDisciplines}
                 className="border border-outline/40 px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
-                VIEW DISCIPLINES
+                VIEW Classes
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-40 bg-background">
+      <section className="py-32 bg-background">
         <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
             <div className="lg:col-span-7">
@@ -109,9 +109,54 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="disciplines" className="py-40 bg-background">
+
+            <section className="py-32 bg-background">
+              <div className="max-w-7xl mx-auto px-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                  <div className="lg:col-span-5">
+                    <div className="relative">
+                      <div className="absolute -inset-4 border border-outline/20 translate-x-4 translate-y-4 -z-10"></div>
+                      <div className="relative aspect-[4/5]">
+                        <Image
+                          className="object-cover brightness-90 grayscale hover:grayscale-0 transition-all duration-700"
+                          src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Allie.jpg"
+                          alt="Team Cama Competition"
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 40vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-7">
+                    <h2 className="font-headline font-bold text-4xl md:text-5xl text-white mb-16 italic tracking-tight">
+                      Our Philosophy
+                    </h2>
+                    <div className="space-y-16">
+                      <div className="group">
+                        <span className="text-primary font-headline italic text-xl mb-4 block">I. Discipline & Focus</span>
+                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
+                          Martial arts begins with the mind. We build focus, control, and confidence that carries over into everyday life.                  </p>
+                      </div>
+                      <div className="group">
+                        <span className="text-primary font-headline italic text-xl mb-4 block">II. Technique Over Strength</span>
+                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
+                          Power comes from precision. Our training focuses on clean technique and understanding, not just effort or force.</p>
+                      </div>
+                      <div className="group">
+                        <span className="text-primary font-headline italic text-xl mb-4 block">III. Progress Through Consistency</span>
+                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
+                          Growth is earned over time. We push our students to stay consistent, embrace challenges, and keep improving.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+      <section  className="py-32 bg-background">
         <div className="container mx-auto px-8 lg:px-12 max-w-7xl mb-20">
-          <h2 className="font-headline text-4xl font-bold text-white tracking-tight uppercase text-center">
+          <h2 id="disciplines" className="font-headline text-4xl font-bold text-white tracking-tight uppercase text-center">
             THE <span className="text-primary/50">DISCIPLINES</span>
           </h2>
         </div>

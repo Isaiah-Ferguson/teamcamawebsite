@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #DA291C;
+  --color-primary: #EF4444;
   --color-background: #131313;
   --color-surface: #1C1B1B;
   --color-surface-variant: #353535;
@@ -37,7 +37,7 @@ body {
 }
 
 .elite-gradient {
-  background: linear-gradient(135deg, #E85D04 0%, #C2410C 100%);
+  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
 }
 
 .premium-glass {
@@ -62,5 +62,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #DA291C;
+  background: #EF4444;
 }
