@@ -15,8 +15,8 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-outline/15 glass-nav">
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <div className="flex items-center gap-3">
+      <div className="flex justify-between items-center px-5 md:px-8 py-4 max-w-7xl mx-auto gap-4">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Image
             alt="TEAM CAMA"
             className="h-10 w-auto"
@@ -27,7 +27,7 @@ export default function Navigation() {
           <span className="text-xl font-headline font-bold italic text-white tracking-tighter">
             TEAM CAMA
           </span>
-        </div>
+        </Link>
         <div className="hidden md:flex gap-10 items-center">
           <Link
             className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 ${
@@ -84,7 +84,7 @@ export default function Navigation() {
           href="https://www.google.com/maps/search/?api=1&query=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-on-surface hover:text-white transition-colors duration-300"
+          className="hidden md:flex items-center gap-2 text-on-surface hover:text-white transition-colors duration-300"
         >
           <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -104,7 +104,7 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline/15 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline/15 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="flex flex-col px-8 py-6 space-y-4">
           <Link
             className={`font-body uppercase tracking-widest font-medium text-xs transition-colors duration-300 py-2 ${isActive("/") ? "text-primary" : "text-on-surface"}`}
@@ -141,6 +141,19 @@ export default function Navigation() {
           >
             CONTACT
           </Link>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-on-surface hover:text-white transition-colors duration-300 pt-4 border-t border-outline/15"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <svg className="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span className="font-body text-xs font-medium">8855 Thornton Rd Suite B, Stockton</span>
+          </a>
         </div>
       </div>
 

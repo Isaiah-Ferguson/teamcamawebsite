@@ -45,7 +45,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
                 onClick={() => setIsContactOpen(true)}
-                className="bg-primary px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm transition-all hover:bg-[#b01e14] rounded-sm shadow-lg shadow-primary/10"
+                className="bg-primary px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
               >
                 START YOUR Journey
               </button>
@@ -53,7 +53,7 @@ export default function Home() {
                 onClick={scrollToDisciplines}
                 className="border border-outline/40 px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
-                VIEW Classes
+VIEW CLASSES
               </button>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Home() {
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
                 <h3 className="font-headline text-3xl font-bold text-white italic">TAEKWONDO</h3>
                 <p className="text-on-surface/60 text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
-                <Link href="/classes" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
                   EXPLORE PROGRAM
                 </Link>
               </div>
@@ -191,7 +191,7 @@ export default function Home() {
             <div className="absolute bottom-10 left-8 right-8 space-y-4">
               <h3 className="font-headline text-3xl font-bold text-white italic">MUAY THAI</h3>
               <p className="text-on-surface/60 text-sm font-light leading-relaxed">The science of eight limbs.</p>
-              <Link href="/classes" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
                 EXPLORE PROGRAM
               </Link>
             </div>
@@ -208,7 +208,7 @@ export default function Home() {
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
                 <h3 className="font-headline text-3xl font-bold text-white italic">Brazilian Jiu Jitsu</h3>
                 <p className="text-on-surface/60 text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
-                <Link href="/classes" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
                   EXPLORE PROGRAM
                 </Link>
               </div>

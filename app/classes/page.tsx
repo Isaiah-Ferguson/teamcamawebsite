@@ -29,7 +29,7 @@ export default function Classes() {
         </header>
 
         <section className="px-8 md:px-12 max-w-7xl mx-auto space-y-40">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div id="muay-thai" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
             <div className="relative group order-1 lg:order-1">
               <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
               <div className="overflow-hidden relative aspect-[4/5]">
@@ -68,7 +68,7 @@ export default function Classes() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div id="bjj" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
             <div className="space-y-10 lg:pr-12 order-2 lg:order-1">
               <div className="space-y-4">
                 <h2 className="font-headline text-4xl font-bold text-white tracking-tight italic">Brazilian Jiu-Jitsu</h2>
@@ -110,7 +110,7 @@ export default function Classes() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div id="taekwondo" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
             <div className="relative group order-1 lg:order-1">
               <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
               <div className="overflow-hidden relative aspect-[4/5]">
