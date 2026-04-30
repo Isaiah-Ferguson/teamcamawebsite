@@ -16,8 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TEAM CAMA",
-  description: "Team CAMA represents the intersection of classical martial philosophy and modern athletic performance. We cultivate an environment of focused excellence.",
+  title: "Team Cama, Stockton martial arts",
+  description: "Concepcion Academy of Martial Arts. Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo for adults and kids in Stockton, California, since 2011.",
 };
 
 export default function RootLayout({
@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${notoSerif.variable} ${inter.variable} dark`}
+      className={`${notoSerif.variable} ${inter.variable}`}
     >
-      <body className="bg-background text-on-surface font-body selection:bg-primary selection:text-white antialiased">
+      <body className="bg-surface text-ink font-body antialiased">
         {children}
       </body>
     </html>

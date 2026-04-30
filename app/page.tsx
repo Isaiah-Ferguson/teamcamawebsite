@@ -7,217 +7,243 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
+const disciplines = [
+  {
+    slug: "bjj",
+    name: "Brazilian Jiu-Jitsu",
+    blurb: "Leverage and timing. Control on the ground, taught from the basics up.",
+    href: "/classes#bjj",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg",
+  },
+  {
+    slug: "muay-thai",
+    name: "Muay Thai",
+    blurb: "Punches, kicks, knees, elbows. Striking with a coach in your corner.",
+    href: "/classes#muay-thai",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg",
+  },
+  {
+    slug: "taekwondo",
+    name: "Taekwondo",
+    blurb: "Footwork, kicks, and discipline. Beginner-friendly for kids and adults.",
+    href: "/classes#taekwondo",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg",
+  },
+];
+
+const values = [
+  {
+    title: "Integrity",
+    body: "Train the same way whether anyone is watching or not. Character shows up first in how you warm up.",
+  },
+  {
+    title: "Respect",
+    body: "Respect the room, your coach, and your training partner. Hard work is shared work.",
+  },
+  {
+    title: "Discipline",
+    body: "Show up. Keep showing up. The students who get good are the ones who never quit coming in.",
+  },
+];
+
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  const scrollToDisciplines = () => {
-    const disciplinesSection = document.getElementById('disciplines');
-    if (disciplinesSection) {
-      disciplinesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   return (
     <>
       <Navigation />
 
-      <section className="relative h-screen w-full overflow-hidden flex items-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            alt="High Intensity Martial Arts"
-            className="w-full h-full object-cover grayscale opacity-40"
-            src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg"
-            fill
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div className="relative z-10 container mx-auto px-8 lg:px-12 max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="font-label text-primary font-bold tracking-[0.4em] uppercase mb-6 text-xs border-l-2 border-primary pl-4">
-              Est. 2011
-            </p>
-            <h1 className="font-headline text-6xl md:text-8xl font-bold leading-tight text-white mb-8 tracking-tight">
-              Team <br /> <span className="italic font-normal text-on-surface/40">Cama</span>
-            </h1>
-            <p className="text-on-surface/70 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
-              "The journey of a thousand miles begins with a single step"</p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <button 
-                onClick={() => setIsContactOpen(true)}
-                className="bg-primary px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
-              >
-                START YOUR Journey
-              </button>
-              <button 
-                onClick={scrollToDisciplines}
-                className="border border-outline/40 px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
-              >
-VIEW CLASSES
-              </button>
-            </div>
+      <main id="main">
+        {/* Hero */}
+        <section className="relative min-h-[78vh] md:min-h-[86vh] w-full overflow-hidden flex items-center bg-evening text-evening-ink">
+          <div className="absolute inset-0 z-0">
+            <Image
+              alt=""
+              className="w-full h-full object-cover opacity-80"
+              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg"
+              fill
+              sizes="100vw"
+              priority
+            />
+            <div className="absolute inset-0 hero-fade-evening" aria-hidden="true" />
           </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-background">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
-            <div className="lg:col-span-7">
-              <h2 className="font-headline text-5xl md:text-7xl font-bold text-white leading-tight mb-8">
-                WHY <span className="italic text-primary">TEAM CAMA?</span>
-              </h2>
-              <div className="w-24 h-1 bg-primary/30"></div>
-            </div>
-            <div className="lg:col-span-5 pt-4">
-              <p className="text-on-surface/60 text-lg leading-relaxed font-light">
-                We don&apos;t believe in going through the motions.
-                Every movement has purpose. Every class is intentional.
-                We&apos;re here to help you improve — physically, mentally, and consistently.
+          <div className="relative z-10 container mx-auto px-6 md:px-10 max-w-7xl py-20">
+            <div className="max-w-2xl">
+              <p className="font-body text-evening-ink-muted text-sm mb-6">
+                Stockton, California. Since 2011.
               </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-white tracking-tight">INTEGRITY</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                Do what is right, even when no one is watching.
-                Your character is revealed in how you train, not just how you perform.
+              <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] text-evening-ink mb-6 tracking-tight">
+                Team
+                Cama
+              </h1>
+              <p className="text-evening-ink-muted text-lg max-w-xl mb-10 leading-relaxed">
+                Concepcion Academy of Martial Arts teaches Brazilian Jiu-Jitsu,
+                Muay Thai, and Taekwondo for adults and kids. No tough-guy
+                routine, no gimmicks. Just real coaches and real training.
               </p>
-            </div>
-            <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-white tracking-tight">RESPECT</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                Show up when it&apos;s hard, and push when it&apos;s uncomfortable.
-                Consistency in training builds strength, skill, and mindset.
-              </p>
-            </div>
-            <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-white tracking-tight">DISCIPLINE</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
-                Honor your instructors, your training partners, and yourself.
-                Growth comes from humility and treating others with purpose and control.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-            <section className="py-32 bg-background">
-              <div className="max-w-7xl mx-auto px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-                  <div className="lg:col-span-5">
-                    <div className="relative">
-                      <div className="absolute -inset-4 border border-outline/20 translate-x-4 translate-y-4 -z-10"></div>
-                      <div className="relative aspect-[4/5]">
-                        <Image
-                          className="object-cover brightness-90 grayscale hover:grayscale-0 transition-all duration-700"
-                          src="https://preblobaccount.blob.core.windows.net/prerecordedblob/Allie.jpg"
-                          alt="Team Cama Competition"
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 40vw"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-7">
-                    <h2 className="font-headline font-bold text-4xl md:text-5xl text-white mb-16 italic tracking-tight">
-                      Our Philosophy
-                    </h2>
-                    <div className="space-y-16">
-                      <div className="group">
-                        <span className="text-primary font-headline italic text-xl mb-4 block">I. Discipline & Focus</span>
-                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
-                          Martial arts begins with the mind. We build focus, control, and confidence that carries over into everyday life.                  </p>
-                      </div>
-                      <div className="group">
-                        <span className="text-primary font-headline italic text-xl mb-4 block">II. Technique Over Strength</span>
-                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
-                          Power comes from precision. Our training focuses on clean technique and understanding, not just effort or force.</p>
-                      </div>
-                      <div className="group">
-                        <span className="text-primary font-headline italic text-xl mb-4 block">III. Progress Through Consistency</span>
-                        <p className="text-on-surface text-lg leading-relaxed font-light border-l border-outline/30 pl-8 group-hover:border-primary transition-colors duration-500">
-                          Growth is earned over time. We push our students to stay consistent, embrace challenges, and keep improving.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-      <section  className="py-32 bg-background">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl mb-20">
-          <h2 id="disciplines" className="font-headline text-4xl font-bold text-white tracking-tight uppercase text-center">
-            THE <span className="text-primary/50">DISCIPLINES</span>
-          </h2>
-        </div>
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
-                alt="Taekwondo"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-white italic">TAEKWONDO</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
-                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                  EXPLORE PROGRAM
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsContactOpen(true)}
+                  className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
+                >
+                  Come train with us
+                </button>
+                <Link
+                  href="/classes"
+                  className="border border-evening-ink/40 text-evening-ink px-6 py-3.5 font-medium rounded hover:bg-evening-ink/10 transition-colors text-center"
+                >
+                  See the classes
                 </Link>
               </div>
             </div>
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-            <Image
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
-              alt="Muay Thai"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-            <div className="absolute bottom-10 left-8 right-8 space-y-4">
-              <h3 className="font-headline text-3xl font-bold text-white italic">MUAY THAI</h3>
-              <p className="text-on-surface/60 text-sm font-light leading-relaxed">The science of eight limbs.</p>
-              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                EXPLORE PROGRAM
+          </div>
+        </section>
+
+        {/* Editorial pull-quote */}
+        <section className="bg-surface py-24 md:py-32 border-b border-rule">
+          <div className="max-w-5xl mx-auto px-6 md:px-10">
+            <p className="font-headline text-3xl md:text-5xl text-ink leading-[1.2] tracking-tight max-w-4xl">
+              We are not the gym you walk into to prove something. We are the
+              gym you keep walking into,
+              <span className="text-accent"> for years</span>.
+            </p>
+            <p className="text-ink-muted text-base mt-8 max-w-xl">
+              The garage we opened in 2011 had no air conditioning and a leaky
+              roof. Some of those first students still train here. That is the
+              point.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 mt-8 text-accent font-medium hover:gap-3 transition-all"
+            >
+              Read our story
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Disciplines */}
+        <section className="bg-surface-2 py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12 md:mb-16 items-end">
+              <div className="md:col-span-7">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold text-ink leading-tight">
+                  Three disciplines, one room.
+                </h2>
+              </div>
+              <p className="md:col-span-5 text-ink-muted text-base leading-relaxed">
+                Train one. Train all three. Beginners welcome in every class.
+                Drop in for a free first session.
+              </p>
+            </div>
+
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {disciplines.map((d) => (
+                <li key={d.slug}>
+                  <Link
+                    href={d.href}
+                    className="group block bg-surface rounded-lg overflow-hidden border border-rule hover:border-rule-strong transition-colors h-full"
+                  >
+                    <div className="relative aspect-4/5 overflow-hidden bg-surface-3">
+                      <Image
+                        src={d.image}
+                        alt={`${d.name} class at Team Cama`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="p-6 md:p-7">
+                      <h3 className="font-headline text-xl font-bold text-ink mb-2">
+                        {d.name}
+                      </h3>
+                      <p className="text-ink-muted text-sm leading-relaxed mb-4">
+                        {d.blurb}
+                      </p>
+                      <span className="text-accent text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                        Class details
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="bg-surface py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <div className="max-w-2xl mb-16">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-ink leading-tight mb-6">
+                What we expect, and what we offer.
+              </h2>
+              <p className="text-ink-muted text-base leading-relaxed">
+                Three things we ask of every student, and three things we hold
+                ourselves to in return.
+              </p>
+            </div>
+            <ol className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12 max-w-5xl">
+              {values.map((v, i) => (
+                <li key={v.title} className="flex flex-col gap-3">
+                  <span
+                    className="font-headline text-accent font-bold text-base"
+                    aria-hidden="true"
+                  >
+                    0{i + 1}
+                  </span>
+                  <h3 className="font-headline text-2xl font-bold text-ink">
+                    {v.title}
+                  </h3>
+                  <p className="text-ink-muted text-[15px] leading-relaxed">
+                    {v.body}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-surface-2 border-t border-rule py-20 md:py-28">
+          <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
+                Your first class is on us.
+              </h2>
+              <p className="text-ink-muted text-base leading-relaxed">
+                Send us a note and tell us what you want to try. We will email
+                you back about a time that works.
+              </p>
+            </div>
+            <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
+              >
+                Get in touch
+              </button>
+              <Link
+                href="/classes"
+                className="border border-rule-strong text-ink px-6 py-3.5 font-medium rounded hover:bg-surface-3 transition-colors text-center"
+              >
+                See the schedule
               </Link>
             </div>
           </div>
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
-                alt="Jiu Jitsu"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-white italic">Brazilian Jiu Jitsu</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
-                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                  EXPLORE PROGRAM
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
       <Footer />
     </>
   );

@@ -2,187 +2,213 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import ScheduleModal from "../components/ScheduleModal";
 import ContactModal from "../components/ContactModal";
 
+interface ClassEntry {
+  id: string;
+  name: string;
+  blurb: string;
+  schedule: string[];
+  focus: string;
+  image: string;
+  alt: string;
+  caption: string;
+}
+
+const classes: ClassEntry[] = [
+  {
+    id: "muay-thai",
+    name: "Muay Thai",
+    blurb:
+      "Known as the art of eight limbs, Muay Thai uses punches, kicks, knees, and elbows to develop strength, conditioning, and effective technique.",
+    schedule: ["Mon, Wed, Fri", "7:15 – 8:15 PM"],
+    focus: "Striking and defense, all levels welcome",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg",
+    alt: "Christian Orellana training Muay Thai at Team Cama",
+    caption: "Christian Orellana",
+  },
+  {
+    id: "bjj",
+    name: "Brazilian Jiu-Jitsu",
+    blurb:
+      "Our Jiu-Jitsu classes are built around efficient, leverage-based control. Self-defense, throws, and takedowns round out the art, with a strong focus on ground control and escapes. Beginners and experts welcome.",
+    schedule: ["Mon, Wed, Fri", "5:30 – 7:15 PM"],
+    focus: "Grappling and leverage, all levels welcome",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg",
+    alt: "Thomas Bunn training Brazilian Jiu-Jitsu at Team Cama",
+    caption: "Thomas Bunn",
+  },
+  {
+    id: "taekwondo",
+    name: "Taekwondo",
+    blurb:
+      "A Korean martial art built on dynamic kicking, striking, and blocking. Excellent for both children and adults, Taekwondo emphasizes courtesy, integrity, perseverance, self-control, and indomitable spirit, while developing strength, speed, balance, and flexibility.",
+    schedule: ["Tue, Thu", "5:30 – 8:30 PM", "Sat", "9:30 – 11:30 AM"],
+    focus: "Kicking and speed, all levels welcome",
+    image:
+      "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454188428-Sammy1.d8998c22e6dc126eb917.jpg",
+    alt: "Samantha Espinosa training Taekwondo at Team Cama",
+    caption: "Samantha Espinosa",
+  },
+];
+
 export default function Classes() {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <>
       <Navigation />
 
-      <main className="pt-40 pb-32">
-        <header className="px-8 md:px-12 mb-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="font-body text-primary text-xs font-bold tracking-[0.4em] uppercase mb-6 block">
-              CLASSES
-            </span>
-            <h1 className="font-headline text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
-              Select Your <span className="italic text-primary">Discipline</span>
+      <main id="main">
+        <section className="bg-surface border-b border-rule">
+          <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-20">
+            <p className="text-accent text-sm font-semibold mb-4">Classes</p>
+            <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
+              Pick a class. Show up.
             </h1>
-            <p className="text-on-surface/80 text-lg leading-relaxed max-w-2xl mx-auto font-light">
-              Each program is designed to develop strong fundamentals, sharpen technique, and push you to improve.            </p>
-          </div>
-        </header>
-
-        <section className="px-8 md:px-12 max-w-7xl mx-auto space-y-40">
-          <div id="muay-thai" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
-            <div className="relative group order-1 lg:order-1">
-              <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
-              <div className="overflow-hidden relative aspect-[4/5]">
-                <Image
-                  alt="Muay Thai"
-                  className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
-                  src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
-                Christian Orellana
-              </div>
-            </div>
-            <div className="space-y-10 lg:pl-12 order-2 lg:order-2">
-              <div className="space-y-4">
-                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">Muay Thai</h2>
-                <div className="h-1 w-12 bg-primary"></div>
-              </div>
-              <p className="text-on-surface/70 leading-relaxed font-light text-lg">
-                Known as the &quot;Art of Eight Limbs,&quot; Muay Thai focuses on using punches, kicks, knees, and elbows to develop strength, conditioning, and effective technique.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
-                  <p className="text-white text-sm font-medium">Mon / Wed / Fri</p>
-                  <p className="text-on-surface/60 text-xs italic">7:15 — 8:15</p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
-                  <p className="text-white text-sm font-medium">Striking & Defense</p>
-                  <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="bjj" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
-            <div className="space-y-10 lg:pr-12 order-2 lg:order-1">
-              <div className="space-y-4">
-                <h2 className="font-headline text-4xl font-bold text-white tracking-tight italic">Brazilian Jiu-Jitsu</h2>
-                <div className="h-1 w-12 bg-primary"></div>
-              </div>
-              <p className="text-on-surface/70 leading-relaxed font-light text-lg">
-                Our Jiu-Jitsu classes are designed to improve the health, performance and mental acuity of the beginner & expert alike. The techniques are based on efficiency and effectiveness in controlling and / or subduing your attacker.
-
-                Self-defense techniques along with throws and take downs round out this art with main emphasis on ground control and escapes.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
-
-                  <p className="text-white text-sm font-medium">Mon / Wed / Fri</p>
-                  <p className="text-on-surface/60 text-xs italic">5:30 — 7:15</p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
-                  <p className="text-white text-sm font-medium">Grappling &amp; Leverage</p>
-                  <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative group order-1 lg:order-2">
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-b border-r border-primary/40 z-10"></div>
-              <div className="overflow-hidden relative aspect-[4/5]">
-                <Image
-                  alt="BJJ"
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
-                  src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
-                Thomas Bunn
-              </div>
-            </div>
-          </div>
-
-          <div id="taekwondo" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-mt-32">
-            <div className="relative group order-1 lg:order-1">
-              <div className="absolute -top-4 -left-4 w-32 h-32 border-t border-l border-primary/40 z-10"></div>
-              <div className="overflow-hidden relative aspect-[4/5]">
-                <Image
-                  alt="TaeKwonDo"
-                  className="object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
-                  src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454188428-Sammy1.d8998c22e6dc126eb917.jpg"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-primary border border-primary/20">
-                Samantha Espinosa
-              </div>
-            </div>
-            <div className="space-y-10 lg:pl-12 order-2 lg:order-2">
-              <div className="space-y-4">
-                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">TaeKwonDo</h2>
-                <div className="h-1 w-12 bg-primary"></div>
-              </div>
-              <p className="text-on-surface/70 leading-relaxed font-light text-lg">
-                Taekwondo is a Korean martial art that utilizes dynamic kicking, striking and blocking. It is an excellent art for both children and adults.
-
-                It emphasizes the traditional tenets of martial arts such as, Courtesy, Integrity, Perseverance, Self-Control and Indomitable Spirit. It also develops functional fitness, strength, speed, balance and flexibility.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-y border-outline/10">
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Schedule</p>
-                  <p className="text-white text-sm font-medium">Tue / Thu</p>
-                  <p className="text-on-surface/60 text-xs italic">5:30 — 8:30</p>
-                  <p className="text-white text-sm font-medium">Sat</p>
-                  <p className="text-on-surface/60 text-xs italic">9:30 AM — 11:30 AM</p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-red-700 uppercase">Focus</p>
-                  <p className="text-white text-sm font-medium">Kicking &amp; Speed</p>
-                  <p className="text-on-surface/60 text-xs italic">All levels welcome</p>
-                </div>
-              </div>
+            <p className="text-ink-muted text-lg leading-relaxed max-w-2xl">
+              Each program is designed around strong fundamentals, sharp
+              technique, and the long-term work of getting better. Try one for
+              free.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 mt-8">
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
+              >
+                Book your free class
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsScheduleOpen(true)}
+                className="border border-rule-strong text-ink px-6 py-3.5 font-medium rounded hover:bg-surface-2 transition-colors"
+              >
+                See full schedule
+              </button>
             </div>
           </div>
         </section>
 
-        <section className="mt-48 px-8 py-32 bg-surface text-center border-y border-outline/10">
-          <div className="max-w-4xl mx-auto space-y-10">
-            <h3 className="font-headline text-5xl md:text-6xl font-bold text-white leading-tight uppercase tracking-tighter">
-              Start Your <span className="italic text-primary">Journey</span>
-            </h3>
-            <p className="text-on-surface/60 text-lg max-w-xl mx-auto font-light">
-              Try your first session at no cost and see what we’re all about.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <button 
+        <section className="bg-surface-2 py-16 md:py-24">
+          <ul className="max-w-7xl mx-auto px-6 md:px-10 space-y-24 md:space-y-32">
+            {classes.map((cls, i) => {
+              const reversed = i % 2 === 1;
+              return (
+                <li
+                  key={cls.id}
+                  id={cls.id}
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center scroll-mt-24"
+                >
+                  <div
+                    className={`md:col-span-6 ${
+                      reversed ? "md:order-2" : ""
+                    }`}
+                  >
+                    <div className="relative aspect-4/5 rounded-lg overflow-hidden bg-surface-3">
+                      <Image
+                        src={cls.image}
+                        alt={cls.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                      <p className="absolute bottom-4 left-4 text-xs text-evening-ink bg-evening/70 backdrop-blur-sm px-3 py-1.5 rounded">
+                        {cls.caption}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={`md:col-span-6 ${
+                      reversed ? "md:order-1" : ""
+                    }`}
+                  >
+                    <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-5">
+                      {cls.name}
+                    </h2>
+                    <p className="text-ink-muted text-base leading-relaxed mb-8 max-w-prose">
+                      {cls.blurb}
+                    </p>
+                    <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-y border-rule">
+                      <div>
+                        <dt className="text-ink-subtle text-xs font-semibold uppercase tracking-wider mb-2">
+                          Schedule
+                        </dt>
+                        <dd className="text-ink text-[15px] space-y-1">
+                          {cls.schedule.map((line, j) => (
+                            <p
+                              key={j}
+                              className={
+                                j % 2 === 0
+                                  ? "font-medium"
+                                  : "text-ink-muted text-sm"
+                              }
+                            >
+                              {line}
+                            </p>
+                          ))}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="text-ink-subtle text-xs font-semibold uppercase tracking-wider mb-2">
+                          Focus
+                        </dt>
+                        <dd className="text-ink text-[15px]">{cls.focus}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        <section className="bg-surface border-t border-rule py-20 md:py-28">
+          <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
+                Try a class for free.
+              </h2>
+              <p className="text-ink-muted text-base leading-relaxed">
+                Send us a quick note about which class you want to try and we
+                will get you on a mat.
+              </p>
+            </div>
+            <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
+              <button
+                type="button"
                 onClick={() => setIsContactOpen(true)}
-                className="px-12 py-5 elite-gradient text-white font-body font-bold text-xs uppercase tracking-[0.3em]"
+                className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
               >
-                Contact Us
+                Get in touch
               </button>
-              <button 
-                onClick={() => setIsScheduleOpen(true)}
-                className="px-12 py-5 border border-outline/30 text-white font-body font-bold text-xs uppercase tracking-[0.3em] hover:bg-white hover:text-background transition-colors"
+              <Link
+                href="/about"
+                className="border border-rule-strong text-ink px-6 py-3.5 font-medium rounded hover:bg-surface-2 transition-colors text-center"
               >
-                Full Schedule
-              </button>
+                Meet the coaches
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
-      <ScheduleModal isOpen={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <ScheduleModal
+        isOpen={isScheduleOpen}
+        onClose={() => setIsScheduleOpen(false)}
+      />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </>
   );
 }

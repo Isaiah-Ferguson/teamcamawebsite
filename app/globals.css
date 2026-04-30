@@ -1,66 +1,98 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #EF4444;
-  --color-background: #131313;
-  --color-surface: #1C1B1B;
-  --color-surface-variant: #353535;
-  --color-on-surface: #E6BDB7;
-  --color-outline: #5C403B;
+  /* Surfaces — warm cream paper */
+  --color-surface: oklch(0.97 0.01 70);
+  --color-surface-2: oklch(0.93 0.012 65);
+  --color-surface-3: oklch(0.88 0.014 65);
+
+  /* Ink — deep warm charcoal, never pure black */
+  --color-ink: oklch(0.22 0.02 60);
+  --color-ink-muted: oklch(0.40 0.02 60);
+  --color-ink-subtle: oklch(0.55 0.015 60);
+
+  /* Hairlines */
+  --color-rule: oklch(0.86 0.012 65);
+  --color-rule-strong: oklch(0.78 0.014 65);
+
+  /* One committed accent — grounded brick / clay */
+  --color-accent: oklch(0.55 0.18 28);
+  --color-accent-hover: oklch(0.50 0.18 28);
+  --color-accent-ink: oklch(0.99 0 0);
+
+  /* Optional dim "evening" surface (hero only) */
+  --color-evening: oklch(0.22 0.02 60);
+  --color-evening-ink: oklch(0.95 0.01 70);
+  --color-evening-ink-muted: oklch(0.78 0.012 65);
+
   --font-headline: var(--font-noto-serif);
   --font-body: var(--font-inter);
-  --font-label: var(--font-inter);
+}
+
+html {
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-on-surface);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
-.glass-nav {
-  background: rgba(19, 19, 19, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
-.elegant-gradient {
-  background: linear-gradient(135deg, #E85D04 0%, #C2410C 100%);
+/* Visible focus across the site */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-.text-refined-stroke {
-  -webkit-text-stroke: 0.5px #5C403B;
-  color: transparent;
+/* Hero overlay — feathered cream, warm not gray */
+.hero-fade-light {
+  background: linear-gradient(
+    to right,
+    var(--color-surface) 0%,
+    color-mix(in oklch, var(--color-surface) 88%, transparent) 35%,
+    color-mix(in oklch, var(--color-surface) 0%, transparent) 80%
+  );
 }
 
-.hero-gradient {
-  background: linear-gradient(to right, rgba(19,19,19,1) 0%, rgba(19,19,19,0.8) 40%, rgba(19,19,19,0) 100%);
-}
-
-.elite-gradient {
-  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
-}
-
-.premium-glass {
-  background: rgba(28, 27, 27, 0.7);
-  backdrop-filter: blur(12px);
-}
-
-.subtle-border {
-  border-bottom: 1px solid rgba(92, 64, 59, 0.2);
+.hero-fade-evening {
+  background: linear-gradient(
+    to right,
+    var(--color-evening) 0%,
+    color-mix(in oklch, var(--color-evening) 80%, transparent) 40%,
+    color-mix(in oklch, var(--color-evening) 0%, transparent) 90%
+  );
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #131313;
+  background: var(--color-surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
+  background: var(--color-rule-strong);
+  border-radius: 8px;
+  border: 2px solid var(--color-surface);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #EF4444;
+  background: var(--color-ink-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
