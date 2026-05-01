@@ -143,7 +143,7 @@ export default function About() {
       <section className="py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-12">
           <div className="mb-20 text-center">
-            <h2 className="font-headline font-bold text-4xl md:text-5xl text-white italic mb-4">The Instructors</h2>
+            <h2 className="font-headline font-bold text-4xl md:text-5xl text-white italic mb-4">Our Instructors</h2>
             <div className="h-px w-24 bg-primary mx-auto"></div>
             <p className="text-primary font-label tracking-[0.2em] text-[10px] mt-6 uppercase">
               Guiding students through discipline, character, and mastery—on and off the mat.
