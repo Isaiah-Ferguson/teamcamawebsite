@@ -71,7 +71,7 @@ export default function Classes() {
           <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-20">
             <p className="text-accent text-sm font-semibold mb-4">Classes</p>
             <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
-              Pick a class. Show up.
+              Pick a class.
             </h1>
             <p className="text-ink-muted text-lg leading-relaxed max-w-2xl">
               Each program is designed around strong fundamentals, sharp

@@ -107,8 +107,8 @@ export default function Home() {
         <section className="bg-surface py-24 md:py-32 border-b border-rule">
           <div className="max-w-5xl mx-auto px-6 md:px-10">
             <p className="font-headline text-3xl md:text-5xl text-ink leading-[1.2] tracking-tight max-w-4xl">
-              We are not the gym you walk into to prove something. We are the
-              gym you keep walking into,
+             Not a gym for proving something.
+              A gym you stay with,
               <span className="text-accent"> for years</span>.
             </p>
             <p className="text-ink-muted text-base mt-8 max-w-xl">
