@@ -128,7 +128,7 @@ export default function Classes() {
             </div>
             <div className="space-y-10 lg:pl-12 order-2 lg:order-2">
               <div className="space-y-4">
-                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">TaeKwonDo</h2>
+                <h2 className="font-headline text-4xl font-bold text-white tracking-tight">Taekwondo</h2>
                 <div className="h-1 w-12 bg-primary"></div>
               </div>
               <p className="text-on-surface/70 leading-relaxed font-light text-lg">

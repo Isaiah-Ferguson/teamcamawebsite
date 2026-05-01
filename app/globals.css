@@ -4,12 +4,19 @@
   --color-primary: #EF4444;
   --color-background: #131313;
   --color-surface: #1C1B1B;
+  --color-surface-2: #242323;
   --color-surface-variant: #353535;
   --color-on-surface: #E6BDB7;
   --color-outline: #5C403B;
+  --color-ink: #E6BDB7;
+  --color-ink-muted: #A07870;
+  --color-ink-subtle: #6B4F4A;
+  --color-rule: rgba(92, 64, 59, 0.25);
+  --color-rule-strong: rgba(92, 64, 59, 0.5);
+  --color-accent: #EF4444;
   --font-headline: var(--font-noto-serif);
   --font-body: var(--font-inter);
-  --font-label: var(--font-inter);
+  --font-label: var(--font-noto-serif);
 }
 
 body {
