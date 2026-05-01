@@ -53,8 +53,71 @@ export default function Home() {
                 onClick={scrollToDisciplines}
                 className="border border-outline/40 px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
-VIEW CLASSES
+                VIEW CLASSES
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            <section  className="py-32 bg-background">
+        <div className="container mx-auto px-8 lg:px-12 max-w-7xl mb-20">
+          <h2 id="disciplines" className="font-headline text-4xl font-bold text-white tracking-tight uppercase text-center">
+            THE <span className="text-primary/50">DISCIPLINES</span>
+          </h2>
+        </div>
+        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
+              <Image
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
+                alt="Taekwondo"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+              <div className="absolute bottom-10 left-8 right-8 space-y-4">
+                <h3 className="font-headline text-3xl font-bold text-white italic">TAEKWONDO</h3>
+                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
+                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                  EXPLORE PROGRAM
+                </Link>
+              </div>
+            </div>
+            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
+            <Image
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
+              alt="Muay Thai"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <div className="absolute bottom-10 left-8 right-8 space-y-4">
+              <h3 className="font-headline text-3xl font-bold text-white italic">MUAY THAI</h3>
+              <p className="text-on-surface/60 text-sm font-light leading-relaxed">The science of eight limbs.</p>
+              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                EXPLORE PROGRAM
+              </Link>
+            </div>
+          </div>
+            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
+              <Image
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
+                alt="Jiu Jitsu"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+              <div className="absolute bottom-10 left-8 right-8 space-y-4">
+                <h3 className="font-headline text-3xl font-bold text-white italic">Brazilian Jiu Jitsu</h3>
+                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
+                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                  EXPLORE PROGRAM
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -154,68 +217,7 @@ VIEW CLASSES
               </div>
             </section>
 
-      <section  className="py-32 bg-background">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl mb-20">
-          <h2 id="disciplines" className="font-headline text-4xl font-bold text-white tracking-tight uppercase text-center">
-            THE <span className="text-primary/50">DISCIPLINES</span>
-          </h2>
-        </div>
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg"
-                alt="Taekwondo"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-white italic">TAEKWONDO</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
-                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                  EXPLORE PROGRAM
-                </Link>
-              </div>
-            </div>
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-            <Image
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
-              alt="Muay Thai"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-            <div className="absolute bottom-10 left-8 right-8 space-y-4">
-              <h3 className="font-headline text-3xl font-bold text-white italic">MUAY THAI</h3>
-              <p className="text-on-surface/60 text-sm font-light leading-relaxed">The science of eight limbs.</p>
-              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                EXPLORE PROGRAM
-              </Link>
-            </div>
-          </div>
-            <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-              <Image
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_3602.jpg"
-                alt="Jiu Jitsu"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-white italic">Brazilian Jiu Jitsu</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
-                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
-                  EXPLORE PROGRAM
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <Footer />

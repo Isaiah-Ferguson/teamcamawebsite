@@ -49,7 +49,7 @@ export default function About() {
         </div>
         <div className="relative z-20 px-12 md:px-24 max-w-5xl mx-auto text-center">
           <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
-            THE ART OF DISCIPLINE
+            Stockton, CA
           </span>
           <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white italic">
             TEAM <span className="font-normal text-primary">CAMA</span>
