@@ -128,8 +128,8 @@ export default function About() {
           <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
             Stockton, CA
           </span>
-          <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white italic">
-            TEAM <span className="font-normal text-primary">CAMA</span>
+          <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white">
+            Team <span className="italic font-normal text-primary/60">Cama</span>
           </h1>
           <p className="mt-10 text-on-surface/80 max-w-2xl mx-auto text-lg leading-relaxed font-light">
                 &quot;We do not rise to the level of our expectations, we fall to the level of our <span className="text-primary font-bold not-italic">training</span>.&quot;
