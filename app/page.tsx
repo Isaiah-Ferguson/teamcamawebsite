@@ -45,15 +45,15 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
                 onClick={() => setIsContactOpen(true)}
-                className="bg-primary px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
+                className="bg-primary px-10 py-4 text-white font-headline font-bold  tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
               >
-                START YOUR Journey
+                Come Train with Us
               </button>
               <button 
                 onClick={scrollToDisciplines}
-                className="border border-outline/40 px-10 py-4 text-white font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
+                className="border border-outline/40 px-10 py-4 text-white font-headline font-bold  tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
-                VIEW CLASSES
+                View our Classes
               </button>
             </div>
           </div>
@@ -216,6 +216,35 @@ export default function Home() {
                 </div>
               </div>
             </section>
+
+                    <section className="bg-surface-2 border-t border-rule py-20 md:py-28">
+          <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
+                Your first class is on us.
+              </h2>
+              <p className="text-ink-muted text-base leading-relaxed">
+                Send us a note and tell us what you want to try. We will email
+                you back about a time that works.
+              </p>
+            </div>
+            <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
+              >
+                Get in touch
+              </button>
+              <Link
+                href="/classes"
+                className="border border-rule-strong text-ink px-6 py-3.5 font-medium rounded hover:bg-surface-3 transition-colors text-center"
+              >
+                See the schedule
+              </Link>
+            </div>
+          </div>
+        </section>
 
 
 
