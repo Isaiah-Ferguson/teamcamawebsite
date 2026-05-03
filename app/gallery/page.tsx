@@ -21,7 +21,7 @@ export default function Gallery() {
           <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
             The Record
           </span>
-          <h1 className="font-headline font-bold text-5xl md:text-7xl leading-tight tracking-tight text-white italic">
+          <h1 className="font-headline font-bold text-5xl md:text-7xl leading-tight tracking-tight text-ink italic">
             Gallery
           </h1>
           <p className="mt-8 text-on-surface/60 max-w-xl mx-auto text-base leading-relaxed font-light">

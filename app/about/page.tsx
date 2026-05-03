@@ -128,7 +128,7 @@ export default function About() {
           <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
             Stockton, CA
           </span>
-          <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white">
+          <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-ink">
             Team <span className="italic font-normal text-primary/60">Cama</span>
           </h1>
           <p className="mt-10 text-on-surface/80 max-w-2xl mx-auto text-lg leading-relaxed font-light">
@@ -143,9 +143,9 @@ export default function About() {
       <section className="py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-12">
           <div className="mb-20 text-center">
-            <h2 className="font-headline font-bold text-4xl md:text-5xl text-white italic mb-4">Our Instructors</h2>
+            <h2 className="font-headline font-bold text-4xl md:text-5xl text-ink italic mb-4">Our Instructors</h2>
             <div className="h-px w-24 bg-primary mx-auto"></div>
-            <p className="text-primary font-label tracking-[0.2em] text-[10px] mt-6 uppercase">
+            <p className="text-ink-muted font-label tracking-[0.2em] text-[10px] mt-6 uppercase">
               Guiding students through discipline, character, and mastery—on and off the mat.
             </p>
           </div>
