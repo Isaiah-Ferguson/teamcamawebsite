@@ -43,7 +43,7 @@ export default function OurJourney() {
   const active = journeyData[activeIndex];
 
   return (
-    <section className="py-24 md:py-32 bg-surface">
+    <section className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="mb-16 max-w-2xl">
           <h2 className="font-headline font-bold text-4xl md:text-5xl text-ink leading-tight mb-4">

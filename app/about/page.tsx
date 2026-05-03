@@ -114,7 +114,7 @@ export default function About() {
 
       <section className="relative h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-background/40 via-background/60 to-background z-10"></div>
           <Image
             className="object-cover object-[center_35%] opacity-30 scale-105"
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg"
@@ -140,7 +140,7 @@ export default function About() {
 
       <OurJourney />
 
-      <section className="py-32 bg-surface">
+      <section className="py-32 bg-background">
         <div className="max-w-7xl mx-auto px-12">
           <div className="mb-20 text-center">
             <h2 className="font-headline font-bold text-4xl md:text-5xl text-ink italic mb-4">Our Instructors</h2>

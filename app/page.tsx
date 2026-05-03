@@ -11,9 +11,9 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const scrollToDisciplines = () => {
-    const disciplinesSection = document.getElementById('disciplines');
+    const disciplinesSection = document.getElementById("disciplines");
     if (disciplinesSection) {
-      disciplinesSection.scrollIntoView({ behavior: 'smooth' });
+      disciplinesSection.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
@@ -38,18 +38,22 @@ export default function Home() {
               Est. 2011
             </p>
             <h1 className="font-headline text-6xl md:text-8xl font-bold leading-tight text-ink mb-8 tracking-tight">
-              Team <br /> <span className="italic font-normal text-on-surface/40">Cama</span>
+              Team <br />{" "}
+              <span className="italic font-normal text-on-surface/40">
+                Cama
+              </span>
             </h1>
             <p className="text-ink-muted text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
-              "The journey of a thousand miles begins with a single step"</p>
+              "The journey of a thousand miles begins with a single step"
+            </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button 
+              <button
                 onClick={() => setIsContactOpen(true)}
                 className="bg-primary px-10 py-4 text-white font-body font-bold tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
               >
                 Come Train with Us
               </button>
-              <button 
+              <button
                 onClick={scrollToDisciplines}
                 className="border border-outline/40 px-10 py-4 text-white font-body font-bold tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
@@ -60,9 +64,12 @@ export default function Home() {
         </div>
       </section>
 
-            <section  className="py-32 bg-background">
+      <section className="py-32 bg-background">
         <div className="container mx-auto px-8 lg:px-12 max-w-7xl mb-20">
-          <h2 id="disciplines" className="font-headline text-4xl font-bold text-ink tracking-tight uppercase text-center">
+          <h2
+            id="disciplines"
+            className="font-headline text-4xl font-bold text-ink tracking-tight uppercase text-center"
+          >
             THE <span className="text-primary">DISCIPLINES</span>
           </h2>
         </div>
@@ -78,32 +85,44 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-ink italic">TAEKWONDO</h3>
-                <p className="text-ink-muted text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
-                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+                <h3 className="font-headline text-3xl font-bold text-ink italic">
+                  TAEKWONDO
+                </h3>
+                <p className="text-ink-muted text-sm font-light leading-relaxed">
+                  Master the art of explosive striking.
+                </p>
+                <Link
+                  href="/classes#taekwondo"
+                  className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
                 >
                   EXPLORE PROGRAM
                 </Link>
               </div>
             </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
-            <Image
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
-              alt="Muay Thai"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-            <div className="absolute bottom-10 left-8 right-8 space-y-4">
-              <h3 className="font-headline text-3xl font-bold text-ink italic">MUAY THAI</h3>
-              <p className="text-ink-muted text-sm font-light leading-relaxed">The science of eight limbs.</p>
-              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
-              >
-                EXPLORE PROGRAM
-              </Link>
+              <Image
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_2379.jpg"
+                alt="Muay Thai"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+              <div className="absolute bottom-10 left-8 right-8 space-y-4">
+                <h3 className="font-headline text-3xl font-bold text-ink italic">
+                  MUAY THAI
+                </h3>
+                <p className="text-ink-muted text-sm font-light leading-relaxed">
+                  The science of eight limbs.
+                </p>
+                <Link
+                  href="/classes#muay-thai"
+                  className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+                >
+                  EXPLORE PROGRAM
+                </Link>
+              </div>
             </div>
-          </div>
             <div className="h-[550px] relative overflow-hidden group rounded-sm border border-outline/10">
               <Image
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
@@ -114,9 +133,15 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
-                <h3 className="font-headline text-3xl font-bold text-ink italic">Brazilian Jiu Jitsu</h3>
-                <p className="text-ink-muted text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
-                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+                <h3 className="font-headline text-3xl font-bold text-ink italic">
+                  Brazilian Jiu Jitsu
+                </h3>
+                <p className="text-ink-muted text-sm font-light leading-relaxed">
+                  Technique over strength, control opponents
+                </p>
+                <Link
+                  href="/classes#bjj"
+                  className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
                 >
                   EXPLORE PROGRAM
                 </Link>
@@ -137,46 +162,51 @@ export default function Home() {
             </div>
             <div className="lg:col-span-5 pt-4">
               <p className="text-ink-muted text-lg leading-relaxed font-light">
-                We don&apos;t believe in going through the motions.
-                Every movement has purpose. Every class is intentional.
-                We&apos;re here to help you improve — physically, mentally, and consistently.
+                We don&apos;t believe in going through the motions. Every
+                movement has purpose. Every class is intentional. We&apos;re
+                here to help you improve — physically, mentally, and
+                consistently.
               </p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">INTEGRITY</h3>
+              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2"></div>
+              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">
+                INTEGRITY
+              </h3>
               <p className="text-ink-muted leading-relaxed text-sm font-light">
-                Do what is right, even when no one is watching.
-                Your character is revealed in how you train, not just how you perform.
+                Do what is right, even when no one is watching. Your character
+                is revealed in how you train, not just how you perform.
               </p>
             </div>
             <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">RESPECT</h3>
+              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2"></div>
+              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">
+                RESPECT
+              </h3>
               <p className="text-ink-muted leading-relaxed text-sm font-light">
-                Show up when it&apos;s hard, and push when it&apos;s uncomfortable.
-                Consistency in training builds strength, skill, and mindset.
+                Show up when it&apos;s hard, and push when it&apos;s
+                uncomfortable. Consistency in training builds strength, skill,
+                and mindset.
               </p>
             </div>
             <div className="space-y-6 group">
-              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
-              </div>
-              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">DISCIPLINE</h3>
+              <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2"></div>
+              <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">
+                DISCIPLINE
+              </h3>
               <p className="text-ink-muted leading-relaxed text-sm font-light">
                 Honor your instructors, your training partners, and yourself.
-                Growth comes from humility and treating others with purpose and control.
+                Growth comes from humility and treating others with purpose and
+                control.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-
-            {/* <section className="py-32 bg-background">
+      {/* <section className="py-32 bg-background">
               <div className="max-w-7xl mx-auto px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                   <div className="lg:col-span-5">
@@ -220,38 +250,39 @@ export default function Home() {
               </div>
             </section> */}
 
-                    <section className="bg-surface-2 border-t border-rule py-20 md:py-28">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-            <div className="md:col-span-7">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
-                Your first class is on us.
-              </h2>
-              <p className="text-ink-muted text-base leading-relaxed">
-                Send us a note and tell us what you want to try. We will email
-                you back about a time that works.
-              </p>
-            </div>
-            <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setIsContactOpen(true)}
-                className="bg-primary px-8 py-3.5 text-white font-body font-bold tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm"
-              >
-                Get in touch
-              </button>
-              <Link
-                href="/classes"
-                className="border border-outline/40 px-8 py-3.5 text-ink font-body font-bold tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm text-center"
-              >
-                See the schedule
-              </Link>
-            </div>
+      <section className="bg-background border-t border-rule py-20 md:py-28">
+        <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
+              Your first class is on us.
+            </h2>
+            <p className="text-ink-muted text-base leading-relaxed">
+              Send us a note and tell us what you want to try. We will email you
+              back about a time that works.
+            </p>
           </div>
-        </section>
+          <div className="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
+            <button
+              type="button"
+              onClick={() => setIsContactOpen(true)}
+              className="bg-primary px-8 py-3.5 text-white font-body font-bold tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm"
+            >
+              Get in touch
+            </button>
+            <Link
+              href="/classes"
+              className="border border-outline/40 px-8 py-3.5 text-ink font-body font-bold tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm text-center"
+            >
+              See the schedule
+            </Link>
+          </div>
+        </div>
+      </section>
 
-
-
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
       <Footer />
     </>
   );

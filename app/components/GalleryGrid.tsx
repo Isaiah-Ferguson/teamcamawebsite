@@ -99,7 +99,7 @@ export default function GalleryGrid() {
               onClick={() => setActiveCategory(cat.value)}
               className={`min-h-11 px-5 py-2 text-sm font-medium rounded-full border transition-colors ${
                 active
-                  ? "bg-ink text-surface border-ink"
+                  ? "bg-primary text-surface border-primary"
                   : "border-rule text-ink-muted hover:border-rule-strong hover:text-ink"
               }`}
             >

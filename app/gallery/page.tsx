@@ -12,23 +12,20 @@ export default function Gallery() {
   return (
     <>
       <Navigation />
-      <main className="pt-20 pb-20">
-        <section className="relative h-[50vh] flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
-          </div>
-          <div className="relative z-20 px-12 md:px-24 max-w-5xl mx-auto text-center w-full">
-            <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
-              The Record
-            </span>
-            <h1 className="font-headline font-bold text-5xl md:text-7xl leading-tight tracking-tight text-ink italic">
+
+            <main id="main">
+        <section className="bg-background">
+          <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-12 md:pb-16">
+            <p className="text-accent text-sm font-semibold mb-4">The Record</p>
+            <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
               Gallery
             </h1>
-            <p className="mt-8 text-on-surface/60 max-w-xl mx-auto text-base leading-relaxed font-light">
+            <p className="text-ink-muted text-lg leading-relaxed max-w-2xl">
               Every image is a moment in time of the past 15 years.
             </p>
           </div>
         </section>
+
 
         <section className="pt-2 pb-24 bg-background">
           <div className="max-w-7xl mx-auto px-8 md:px-12">

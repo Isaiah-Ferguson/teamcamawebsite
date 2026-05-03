@@ -14,7 +14,7 @@ export default function Contact() {
       <Navigation />
 
       <main id="main">
-        <section className="bg-surface border-b border-rule">
+        <section className="bg-background border-b border-rule">
           <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-12 md:pb-16">
             <p className="text-accent text-sm font-semibold mb-4">Visit</p>
             <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
@@ -27,7 +27,7 @@ export default function Contact() {
           </div>
         </section>
 
-        <section className="bg-surface-2 py-16 md:py-24">
+        <section className="bg-background py-16 md:py-24">
           <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5 flex flex-col gap-10">
               <section>

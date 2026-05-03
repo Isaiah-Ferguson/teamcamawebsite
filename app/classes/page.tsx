@@ -66,7 +66,7 @@ export default function Classes() {
       <Navigation />
 
        <main id="main">
-        <section className="bg-surface border-b border-rule">
+        <section className="bg-background border-b border-rule">
           <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-20">
             <p className="text-accent text-sm font-semibold mb-4">Classes</p>
             <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
@@ -96,7 +96,7 @@ export default function Classes() {
           </div>
         </section>
 
-        <section className="bg-surface-2 py-16 md:py-24">
+        <section className="bg-background py-16 md:py-24">
           <ul className="max-w-7xl mx-auto px-6 md:px-10 space-y-24 md:space-y-32">
             {classes.map((cls, i) => {
               const reversed = i % 2 === 1;
@@ -169,7 +169,7 @@ export default function Classes() {
           </ul>
         </section>
 
-        <section className="bg-surface border-t border-rule py-20 md:py-28">
+        <section className="bg-background border-t border-rule py-20 md:py-28">
           <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-7">
               <h2 className="font-headline text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
