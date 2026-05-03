@@ -25,8 +25,7 @@ export default function Gallery() {
               Gallery
             </h1>
             <p className="mt-8 text-on-surface/60 max-w-xl mx-auto text-base leading-relaxed font-light">
-              Every image is a moment of effort, sacrifice, and brotherhood
-              captured on the mat.
+              Every image is a moment in time of the past 15 years.
             </p>
           </div>
         </section>

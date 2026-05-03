@@ -16,7 +16,7 @@
   --color-accent: #EF4444;
   --font-headline: var(--font-noto-serif);
   --font-body: var(--font-inter);
-  --font-label: var(--font-noto-serif);
+  --font-label: var(--font-inter);
 }
 
 body {

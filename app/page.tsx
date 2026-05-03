@@ -40,18 +40,18 @@ export default function Home() {
             <h1 className="font-headline text-6xl md:text-8xl font-bold leading-tight text-ink mb-8 tracking-tight">
               Team <br /> <span className="italic font-normal text-on-surface/40">Cama</span>
             </h1>
-            <p className="text-on-surface/70 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
+            <p className="text-ink-muted text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light">
               "The journey of a thousand miles begins with a single step"</p>
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
                 onClick={() => setIsContactOpen(true)}
-                className="bg-primary px-10 py-4 text-white font-headline font-bold  tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
+                className="bg-primary px-10 py-4 text-white font-body font-bold tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm shadow-lg shadow-primary/10"
               >
                 Come Train with Us
               </button>
               <button 
                 onClick={scrollToDisciplines}
-                className="border border-outline/40 px-10 py-4 text-white font-headline font-bold  tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
+                className="border border-outline/40 px-10 py-4 text-white font-body font-bold tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm"
               >
                 View our Classes
               </button>
@@ -79,8 +79,9 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
                 <h3 className="font-headline text-3xl font-bold text-ink italic">TAEKWONDO</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
-                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                <p className="text-ink-muted text-sm font-light leading-relaxed">Master the art of explosive striking.</p>
+                <Link href="/classes#taekwondo" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+                >
                   EXPLORE PROGRAM
                 </Link>
               </div>
@@ -96,8 +97,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
             <div className="absolute bottom-10 left-8 right-8 space-y-4">
               <h3 className="font-headline text-3xl font-bold text-ink italic">MUAY THAI</h3>
-              <p className="text-on-surface/60 text-sm font-light leading-relaxed">The science of eight limbs.</p>
-              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+              <p className="text-ink-muted text-sm font-light leading-relaxed">The science of eight limbs.</p>
+              <Link href="/classes#muay-thai" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+              >
                 EXPLORE PROGRAM
               </Link>
             </div>
@@ -113,8 +115,9 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-8 right-8 space-y-4">
                 <h3 className="font-headline text-3xl font-bold text-ink italic">Brazilian Jiu Jitsu</h3>
-                <p className="text-on-surface/60 text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
-                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-headline font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center">
+                <p className="text-ink-muted text-sm font-light leading-relaxed">Technique over strength, control opponents</p>
+                <Link href="/classes#bjj" className="w-full py-3 border border-outline/30 text-white font-body font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all rounded-sm block text-center"
+                >
                   EXPLORE PROGRAM
                 </Link>
               </div>
@@ -133,7 +136,7 @@ export default function Home() {
               <div className="w-24 h-1 bg-primary/30"></div>
             </div>
             <div className="lg:col-span-5 pt-4">
-              <p className="text-on-surface/60 text-lg leading-relaxed font-light">
+              <p className="text-ink-muted text-lg leading-relaxed font-light">
                 We don&apos;t believe in going through the motions.
                 Every movement has purpose. Every class is intentional.
                 We&apos;re here to help you improve — physically, mentally, and consistently.
@@ -145,7 +148,7 @@ export default function Home() {
               <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
               </div>
               <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">INTEGRITY</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
+              <p className="text-ink-muted leading-relaxed text-sm font-light">
                 Do what is right, even when no one is watching.
                 Your character is revealed in how you train, not just how you perform.
               </p>
@@ -154,7 +157,7 @@ export default function Home() {
               <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
               </div>
               <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">RESPECT</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
+              <p className="text-ink-muted leading-relaxed text-sm font-light">
                 Show up when it&apos;s hard, and push when it&apos;s uncomfortable.
                 Consistency in training builds strength, skill, and mindset.
               </p>
@@ -163,7 +166,7 @@ export default function Home() {
               <div className="text-primary/80 mb-8 transition-transform group-hover:translate-x-2">
               </div>
               <h3 className="font-headline text-2xl font-bold text-ink tracking-tight">DISCIPLINE</h3>
-              <p className="text-on-surface/50 leading-relaxed text-sm font-light">
+              <p className="text-ink-muted leading-relaxed text-sm font-light">
                 Honor your instructors, your training partners, and yourself.
                 Growth comes from humility and treating others with purpose and control.
               </p>
@@ -232,13 +235,13 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setIsContactOpen(true)}
-                className="bg-accent text-accent-ink px-6 py-3.5 font-medium rounded hover:bg-accent-hover transition-colors"
+                className="bg-primary px-8 py-3.5 text-white font-body font-bold tracking-widest text-sm transition-all hover:bg-[#DC2626] rounded-sm"
               >
                 Get in touch
               </button>
               <Link
                 href="/classes"
-                className="border border-rule-strong text-ink px-6 py-3.5 font-medium rounded hover:bg-surface-3 transition-colors text-center"
+                className="border border-outline/40 px-8 py-3.5 text-ink font-body font-bold tracking-widest text-sm hover:bg-white/5 transition-all rounded-sm text-center"
               >
                 See the schedule
               </Link>
