@@ -28,6 +28,7 @@ export default function Footer() {
             <Image
               alt=""
               className="h-8 w-auto"
+              style={{ width: "auto" }}
               src="https://preblobaccount.blob.core.windows.net/prerecordedblob/TeamLogo.png"
               width={96}
               height={32}

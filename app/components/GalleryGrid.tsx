@@ -4,7 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { useDialog } from "./useDialog";
 
-type Category = "all" | "competition" | "training" | "team" | "events";
+type Category = "all" | "competition" | "training" | "team" | "events" | "black belts";
 
 interface GalleryItem {
   id: number;
@@ -27,6 +27,7 @@ const galleryItems: GalleryItem[] = [
   { id: 10, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454170311-mt.af299f34191e0ac632da.jpg", alt: "Muay Thai class group", category: "team", year: "2021" },
   { id: 11, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/AllieComp.jpg", alt: "Allie at competition", category: "competition", year: "2024" },
   { id: 12, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/2024.jpg", alt: "Team photo at the current Thornton Avenue gym", category: "team", year: "2024" },
+  { id: 13, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/Adniel.jpg", alt: "Black belt Adniel", category: "black belts", year: "2015" },
 ];
 
 const categories: { value: Category; label: string }[] = [
@@ -35,6 +36,7 @@ const categories: { value: Category; label: string }[] = [
   { value: "training", label: "Training" },
   { value: "team", label: "Team" },
   { value: "events", label: "Events" },
+  { value: "black belts", label: "Black Belts" },
 ];
 
 export default function GalleryGrid() {

@@ -20,6 +20,7 @@ export default function Navigation() {
           <Image
             alt="TEAM CAMA"
             className="h-10 w-auto"
+            style={{ width: "auto" }}
             src="https://preblobaccount.blob.core.windows.net/prerecordedblob/TeamLogo.png"
             width={120}
             height={40}
