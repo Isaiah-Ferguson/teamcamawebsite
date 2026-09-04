@@ -1,117 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const schedule = [
-  {
-    name: "Brazilian Jiu-Jitsu",
-    times: ["Mon, Wed, Fri  •  5:30–7:15 PM"],
-  },
-  {
-    name: "Muay Thai",
-    times: ["Mon, Wed, Fri  •  7:15–8:15 PM"],
-  },
-  {
-    name: "Taekwondo",
-    times: [
-      "Tue, Thu  •  5:30–8:30 PM",
-      "Sat  •  9:30–11:30 AM",
-    ],
-  },
-];
+import { mapsUrl, programs } from "../lib/programs";
 
 export default function Footer() {
-  return (
-    <footer className="bg-surface-2 w-full pt-20 pb-10 px-6 md:px-10 border-t border-rule">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-7xl mx-auto">
-        <div className="md:col-span-4 flex flex-col gap-5">
-          <Link href="/" className="flex items-center gap-3 w-fit">
-            <Image
-              alt=""
-              className="h-8 w-auto"
-              style={{ width: "auto" }}
-              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/TeamLogo.png"
-              width={96}
-              height={32}
-            />
-            <span className="text-base font-headline font-bold text-ink">
-              Team Cama
-            </span>
-          </Link>
-          <p className="text-ink-muted text-sm leading-relaxed max-w-sm">
-            Concepcion Academy of Martial Arts. A gym built around community,
-            teaching Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo since 2011.
-          </p>
-          <div className="flex gap-4 pt-2">
-            <a
-              className="text-ink-muted hover:text-accent text-sm transition-colors"
-              href="https://www.instagram.com/teamcama_209"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-            <span aria-hidden="true" className="text-rule-strong">
-              /
-            </span>
-            <a
-              className="text-ink-muted hover:text-accent text-sm transition-colors"
-              href="https://www.facebook.com/teamcama"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facebook
-            </a>
-          </div>
+  return <footer className="bg-surface border-t border-rule pt-12 md:pt-16 pb-8">
+    <div className="site-container">
+      <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
+        <div>
+          <Link href="/" className="inline-flex items-center gap-3"><Image alt="" src="/TeamLogo.png" width={40} height={40} className="w-10 h-10 object-contain" /><span className="font-headline uppercase text-3xl font-bold">Team Cama<span className="text-primary">.</span></span></Link>
+          <p className="text-ink-muted text-sm leading-relaxed max-w-sm mt-5">Concepcion Academy of Martial Arts.<br />A community built on the mat since 2011.</p>
+          <div className="flex gap-5 mt-5 text-sm"><a className="py-2 hover:text-primary" href="https://www.instagram.com/teamcama_209" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a className="py-2 hover:text-primary" href="https://www.facebook.com/teamcama" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
         </div>
-
-        <div className="md:col-span-4">
-          <h2 className="font-headline text-sm font-bold text-ink mb-5">
-            Class schedule
-          </h2>
-          <ul className="space-y-4">
-            {schedule.map((row) => (
-              <li key={row.name}>
-                <p className="text-ink font-medium text-[15px] mb-1">
-                  {row.name}
-                </p>
-                {row.times.map((t) => (
-                  <p key={t} className="text-ink-muted text-sm">
-                    {t}
-                  </p>
-                ))}
-              </li>
-            ))}
-          </ul>
+        <div>
+          <h2 className="eyebrow mb-5">Make training a habit</h2>
+          <ul className="space-y-4">{programs.map(program => <li key={program.id}><Link href={`/classes#${program.id}`} className="text-sm font-medium hover:text-primary">{program.name}</Link>{program.summary.map(line => <p key={line} className="text-ink-muted text-xs leading-relaxed mt-1">{line}</p>)}</li>)}</ul>
+          <Link href="/classes#schedule" className="text-link mt-4">Full schedule <span aria-hidden="true">↗</span></Link>
         </div>
-
-        <div className="md:col-span-4">
-          <h2 className="font-headline text-sm font-bold text-ink mb-5">
-            Find us
-          </h2>
-          <address className="not-italic text-ink-muted text-sm space-y-3">
-            <p className="text-ink">8855 Thornton Rd Suite B</p>
-            <p>Stockton, California</p>
-            <p>
-              <a href="tel:+12094821352" className="hover:text-accent">
-                (209) 482-1352
-              </a>
-            </p>
-            <p>
-              <a
-                href="mailto:Cama5638@gmail.com"
-                className="hover:text-accent"
-              >
-                Cama5638@gmail.com
-              </a>
-            </p>
+        <div>
+          <h2 className="eyebrow mb-5">See you on the mat</h2>
+          <address className="not-italic text-sm leading-relaxed space-y-4">
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="block hover:text-primary">8855 Thornton Rd Suite B<br /><span className="text-ink-muted">Stockton, California</span><br /><span className="text-xs underline underline-offset-4 mt-2 inline-block">Get directions ↗</span></a>
+            <a href="tel:+12094821352" className="block hover:text-primary">(209) 482-1352</a>
+            <a href="mailto:Cama5638@gmail.com" className="block hover:text-primary">Cama5638@gmail.com</a>
           </address>
         </div>
       </div>
-
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-rule flex flex-col sm:flex-row justify-between gap-3 text-xs text-ink-subtle">
-        <p>© {new Date().getFullYear()} Concepcion Academy of Martial Arts. All rights reserved.</p>
-        <p>Established 2011, Stockton, California.</p>
-      </div>
-    </footer>
-  );
+      <div className="border-t border-rule mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-ink-subtle"><p>© {new Date().getFullYear()} Concepcion Academy of Martial Arts.</p><span>Stockton roots. Since 2011.</span></div>
+    </div>
+  </footer>;
 }

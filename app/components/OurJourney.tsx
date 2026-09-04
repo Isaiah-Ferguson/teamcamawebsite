@@ -22,7 +22,7 @@ const journeyData = [
   },
   {
     year: "2016",
-    label: "Thornton Avenue, 8909",
+      label: "Thornton Avenue, 8909",
     description:
       "In 2016 we took another step forward and moved to Thornton Avenue. With upgraded mats and better equipment, we elevated our training experience while staying true to the same hard work, respect, and intensity that built our foundation.",
     image:
@@ -30,7 +30,7 @@ const journeyData = [
   },
   {
     year: "Present",
-    label: "Thornton Avenue, 8855",
+    label: "Thornton Road, 8855",
     description:
       "We moved into our largest facility yet, marking a new era for the academy. With more space to grow, train, and build community, we keep carrying forward the same spirit that started in that small garage back in 2011.",
     image:
@@ -43,10 +43,10 @@ export default function OurJourney() {
   const active = journeyData[activeIndex];
 
   return (
-    <section className="py-24 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="mb-16 max-w-2xl">
-          <h2 className="font-headline font-bold text-4xl md:text-5xl text-ink leading-tight mb-4">
+    <section className="section-space bg-background">
+      <div className="site-container">
+        <div className="mb-9 max-w-2xl">
+          <h2 className="section-heading mb-4">
             Our journey
           </h2>
           <p className="text-ink-muted text-base leading-relaxed">
@@ -57,7 +57,7 @@ export default function OurJourney() {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch">
           <div
             className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-1 lg:w-64 shrink-0 border-b lg:border-b-0 lg:border-r border-rule pb-2 lg:pb-0 lg:pr-4"
-            role="tablist"
+            role="group"
             aria-label="Locations through the years"
           >
             {journeyData.map((entry, i) => {
@@ -66,8 +66,7 @@ export default function OurJourney() {
                 <button
                   key={entry.year}
                   type="button"
-                  role="tab"
-                  aria-selected={isActive}
+                  aria-pressed={isActive}
                   aria-controls="journey-panel"
                   onClick={() => setActiveIndex(i)}
                   className={`text-left px-4 py-4 transition-colors duration-200 shrink-0 rounded ${
@@ -79,7 +78,7 @@ export default function OurJourney() {
                   <span className="block font-headline font-bold text-xl">
                     {entry.year}
                   </span>
-                  <span className="block text-xs text-ink-subtle mt-1">
+                  <span className="block text-xs text-ink-muted mt-1">
                     {entry.label}
                   </span>
                 </button>
@@ -89,10 +88,11 @@ export default function OurJourney() {
 
           <div
             id="journey-panel"
-            role="tabpanel"
+            role="region"
+            aria-label={`Academy location: ${active.label}`}
             className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
           >
-            <div className="relative aspect-4/5 w-full bg-surface-3 overflow-hidden rounded-lg">
+            <div className="relative aspect-[4/3] w-full bg-surface-3 overflow-hidden">
               <Image
                 key={active.year}
                 src={active.image}
@@ -106,7 +106,7 @@ export default function OurJourney() {
               <p className="text-accent text-sm font-semibold">
                 {active.label}
               </p>
-              <h3 className="font-headline font-bold text-3xl md:text-4xl text-ink leading-tight">
+              <h3 className="font-headline font-semibold text-4xl md:text-5xl text-ink uppercase leading-tight">
                 {active.year}
               </h3>
               <p className="text-ink-muted text-base leading-relaxed max-w-prose">

@@ -1,16 +1,21 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import OurJourney from "../components/OurJourney";
-import { useState } from "react";
+import TrialButton from "../components/TrialButton";
+
+export const metadata: Metadata = {
+  title: "Our Story & Coaches",
+  description: "Meet the instructors behind Team Cama and follow our Stockton story from a small garage in 2011 to a community built around Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo.",
+};
 
 interface Instructor {
   name: string;
   role: string;
   image: string;
   alt: string;
+  imagePosition?: string;
   bio: string[];
 }
 
@@ -21,6 +26,7 @@ const instructors: Instructor[] = [
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/Sensei.6067b8adb6fab92c15fa.png",
     alt: "Louie Concepcion, head instructor at Team Cama",
+    imagePosition: "center top",
     bio: [
       "Louie Concepcion is a Stockton native with over 35 years of martial arts experience across many disciplines and under a variety of respected instructors. His background includes traditional and Olympic-style Taekwondo, Brazilian Jiu-Jitsu, Kickboxing, Filipino Martial Arts, and Jeet Kune Do Concepts.",
       "Driven by a lifelong passion for martial arts, he founded the academy to share his knowledge, promote humility and discipline, and inspire the next generation of students.",
@@ -45,6 +51,7 @@ const instructors: Instructor[] = [
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454139445-CouchIsaiah.f4a7545a8931b4a9d08d.jpg",
     alt: "Isaiah Ferguson, BJJ and Muay Thai coach at Team Cama",
+    imagePosition: "center top",
     bio: [
       "Isaiah started training Brazilian Jiu-Jitsu and Muay Thai in 2009 under Louie Concepcion and has not looked back since. It has been a huge part of his life ever since. He earned his Black Belt in Brazilian Jiu-Jitsu in 2021 and continues to train and improve every day.",
       "As an instructor for the Jiu-Jitsu and Muay Thai programs, Isaiah is a longtime student of the academy and a humble practitioner of its teachings. His discipline and work ethic have led to success in both kickboxing and Jiu-Jitsu competition.",
@@ -57,7 +64,7 @@ const instructors: Instructor[] = [
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/sammy.jpg",
     alt: "Samantha Espinosa, Taekwondo instructor at Team Cama",
-    bio: ["Bio coming soon."],
+    bio: [],
   },
   {
     name: "Christian White",
@@ -65,7 +72,8 @@ const instructors: Instructor[] = [
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/ChristianWhite.jpg",
     alt: "Christian White, Taekwondo instructor at Team Cama",
-    bio: ["Bio coming soon."],
+    imagePosition: "center 15%",
+    bio: [],
   },
   {
     name: "Jay",
@@ -73,107 +81,62 @@ const instructors: Instructor[] = [
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/Logos/CamaNewLogo.png",
     alt: "Team Cama logo placeholder for Jay, Taekwondo instructor",
-    bio: ["Bio coming soon."],
+    bio: [],
   },
 ];
 
-function InstructorBio({ paragraphs }: { paragraphs: string[] }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const previewLength = 180;
-  const full = paragraphs.join("\n\n");
-  const shouldTruncate = full.length > previewLength;
-  const display =
-    isExpanded || !shouldTruncate
-      ? full
-      : full.slice(0, previewLength).trimEnd() + "…";
 
-  return (
-    <div className="text-ink-muted text-[15px] leading-relaxed whitespace-pre-line">
-      <p>{display}</p>
-      {shouldTruncate && (
-        <button
-          type="button"
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-accent text-sm font-medium mt-3 hover:underline"
-          aria-expanded={isExpanded}
-        >
-          {isExpanded ? "Show less" : "Read more"}
-        </button>
-      )}
-    </div>
-  );
+function InstructorBio({ paragraphs }: { paragraphs: string[] }) {
+  if (!paragraphs.length) return null;
+  const first = paragraphs[0];
+  const end = first.indexOf(". ");
+  const introduction = end === -1 ? first : first.slice(0, end + 1);
+  const remaining = [first.slice(introduction.length).trim(), ...paragraphs.slice(1)].filter(Boolean);
+  return <div className="text-ink-muted text-sm leading-relaxed">
+    <p>{introduction}</p>
+    {remaining.length > 0 && <details className="group mt-2">
+      <summary className="text-link text-ink"><span className="group-open:hidden">Read full bio</span><span className="hidden group-open:inline">Show less</span></summary>
+      <div className="space-y-3 pt-4">{remaining.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+    </details>}
+  </div>;
 }
 
-// Metadata is defined in a separate file since this is a client component
-// See: metadata.ts in the same folder
-
 export default function About() {
-  return (
-    <>
-      <Navigation />
-
-      <section className="relative h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-background/40 via-background/60 to-background z-10"></div>
-          <Image
-            className="object-cover object-[center_35%] opacity-30 scale-105"
-            src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg"
-            alt="refined martial arts studio interior"
-            fill
-            sizes="100vw"
-            priority
-          />
-        </div>
-        <div className="relative z-20 px-12 md:px-24 max-w-5xl mx-auto text-center">
-          <span className="font-label text-primary font-bold tracking-[0.4em] text-[10px] mb-6 block uppercase">
-            Stockton, CA
-          </span>
-          <h1 className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-ink">
-            Team <span className="italic font-normal text-primary/60">Cama</span>
-          </h1>
-          <p className="mt-10 text-on-surface/80 max-w-2xl mx-auto text-lg leading-relaxed font-light">
-                &quot;We do not rise to the level of our expectations, we fall to the level of our <span className="text-primary font-bold not-italic">training</span>.&quot;
-                </p>
+  return <>
+    <Navigation />
+    <main id="main" tabIndex={-1}>
+      <section className="relative isolate overflow-hidden pt-40 pb-16 md:pt-52 md:pb-24 border-b border-rule">
+        <Image src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg" alt="A Team Cama competitor celebrating on the mat" fill sizes="100vw" priority className="object-cover object-[center_35%] grayscale -z-20" />
+        <div className="absolute inset-0 bg-background/75 -z-10" />
+        <div className="site-container">
+          <p className="eyebrow text-primary mb-5">Stockton roots. Shared purpose.</p>
+          <h1 className="page-heading max-w-3xl mb-6">A team.<br />Not just a gym.</h1>
+          <p className="text-ink-muted text-lg max-w-xl leading-relaxed">From a small garage to a growing community. The addresses have changed. The work, the people, and the spirit remain.</p>
         </div>
       </section>
-
-
       <OurJourney />
-
-      <section className="py-32 bg-background">
-        <div className="max-w-7xl mx-auto px-12">
-          <div className="mb-20 text-center">
-            <h2 className="font-headline font-bold text-4xl md:text-5xl text-ink italic mb-4">Our Instructors</h2>
-            <div className="h-px w-24 bg-primary mx-auto"></div>
-            <p className="text-ink-muted font-label tracking-[0.2em] text-[10px] mt-6 uppercase">
-              Guiding students through discipline, character, and mastery—on and off the mat.
-            </p>
+      <section id="coaches" className="section-space bg-surface border-y border-rule">
+        <div className="site-container">
+          <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-10">
+            <div><p className="eyebrow text-primary mb-4">Experience passed on</p><h2 className="section-heading">Meet your coaches.</h2></div>
+            <p className="text-ink-muted text-sm leading-relaxed max-w-sm">Longtime practitioners. Lifelong students.<br />Here to help you find your next level.</p>
           </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-              {instructors.map((person) => (
-                <li key={person.name} className="flex flex-col">
-                  <div className="aspect-4/5 overflow-hidden bg-surface-3 mb-5 rounded-lg relative">
-                    <Image
-                      src={person.image}
-                      alt={person.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="font-headline font-bold text-xl text-ink mb-1">
-                    {person.name}
-                  </h3>
-                  <p className="text-accent text-sm font-medium mb-4">
-                    {person.role}
-                  </p>
-                  <InstructorBio paragraphs={person.bio} />
-                </li>
-              ))}
-            </ul>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
+            {instructors.map(person => <li key={person.name} className="min-w-0">
+              <div className="relative aspect-[5/4] overflow-hidden bg-surface-3 mb-5">
+                <Image src={person.image} alt={person.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className={person.name === "Jay" ? "object-contain p-10" : "object-cover"} style={{ objectPosition: person.imagePosition ?? "center 35%" }} />
+              </div>
+              <h3 className="font-headline text-3xl font-semibold uppercase mb-1">{person.name}</h3>
+              <p className="text-primary text-sm mb-4">{person.role}</p>
+              <InstructorBio paragraphs={person.bio} />
+            </li>)}
+          </ul>
         </div>
       </section>
-      <Footer />
-    </>
-  );
+      <section className="section-space">
+        <div className="site-container flex flex-col md:flex-row md:items-center justify-between gap-8"><div><p className="eyebrow text-primary mb-4">There is room for you here</p><h2 className="section-heading">Come meet the team.</h2></div><TrialButton /></div>
+      </section>
+    </main>
+    <Footer />
+  </>;
 }

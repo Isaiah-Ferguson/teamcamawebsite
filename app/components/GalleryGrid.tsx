@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { useDialog } from "./useDialog";
+import Dialog from "./Dialog";
 
 type Category = "all" | "competition" | "training" | "team" | "events" | "black belts";
 
@@ -39,218 +39,47 @@ const categories: { value: Category; label: string }[] = [
   { value: "black belts", label: "Black Belts" },
 ];
 
+
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const lightboxRef = useRef<HTMLDivElement>(null);
-  const titleId = useId();
+  const filtered = activeCategory === "all" ? galleryItems : galleryItems.filter(item => item.category === activeCategory);
+  const activeItem = lightboxIndex === null ? null : filtered[lightboxIndex];
+  const previous = () => setLightboxIndex(index => index === null ? null : (index - 1 + filtered.length) % filtered.length);
+  const next = () => setLightboxIndex(index => index === null ? null : (index + 1) % filtered.length);
 
-  const filtered =
-    activeCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeCategory);
-
-  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
-  const openLightbox = useCallback((i: number) => setLightboxIndex(i), []);
-
-  const goPrev = useCallback(() => {
-    setLightboxIndex((prev) =>
-      prev !== null ? (prev - 1 + filtered.length) % filtered.length : null
-    );
-  }, [filtered.length]);
-
-  const goNext = useCallback(() => {
-    setLightboxIndex((prev) =>
-      prev !== null ? (prev + 1) % filtered.length : null
-    );
-  }, [filtered.length]);
-
-  const isLightboxOpen = lightboxIndex !== null;
-
-  useDialog(isLightboxOpen, closeLightbox, lightboxRef);
-
-  // Arrow-key navigation
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-    function handle(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft") goPrev();
-      else if (e.key === "ArrowRight") goNext();
-    }
-    document.addEventListener("keydown", handle);
-    return () => document.removeEventListener("keydown", handle);
-  }, [isLightboxOpen, goPrev, goNext]);
-
-  const activeLightboxItem =
-    lightboxIndex !== null ? filtered[lightboxIndex] : null;
-
-  return (
-    <>
-      <div
-        className="flex flex-wrap gap-2 mb-12"
-        role="tablist"
-        aria-label="Filter photos"
-      >
-        {categories.map((cat) => {
-          const active = activeCategory === cat.value;
-          return (
-            <button
-              key={cat.value}
-              type="button"
-              role="tab"
-              aria-selected={active}
-              onClick={() => setActiveCategory(cat.value)}
-              className={`min-h-11 px-5 py-2 text-sm font-medium rounded-full border transition-colors ${
-                active
-                  ? "bg-primary text-surface border-primary"
-                  : "border-rule text-ink-muted hover:border-rule-strong hover:text-ink"
-              }`}
-            >
-              {cat.label}
-            </button>
-          );
-        })}
-      </div>
-
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-        {filtered.map((item, i) => (
-          <li key={item.id}>
-            <button
-              type="button"
-              onClick={() => openLightbox(i)}
-              className="group block w-full relative overflow-hidden bg-surface-3 rounded-md cursor-pointer"
-              aria-label={`Open photo: ${item.alt}`}
-            >
-              <div className="relative w-full aspect-4/5">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
-                />
-              </div>
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      {activeLightboxItem && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90"
-          role="presentation"
-        >
-          <button
-            type="button"
-            aria-label="Close photo viewer"
-            className="absolute inset-0 cursor-default"
-            onClick={closeLightbox}
-            tabIndex={-1}
-          />
-          <div
-            ref={lightboxRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            className="relative w-full h-full flex flex-col items-center justify-center px-4 py-16"
-          >
-            <h2 id={titleId} className="sr-only">
-              Photo viewer
-            </h2>
-
-            <button
-              type="button"
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 text-evening-ink hover:text-surface w-11 h-11 flex items-center justify-center rounded"
-              aria-label="Close"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.75}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            <span className="absolute top-4 left-4 text-evening-ink-muted text-sm font-mono">
-              {lightboxIndex! + 1} / {filtered.length}
-            </span>
-
-            <div
-              className="relative w-full max-w-4xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full aspect-4/3">
-                <Image
-                  src={activeLightboxItem.src}
-                  alt={activeLightboxItem.alt}
-                  fill
-                  sizes="90vw"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <div className="flex items-center justify-between mt-4 text-evening-ink-muted text-sm">
-                <span className="capitalize">
-                  {activeLightboxItem.category}
-                  {activeLightboxItem.year ? `, ${activeLightboxItem.year}` : ""}
-                </span>
-                <span>{activeLightboxItem.alt}</span>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={goPrev}
-              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-evening-ink/10 text-evening-ink hover:bg-evening-ink/20"
-              aria-label="Previous photo"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.75}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-evening-ink/10 text-evening-ink hover:bg-evening-ink/20"
-              aria-label="Next photo"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.75}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+  return <>
+    <div className="flex flex-wrap items-center gap-2 mb-8" role="group" aria-label="Filter photos">
+      {categories.map(category => <button key={category.value} type="button" aria-pressed={activeCategory === category.value} onClick={() => { setActiveCategory(category.value); setLightboxIndex(null); }} className={`min-h-11 px-4 text-sm border transition-colors ${activeCategory === category.value ? "bg-ink text-background border-ink" : "text-ink-muted border-rule hover:border-rule-strong hover:text-ink"}`}>{category.label}</button>)}
+      <span role="status" className="text-xs text-ink-subtle ml-auto py-3">{filtered.length} photographs</span>
+    </div>
+    <ul className="columns-2 lg:columns-3 gap-4 md:gap-6">
+      {filtered.map((item, i) => <li key={item.id} className="break-inside-avoid mb-4 md:mb-6">
+        <button type="button" onClick={() => setLightboxIndex(i)} className="group block w-full text-left" aria-label={`Open photo: ${item.alt}`} aria-haspopup="dialog">
+          <div className={`relative overflow-hidden bg-surface-3 ${item.category === "team" || item.category === "events" ? "aspect-[4/3]" : "aspect-[4/5]"}`}>
+            <Image src={item.src} alt={item.alt} fill sizes="(max-width: 1024px) 50vw, 33vw" loading={i < 3 ? "eager" : "lazy"} className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.025]" />
+            <span className="absolute bottom-3 right-3 bg-background/85 text-ink w-8 h-8 flex items-center justify-center text-lg" aria-hidden="true">↗</span>
           </div>
+          <div className="flex flex-wrap gap-2 justify-between py-3 text-[10px] uppercase tracking-widest text-ink-muted"><span>{item.category}</span><span>{item.year}</span></div>
+        </button>
+      </li>)}
+    </ul>
+    {activeItem && <Dialog title={`Photo ${lightboxIndex! + 1} of ${filtered.length}`} wide onClose={() => setLightboxIndex(null)} onKeyDown={event => {
+      if (event.key === "ArrowLeft") { event.preventDefault(); previous(); }
+      if (event.key === "ArrowRight") { event.preventDefault(); next(); }
+    }}>
+      <figure className="p-4 md:p-6">
+        <div className="relative w-full h-[min(62svh,640px)] bg-background">
+          <Image src={activeItem.src} alt={activeItem.alt} fill sizes="(max-width: 1024px) 90vw, 960px" className="object-contain" priority />
         </div>
-      )}
-    </>
-  );
+        <figcaption className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
+          <div aria-live="polite"><p className="text-sm text-ink">{activeItem.alt}</p><p className="text-xs text-ink-muted mt-1 capitalize">{activeItem.category} · {activeItem.year}</p></div>
+          <div className="flex gap-2 shrink-0">
+            <button type="button" onClick={previous} className="btn btn-secondary" aria-label="Previous photo">←</button>
+            <button type="button" onClick={next} className="btn btn-secondary" aria-label="Next photo">→</button>
+          </div>
+        </figcaption>
+      </figure>
+    </Dialog>}
+  </>;
 }

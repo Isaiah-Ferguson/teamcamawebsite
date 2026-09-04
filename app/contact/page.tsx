@@ -1,112 +1,56 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import ContactForm from "./ContactForm";
+import { mapsUrl } from "../lib/programs";
 
-export const metadata = {
-  title: "Visit | Team Cama, Stockton martial arts",
-  description:
-    "Stop by 8855 Thornton Rd Suite B in Stockton, or send us a note about classes.",
+export const metadata: Metadata = {
+  title: "Visit the Gym",
+  description: "Try your first class at Team Cama. Find us at 8855 Thornton Rd Suite B in Stockton, California. Contact us for Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo.",
 };
 
 export default function Contact() {
-  return (
-    <>
-      <Navigation />
-
-      <main id="main">
-        <section className="bg-background border-b border-rule">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-12 md:pb-16">
-            <p className="text-accent text-sm font-semibold mb-4">Visit</p>
-            <h1 className="font-headline text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-ink mb-6">
-              Come see the gym.
-            </h1>
-            <p className="text-ink-muted text-lg leading-relaxed max-w-2xl">
-              Drop in during class hours, or send us a note. The first class is
-              on us.
-            </p>
-          </div>
-        </section>
-
-        <section className="bg-background py-16 md:py-24">
-          <div className="max-w-5xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            <div className="md:col-span-5 flex flex-col gap-10">
-              <section>
-                <h2 className="font-headline text-2xl font-bold text-ink mb-5">
-                  Find us
-                </h2>
-                <address className="not-italic space-y-4 text-ink">
-                  <p>
-                    <span className="block text-ink-subtle text-xs font-semibold uppercase tracking-wider mb-1">
-                      Studio
-                    </span>
-                    8855 Thornton Rd Suite B
-                    <br />
-                    Stockton, California
-                  </p>
-                  <p>
-                    <span className="block text-ink-subtle text-xs font-semibold uppercase tracking-wider mb-1">
-                      Phone
-                    </span>
-                    <a className="hover:text-accent" href="tel:+12094821352">
-                      (209) 482-1352
-                    </a>
-                  </p>
-                  <p>
-                    <span className="block text-ink-subtle text-xs font-semibold uppercase tracking-wider mb-1">
-                      Email
-                    </span>
-                    <a
-                      className="hover:text-accent"
-                      href="mailto:Cama5638@gmail.com"
-                    >
-                      Cama5638@gmail.com
-                    </a>
-                  </p>
-                </address>
-              </section>
-
-              <section>
-                <h2 className="font-headline text-2xl font-bold text-ink mb-5">
-                  Hours
-                </h2>
-                <dl className="space-y-3 text-ink">
-                  <div className="flex justify-between gap-6">
-                    <dt className="text-ink-muted">Monday to Friday</dt>
-                    <dd>5:30 to 8:30 PM</dd>
-                  </div>
-                  <div className="flex justify-between gap-6">
-                    <dt className="text-ink-muted">Saturday</dt>
-                    <dd>9:00 AM to 12:00 PM</dd>
-                  </div>
-                  <div className="flex justify-between gap-6">
-                    <dt className="text-ink-muted">Sunday</dt>
-                    <dd>Closed</dd>
-                  </div>
-                </dl>
-              </section>
-
-              <div className="aspect-4/3 w-full overflow-hidden rounded-lg border border-rule">
-                <iframe
-                  title="Team Cama on Google Maps, 8855 Thornton Rd Suite B, Stockton, California"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209&zoom=15"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+  return <>
+    <Navigation />
+    <main id="main" tabIndex={-1}>
+      <section className="page-intro">
+        <div className="site-container">
+          <p className="eyebrow text-primary mb-5">We all start somewhere</p>
+          <h1 className="page-heading mb-6">Take the first step.</h1>
+          <p className="text-ink-muted text-lg max-w-xl leading-relaxed">Come meet the team. Find a class that fits. Your first one is on us.</p>
+          <div className="flex flex-wrap gap-5 mt-5"><a href="tel:+12094821352" className="text-link">Call (209) 482-1352 <span aria-hidden="true">↗</span></a><a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="text-link">Get directions <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+      <section className="section-space">
+        <div className="site-container grid lg:grid-cols-12 gap-10 lg:gap-20 items-start">
+          <div id="inquiry" className="lg:col-span-7 lg:order-2"><ContactForm /></div>
+          <div className="lg:col-span-5 space-y-9">
+            <section>
+              <h2 className="font-headline text-4xl uppercase font-semibold mb-5">Our corner of Stockton.</h2>
+              <address className="not-italic text-base leading-relaxed">
+                <p>8855 Thornton Rd Suite B<br /><span className="text-ink-muted">Stockton, California</span></p>
+                <a className="text-link mt-3" href={mapsUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
+              </address>
+            </section>
+            <section className="border-t border-rule pt-6">
+              <h2 className="eyebrow mb-4">When to visit</h2>
+              <dl className="space-y-4 text-sm">
+                <div className="flex flex-wrap justify-between gap-2"><dt>Mon, Wed, Fri</dt><dd className="text-ink-muted">Jiu-Jitsu &amp; Muay Thai</dd></div>
+                <div className="flex flex-wrap justify-between gap-2"><dt>Tue, Thu, Sat</dt><dd className="text-ink-muted">Taekwondo</dd></div>
+                <div className="flex justify-between gap-2"><dt>Sunday</dt><dd className="text-ink-muted">Closed</dd></div>
+              </dl>
+              <Link href="/classes#schedule" className="text-link mt-4">See class times <span aria-hidden="true">↗</span></Link>
+              <p className="text-sm text-ink-muted mt-3">Get in touch before your first visit so we can confirm the right session for you.</p>
+            </section>
+            <div className="aspect-[4/3] w-full overflow-hidden border border-rule bg-surface">
+              <iframe title="Team Cama on Google Maps, 8855 Thornton Rd Suite B, Stockton, California" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209&zoom=15" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
-
-            <div className="md:col-span-7">
-              <ContactForm />
-            </div>
+            <p className="text-sm text-ink-muted">Email us directly: <a href="mailto:Cama5638@gmail.com" className="text-ink underline underline-offset-4 break-all">Cama5638@gmail.com</a></p>
           </div>
-        </section>
-      </main>
-
-      <Footer />
-    </>
-  );
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </>;
 }
