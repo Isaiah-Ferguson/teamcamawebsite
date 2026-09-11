@@ -1,29 +1,38 @@
+import type { Metadata } from "next";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import TrialButton from "./components/TrialButton";
 import Link from "next/link";
 import Image from "next/image";
+import { imageUrl, programPath, programs, type ProgramId } from "./lib/programs";
+import { site } from "./lib/site";
 
-const disciplines = [
-  { id: "bjj", name: "Brazilian Jiu-Jitsu", detail: "Technique. Leverage. Control.", image: "DCS_3602.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
-  { id: "muay-thai", name: "Muay Thai", detail: "Eight limbs. Endless possibility.", image: "DCS_2379.jpg", alt: "Team Cama Muay Thai athletes at a competition" },
-  { id: "taekwondo", name: "Taekwondo", detail: "Build confidence, one kick at a time.", image: "1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg", alt: "Samantha practicing a Taekwondo kick" },
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const cards: { id: ProgramId; detail: string; image: string; alt: string }[] = [
+  { id: "bjj", detail: "Technique. Leverage. Control.", image: "DCS_3602.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
+  { id: "muay-thai", detail: "Eight limbs. Endless possibility.", image: "DCS_2379.jpg", alt: "Team Cama Muay Thai athletes at a competition" },
+  { id: "taekwondo", detail: "Build confidence, one kick at a time.", image: "1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg", alt: "Samantha practicing a Taekwondo kick" },
 ];
+
+const disciplines = cards.map(card => ({ ...card, program: programs.find(program => program.id === card.id)! }));
 
 export default function Home() {
   return <>
     <Navigation />
     <main id="main" tabIndex={-1}>
       <section className="relative isolate overflow-hidden min-h-[min(820px,100svh)] flex flex-col justify-end pt-36 pb-8 md:pt-48 md:pb-10">
-        <Image alt="Students and instructors together on the mats at Team Cama" src="https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg" fill sizes="100vw" priority className="object-cover object-[62%_center] grayscale brightness-90 -z-20" />
+        <Image alt="Students and instructors together on the mats at Team Cama" src={imageUrl("1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg")} fill sizes="100vw" priority className="object-cover object-[62%_center] grayscale brightness-90 -z-20" />
         <div className="absolute inset-0 hero-shade -z-10" />
         <div className="site-container">
-          <p className="eyebrow flex items-center gap-3 mb-7 md:mb-10"><span className="w-1.5 h-1.5 bg-primary" />Stockton, California · Est. 2011</p>
+          <p className="eyebrow flex items-center gap-3 mb-7 md:mb-10"><span className="w-1.5 h-1.5 bg-primary" />{site.address.city}, {site.address.regionName} · Est. {site.founded}</p>
           <h1 className="hero-wordmark mb-7 md:mb-10">Team Cama<span className="text-primary">.</span></h1>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div className="max-w-lg">
               <p className="font-editorial italic text-2xl md:text-3xl mb-4">Find your place on the mat.</p>
-              <p className="text-ink-muted leading-relaxed text-base">Brazilian Jiu-Jitsu, Muay Thai &amp; Taekwondo.<br className="hidden sm:block" /> Real training. A community that grows with you.</p>
+              <p className="text-ink-muted leading-relaxed text-base">Brazilian Jiu-Jitsu, Muay Thai &amp; Taekwondo in Stockton.<br className="hidden sm:block" /> Real training. A community that grows with you.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <TrialButton />
@@ -31,7 +40,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 md:mt-16 pt-5 border-t border-white/25 flex flex-wrap justify-between gap-3 text-[10px] md:text-xs tracking-widest uppercase text-ink-muted">
-            <span>Concepcion Academy of Martial Arts</span><span>8855 Thornton Rd · Stockton, CA</span>
+            <span>{site.name}</span><span>{site.address.street} · {site.address.city}, {site.address.region}</span>
           </div>
         </div>
       </section>
@@ -43,12 +52,12 @@ export default function Home() {
             <Link href="/classes#schedule" className="text-link self-start md:self-auto">View the weekly schedule <span aria-hidden="true">↗</span></Link>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {disciplines.map((item, i) => <Link key={item.id} href={`/classes#${item.id}`} className="group relative flex items-end min-h-[360px] sm:min-h-[420px] md:min-h-[380px] lg:min-h-[440px] border border-rule overflow-hidden bg-surface">
-              <Image src={`https://preblobaccount.blob.core.windows.net/prerecordedblob/${item.image}`} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale opacity-80 transition-[transform,filter,opacity] duration-700 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:grayscale-0 group-focus-visible:opacity-100 motion-safe:group-hover:scale-[1.04] motion-safe:group-focus-visible:scale-[1.04]" />
+            {disciplines.map((item, i) => <Link key={item.id} href={programPath(item.program)} className="group relative flex items-end min-h-[360px] sm:min-h-[420px] md:min-h-[380px] lg:min-h-[440px] border border-rule overflow-hidden bg-surface">
+              <Image src={imageUrl(item.image)} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale opacity-80 transition-[transform,filter,opacity] duration-700 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:grayscale-0 group-focus-visible:opacity-100 motion-safe:group-hover:scale-[1.04] motion-safe:group-focus-visible:scale-[1.04]" />
               <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-background via-background/55 via-35% to-transparent" />
               <span className="absolute top-4 left-4 bg-background/80 px-2 py-1 text-xs font-mono">0{i + 1}</span>
               <div className="relative w-full p-5 md:p-6 transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-safe:group-focus-visible:-translate-y-1">
-                <div className="flex justify-between gap-3 items-center"><h3 className="font-headline text-3xl lg:text-4xl font-semibold uppercase">{item.name}</h3><span className="text-primary text-2xl transition-transform duration-500 motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1" aria-hidden="true">↗</span></div>
+                <div className="flex justify-between gap-3 items-center"><h3 className="font-headline text-3xl lg:text-4xl font-semibold uppercase">{item.program.name}</h3><span className="text-primary text-2xl transition-transform duration-500 motion-safe:group-hover:translate-x-1 motion-safe:group-focus-visible:translate-x-1" aria-hidden="true">↗</span></div>
                 <p className="text-ink text-sm mt-3">{item.detail}</p>
               </div>
             </Link>)}
@@ -62,7 +71,7 @@ export default function Home() {
             {/* Account for the full landscape image behind the tall object-cover crop,
                 not just the visible column width, so faces stay sharp on Retina screens. */}
             <Image
-              src="https://preblobaccount.blob.core.windows.net/prerecordedblob/2024.jpg"
+              src={imageUrl("2024.jpg")}
               alt="The Team Cama community together at the Stockton gym"
               fill
               quality={90}

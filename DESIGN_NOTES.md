@@ -13,6 +13,7 @@ shorter mobile sections replace the dusty-pink treatment.
 - Responsive menu and shared native dialogs (focus containment, Escape, backdrop
   dismissal, and focus restoration). The former custom dialog hook was replaced.
 - Visible weekly schedule, one shared source for program data, and beginner FAQs.
+- Confirmed Taekwondo kids and adult times published on every schedule.
 - One shared inquiry form with program preselection, an explicitly labeled email
   draft action, copy fallback, and no false delivery claim.
 - Contact form before location information on mobile.
@@ -22,16 +23,48 @@ shorter mobile sections replace the dusty-pink treatment.
 - Instructor names, roles, photos, and existing biographies retained. Empty bios
   are simply omitted instead of displaying an unfinished notice.
 
+## SEO structure
+
+- Each discipline has its own indexable page under `/classes/<slug>`
+  (`brazilian-jiu-jitsu`, `muay-thai`, `taekwondo`), rendered from
+  `app/classes/[slug]/page.tsx` with the copy, schedule, coaches, photos, and
+  FAQ in `app/lib/programs.ts`. Taekwondo keeps the old site's exact path.
+- `app/lib/site.ts` is the single source of truth for the canonical origin
+  (`https://www.teamcama.com`), business name, address, phone, hours, and
+  socials. Every page, the footer, the sitemap, robots, and the JSON-LD read
+  from it. Keep it identical to the Google Business Profile.
+- `app/lib/redirects.ts` maps every URL from the old site's sitemap to its new
+  page. `next.config.ts` serves them as permanent (308) redirects. The test
+  suite fails if any old URL would 404.
+- `app/sitemap.ts` and `app/robots.ts` generate `/sitemap.xml` and `/robots.txt`.
+  Non-production Vercel deployments get `Disallow: /`.
+- Every page sets a canonical URL. The root layout renders a
+  `SportsActivityLocation` / `LocalBusiness` JSON-LD block; each discipline page
+  adds a `Service` block and breadcrumbs. Validate at
+  https://validator.schema.org after deploying.
+
+## Launch checklist
+
+1. Owner reviews the discipline page copy in `app/lib/programs.ts`.
+2. In Vercel, add `www.teamcama.com` and `teamcama.com`; set the bare domain to
+   redirect to `www`. Remove the stale `NEXT_PUBLIC_SITE_URL` variable.
+3. Point DNS at Vercel. Confirm `https://www.teamcama.com/classes/jiu-jitsu/`
+   reaches the Brazilian Jiu-Jitsu page with a 308.
+4. Set `CANONICAL_HOST_LIVE=1` in the Vercel project and redeploy so
+   `teamcamawebsite.vercel.app` redirects to the real domain.
+5. Verify the domain in Google Search Console (DNS record), submit
+   `https://www.teamcama.com/sitemap.xml`, and request indexing for the home
+   page and the three discipline pages.
+6. Google Business Profile: keep the primary category, add the most specific
+   secondary categories available for Jiu-Jitsu, Muay Thai / kickboxing, and
+   Taekwondo, add each program as a service linking to its page, and upload
+   discipline-specific photos.
+
 ## Still needs owner input before launch
 
-- Confirm Taekwondo times. The detailed sessions were retained from the prior
-  schedule and are explicitly labeled for confirmation; contradictory summary
-  times were removed.
 - Supply remaining instructor biographies and a portrait for Jay.
 - Configure an email delivery provider if inquiries should send within the site.
   Until then, the form only prepares an email draft.
-- Set NEXT_PUBLIC_SITE_URL to the real public origin before production deployment
-  so social-preview image URLs use that origin. The local trial uses localhost.
 - Nothing has been published or pushed.
 
 ## Generated social card
@@ -47,6 +80,7 @@ additional text.
 
 ## Checks
 
-Run npm test for draft encoding, shared schedule data, and text contrast.
+Run npm test for draft encoding, shared schedule data, discipline page metadata,
+legacy redirect coverage, and text contrast.
 Run npm run lint and npm run build for application checks.
 This implementation pass did not include a fresh browser interaction test.

@@ -22,9 +22,9 @@ const journeyData = [
   },
   {
     year: "2016",
-      label: "Thornton Avenue, 8909",
+      label: "Thornton Road, 8909",
     description:
-      "In 2016 we took another step forward and moved to Thornton Avenue. With upgraded mats and better equipment, we elevated our training experience while staying true to the same hard work, respect, and intensity that built our foundation.",
+      "In 2016 we took another step forward and moved to Thornton Road. With upgraded mats and better equipment, we elevated our training experience while staying true to the same hard work, respect, and intensity that built our foundation.",
     image:
       "https://preblobaccount.blob.core.windows.net/prerecordedblob/2016.jpg",
   },

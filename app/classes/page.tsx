@@ -6,11 +6,12 @@ import Footer from "../components/Footer";
 import TrialButton from "../components/TrialButton";
 import ClassSchedule from "../components/ClassSchedule";
 import FirstVisit from "../components/FirstVisit";
-import { programs } from "../lib/programs";
+import { imageUrl, programPath, programs } from "../lib/programs";
 
 export const metadata: Metadata = {
   title: "Classes & Schedule",
   description: "Explore Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo classes at Team Cama in Stockton. Find your program, see the weekly schedule, and try a free first class.",
+  alternates: { canonical: "/classes" },
 };
 
 export default function Classes() {
@@ -25,24 +26,29 @@ export default function Classes() {
             <p className="text-ink-muted text-lg leading-relaxed max-w-xl">Strong fundamentals. Purposeful training. Three ways to challenge yourself—and one team in your corner.</p>
             <div className="flex flex-col sm:flex-row gap-3"><TrialButton /><Link href="#schedule" className="btn btn-secondary">Weekly schedule <span aria-hidden="true">↓</span></Link></div>
           </div>
-          <nav aria-label="Jump to program" className="flex flex-wrap gap-x-7 gap-y-2 mt-9">{programs.map(program => <Link key={program.id} href={`#${program.id}`} className="text-link">{program.name}<span aria-hidden="true">↓</span></Link>)}</nav>
+          <nav aria-label="Programs" className="flex flex-wrap gap-x-7 gap-y-2 mt-9">{programs.map(program => <Link key={program.id} href={programPath(program)} className="text-link">{program.name}<span aria-hidden="true">↗</span></Link>)}</nav>
         </div>
       </section>
       <section className="section-space">
         <div className="site-container space-y-16 md:space-y-24">
           {programs.map((program, i) => <article id={program.id} key={program.id} className="grid md:grid-cols-2 gap-7 md:gap-12 lg:gap-20 items-center">
             <figure className={`relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden bg-surface ${i % 2 === 1 ? "md:order-2" : ""}`}>
-              <Image src={`https://preblobaccount.blob.core.windows.net/prerecordedblob/${program.image}`} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={i === 0 ? "eager" : "lazy"} className="object-cover" />
-              <figcaption className="absolute bottom-4 left-4 text-xs bg-background/90 text-ink px-3 py-2">{program.caption} / Team Cama</figcaption>
+              <Link href={programPath(program)} aria-label={`${program.name} program details`} className="block absolute inset-0">
+                <Image src={imageUrl(program.image)} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={i === 0 ? "eager" : "lazy"} className="object-cover" />
+              </Link>
+              <figcaption className="absolute bottom-4 left-4 text-xs bg-background/90 text-ink px-3 py-2 pointer-events-none">{program.caption} / Team Cama</figcaption>
             </figure>
             <div>
               <p className="eyebrow text-primary mb-3">0{i + 1} / {program.focus}</p>
-              <h2 className="section-heading mb-5">{program.name}</h2>
+              <h2 className="section-heading mb-5"><Link href={programPath(program)} className="hover:text-primary transition-colors">{program.name}</Link></h2>
               <p className="text-ink-muted text-base leading-relaxed mb-6">{program.description}</p>
               <div className="border-y border-rule py-4 mb-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-                <span>{program.days}</span><span className="text-ink-muted">{program.id === "taekwondo" ? "Kids & adults" : "All levels welcome"}</span>
+                <span>{program.days}</span><span className="text-ink-muted">{program.audience}</span>
               </div>
-              <TrialButton program={program.name}>Try {program.name === "Brazilian Jiu-Jitsu" ? "Jiu-Jitsu" : program.name}</TrialButton>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-x-7 gap-y-3">
+                <TrialButton program={program.name}>Try {program.shortName}</TrialButton>
+                <Link href={programPath(program)} className="text-link">{program.shortName} in Stockton <span aria-hidden="true">↗</span></Link>
+              </div>
             </div>
           </article>)}
         </div>

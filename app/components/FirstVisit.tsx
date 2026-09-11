@@ -1,4 +1,4 @@
-const questions = [
+const defaultQuestions: [string, string][] = [
   ["Do I need experience?", "No experience is needed to get started. Our programs welcome beginners as well as experienced students. Tell us where you are starting and which class interests you."],
   ["Which class is right for me?", "Brazilian Jiu-Jitsu focuses on grappling and ground control. Muay Thai is striking and conditioning. Taekwondo develops kicking, balance, and confidence, with separate kids and adult sessions."],
   ["What should I bring?", "Ask us about clothing and equipment for your chosen class when you arrange your visit. Let us know if you do not have training gear yet."],
@@ -6,10 +6,18 @@ const questions = [
   ["How much does training cost?", "Your first class is free. Contact us for current membership pricing and the options for your chosen program."],
 ];
 
-export default function FirstVisit() {
+export default function FirstVisit({
+  questions = defaultQuestions,
+  eyebrow = "Before you step on the mat",
+  heading = <>New here?<br />Start here.</>,
+}: {
+  questions?: [string, string][];
+  eyebrow?: string;
+  heading?: React.ReactNode;
+}) {
   return <section className="section-space border-t border-rule">
     <div className="site-container grid lg:grid-cols-[1fr_1.3fr] gap-8 lg:gap-20">
-      <div><p className="eyebrow text-primary mb-4">Before you step on the mat</p><h2 className="section-heading">New here?<br />Start here.</h2></div>
+      <div><p className="eyebrow text-primary mb-4">{eyebrow}</p><h2 className="section-heading">{heading}</h2></div>
       <div className="border-t border-rule">
         {questions.map(([question, answer]) => <details key={question} className="faq-row border-b border-rule">
           <summary className="flex items-center justify-between gap-6 py-5 font-medium text-base"><span>{question}</span><span aria-hidden="true" className="faq-plus text-primary text-2xl transition-transform">+</span></summary>

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Serif, Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import JsonLd from "./components/JsonLd";
+import { businessSchema } from "./lib/schema";
+import { site } from "./lib/site";
 
 const notoSerif = Noto_Serif({
   variable: "--font-noto-serif",
@@ -23,12 +26,20 @@ const display = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: { default: "Team Cama | Martial Arts in Stockton, CA", template: "%s | Team Cama" },
-  description: "Train Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo at Concepcion Academy of Martial Arts in Stockton. A community built on the mat since 2011. Try your first class free.",
+  // Hard-coded canonical origin. An env var here once produced localhost URLs in production.
+  metadataBase: new URL(site.url),
+  title: { default: "Team Cama | Brazilian Jiu-Jitsu, Muay Thai & Taekwondo in Stockton, CA", template: "%s | Team Cama" },
+  description: site.description,
+  applicationName: site.shortName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
   openGraph: {
     type: "website",
-    siteName: "Team Cama",
+    locale: "en_US",
+    siteName: site.shortName,
     title: "Team Cama | Martial Arts in Stockton",
     description: "Brazilian Jiu-Jitsu, Muay Thai, and Taekwondo. A community built on the mat since 2011.",
     images: [{ url: "/og.png", alt: "Team Cama — Brazilian Jiu-Jitsu, Muay Thai, Taekwondo. Stockton, California. Est. 2011." }],
@@ -52,6 +63,7 @@ export default function RootLayout({
       className={`${notoSerif.variable} ${inter.variable} ${display.variable} dark`}
     >
       <body className="bg-background text-on-surface font-body selection:bg-primary selection:text-white antialiased">
+        <JsonLd data={businessSchema()} />
         <a className="skip-link" href="#main">Skip to content</a>
         {children}
       </body>

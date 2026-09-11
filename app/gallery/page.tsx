@@ -7,6 +7,7 @@ import TrialButton from "../components/TrialButton";
 export const metadata: Metadata = {
   title: "Gallery",
   description: "Training, competition, and the people who make Team Cama. Explore photographs from our Stockton martial arts community since 2011.",
+  alternates: { canonical: "/gallery" },
 };
 
 export default function Gallery() {

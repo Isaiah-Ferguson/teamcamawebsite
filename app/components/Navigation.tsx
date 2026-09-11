@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Dialog from "./Dialog";
+import { site } from "../lib/site";
 
 const links = [
   { href: "/", label: "Home" },
@@ -36,7 +37,7 @@ export default function Navigation() {
     {open && <Dialog title="Explore Team Cama" onClose={() => setOpen(false)}>
       <nav aria-label="Mobile navigation" className="p-6">
         {links.map(({ href, label }, i) => <Link key={href} href={href} onClick={() => setOpen(false)} aria-current={pathname === href ? "page" : undefined} className={`flex items-center justify-between border-b border-rule py-4 font-headline text-3xl uppercase ${pathname === href ? "text-primary" : "text-ink"}`}><span>{label}</span><span className="font-body text-xs text-ink-subtle">0{i + 1}</span></Link>)}
-        <p className="text-sm text-ink-muted mt-6">8855 Thornton Rd Suite B<br />Stockton, California</p>
+        <p className="text-sm text-ink-muted mt-6">{site.address.street}<br />{site.address.city}, {site.address.regionName}</p>
       </nav>
     </Dialog>}
   </header>;

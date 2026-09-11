@@ -1,55 +1,149 @@
+export type ProgramId = "bjj" | "muay-thai" | "taekwondo";
+
 export type Program = {
-  id: string;
+  id: ProgramId;
+  /** URL segment under /classes. Taekwondo keeps the old site's exact path. */
+  slug: string;
   name: string;
+  shortName: string;
+  /** Other names people search for, e.g. "Kickboxing" for Muay Thai. */
+  aliases: string[];
+  headline: string;
   description: string;
   focus: string;
   image: string;
   alt: string;
   caption: string;
   days: string;
+  audience: string;
   summary: string[];
   schedule: { day: string; time: string; group: string }[];
-  confirmTimes?: boolean;
+  seo: { title: string; description: string };
+  intro: string[];
+  highlights: string[];
+  faq: [string, string][];
+  photos: { image: string; alt: string }[];
 };
 
-// Existing detailed schedule retained. Taekwondo times need owner confirmation:
-// the previous class summary conflicted with these individual sessions.
+export const imageBase = "https://preblobaccount.blob.core.windows.net/prerecordedblob/";
+
+export function imageUrl(name: string) {
+  return name.startsWith("http") ? name : imageBase + name;
+}
+
+export function programPath(program: Pick<Program, "slug">) {
+  return `/classes/${program.slug}`;
+}
+
+// Draft page copy is grounded in the coach biographies and existing site text.
+// Owner should review wording before launch; no claims here go beyond what the
+// About page already states.
 export const programs: Program[] = [
   {
     id: "bjj",
+    slug: "brazilian-jiu-jitsu",
     name: "Brazilian Jiu-Jitsu",
+    shortName: "Jiu-Jitsu",
+    aliases: ["BJJ", "Jiu-Jitsu"],
+    headline: "Technique over strength.",
     description: "Technique over strength. Learn efficient, leverage-based control, takedowns, escapes, and self-defense. Build a strong foundation on the ground, whether you are stepping onto the mat for the first time or refining your game.",
     focus: "Grappling & ground control",
     image: "1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg",
     alt: "Thomas Bunn training Brazilian Jiu-Jitsu at Team Cama",
     caption: "Thomas Bunn",
     days: "Mon, Wed, Fri",
+    audience: "All levels welcome",
     summary: ["Mon, Wed, Fri · 5:30–7:15 PM"],
     schedule: [{ day: "Mon, Wed, Fri", time: "5:30–7:15 PM", group: "All levels" }],
+    seo: {
+      title: "Brazilian Jiu-Jitsu in Stockton, CA",
+      description: "Brazilian Jiu-Jitsu classes in Stockton, CA. Black belt instruction in the Charles Gracie lineage, Mon, Wed & Fri evenings at 8855 Thornton Rd. First class free.",
+    },
+    intro: [
+      "Brazilian Jiu-Jitsu at Team Cama is grappling built on leverage, position, and timing rather than size or strength. Classes cover takedowns, guard, passing, escapes, and submissions, with self-defense fundamentals at the core of everything we teach.",
+      "The program is led by head instructor Louie Concepcion, a Brazilian Jiu-Jitsu black belt under Charles Gracie, together with black belts Angelo Garcia and Isaiah Ferguson, both of whom have trained with Louie since 2009. Our instructors train and teach in both the gi and no-gi.",
+      "Classes run Monday, Wednesday, and Friday evenings at our gym on Thornton Road in Stockton. Beginners train alongside experienced students, and your first class is free.",
+    ],
+    highlights: [
+      "Takedowns and standing grappling",
+      "Guard, guard passing, and positional control",
+      "Escapes, transitions, and submissions",
+      "Self-defense fundamentals",
+      "Gi and no-gi training",
+      "Live training matched to your experience level",
+    ],
+    faq: [
+      ["Do I need to be in shape before I start?", "No. Jiu-Jitsu is built around technique and leverage, and conditioning comes with consistent training. Tell us you are new and we will pair you with the right training partners."],
+      ["Do I need a gi for my first class?", "Not for your free first class. Wear comfortable athletic clothing, and ask us about gi requirements when you arrange your visit."],
+      ["Is there a kids Jiu-Jitsu class?", "The evening class listed above is our adult program. Contact us about age eligibility for younger students, and see our Taekwondo program for dedicated kids sessions."],
+      ["What lineage does Team Cama teach?", "Head instructor Louie Concepcion is a black belt under Charles Gracie. Angelo Garcia and Isaiah Ferguson are black belts who have trained with Louie since 2009."],
+    ],
+    photos: [
+      { image: "DCS_3602.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
+      { image: "IsaiahAngelo.jpg", alt: "Isaiah Ferguson and Angelo Garcia at a Jiu-Jitsu competition" },
+      { image: "Adniel.jpg", alt: "Team Cama Brazilian Jiu-Jitsu black belt Adniel" },
+    ],
   },
   {
     id: "muay-thai",
+    slug: "muay-thai",
     name: "Muay Thai",
+    shortName: "Muay Thai",
+    aliases: ["Kickboxing", "Thai boxing"],
+    headline: "The art of eight limbs.",
     description: "The art of eight limbs. Develop punches, kicks, knees, and elbows with purposeful training in striking, defense, and conditioning. Find your rhythm, sharpen your technique, and keep getting better.",
     focus: "Striking & conditioning",
     image: "1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg",
     alt: "Christian Orellana training Muay Thai at Team Cama",
     caption: "Christian Orellana",
     days: "Mon, Wed, Fri",
+    audience: "All levels welcome",
     summary: ["Mon, Wed, Fri · 7:15–8:15 PM"],
     schedule: [{ day: "Mon, Wed, Fri", time: "7:15–8:15 PM", group: "All levels" }],
+    seo: {
+      title: "Muay Thai & Kickboxing in Stockton, CA",
+      description: "Muay Thai and kickboxing classes in Stockton, CA. Learn punches, kicks, knees, and elbows, Mon, Wed & Fri evenings at 8855 Thornton Rd. First class free.",
+    },
+    intro: [
+      "Muay Thai is the art of eight limbs: punches, kicks, knees, and elbows. Classes at Team Cama build striking technique, defense, footwork, and conditioning through pad work, drilling, and partner training, so you leave each session sharper than you arrived.",
+      "The program is coached by Isaiah Ferguson, who has trained Muay Thai and Jiu-Jitsu under Louie Concepcion since 2009 and has competed in kickboxing, alongside Louie himself, whose background includes kickboxing, Filipino Martial Arts, and Jeet Kune Do Concepts.",
+      "Classes run Monday, Wednesday, and Friday evenings, directly after Brazilian Jiu-Jitsu, at our gym on Thornton Road in Stockton. Whether you want kickboxing for fitness or a striking base for competition, your first class is free.",
+    ],
+    highlights: [
+      "Punches, kicks, knees, and elbows",
+      "Clinch work and defense",
+      "Footwork, rhythm, and distance",
+      "Pad work and partner drills",
+      "Conditioning built into every class",
+      "Fitness-focused or competition-focused training",
+    ],
+    faq: [
+      ["Is this Muay Thai or kickboxing?", "Both. We teach Muay Thai, which includes the punches and kicks of kickboxing plus knees, elbows, and the clinch. If you searched for kickboxing in Stockton, this is the class."],
+      ["Do I have to spar?", "Beginners start with technique, pad work, and drills. Talk with your coach about when and whether sparring fits your goals."],
+      ["What gear do I need?", "Nothing for your free first class beyond athletic clothing. Ask us about gloves, wraps, and shin guards when you arrange your visit."],
+      ["Can I train Muay Thai and Jiu-Jitsu?", "Yes. The two classes run back to back on the same evenings, so it is easy to train both."],
+    ],
+    photos: [
+      { image: "1774454118059-AllieWinston.f34e2d843f6ffea4ff03.jpg", alt: "Allie Winston training Muay Thai at Team Cama" },
+      { image: "1774454170311-mt.af299f34191e0ac632da.jpg", alt: "Team Cama Muay Thai class group photo" },
+      { image: "DCS_2379.jpg", alt: "Team Cama Muay Thai athletes at a competition" },
+    ],
   },
   {
     id: "taekwondo",
+    slug: "taekwondo",
     name: "Taekwondo",
+    shortName: "Taekwondo",
+    aliases: ["TKD", "Tae Kwon Do"],
+    headline: "Confidence in motion.",
     description: "Confidence in motion. A Korean martial art centered on dynamic kicking, striking, and blocking. Children and adults develop balance, speed, and flexibility alongside courtesy, perseverance, and self-control.",
     focus: "Kicking, balance & confidence",
     image: "1774454188428-Sammy1.d8998c22e6dc126eb917.jpg",
     alt: "Samantha Espinosa practicing Taekwondo at Team Cama",
     caption: "Samantha Espinosa",
     days: "Tue, Thu, Sat",
-    summary: ["Tue, Thu & Sat · Kids and adults", "Contact us to confirm your class time"],
-    confirmTimes: true,
+    audience: "Kids & adults",
+    summary: ["Tue, Thu · Kids 5:15–6:45 PM · Adults 7:00–8:00 PM", "Sat · Kids 9:30–10:15 AM · Adults 10:30–11:30 AM"],
     schedule: [
       { day: "Tue, Thu", time: "5:15–6:00 PM", group: "Kids · intermediate / advanced" },
       { day: "Tue, Thu", time: "6:00–6:45 PM", group: "Kids · beginner" },
@@ -57,7 +151,33 @@ export const programs: Program[] = [
       { day: "Sat", time: "9:30–10:15 AM", group: "Kids · all levels" },
       { day: "Sat", time: "10:30–11:30 AM", group: "Adults · ages 12 and up" },
     ],
+    seo: {
+      title: "Taekwondo in Stockton, CA",
+      description: "Taekwondo classes for kids and adults in Stockton, CA. Kukkiwon-certified black belt instruction, Tue, Thu & Sat at 8855 Thornton Rd. First class free.",
+    },
+    intro: [
+      "Taekwondo is a Korean martial art centered on dynamic kicking, striking, and blocking. At Team Cama, children and adults develop balance, speed, and flexibility while practicing the courtesy, perseverance, and self-control the art is built on.",
+      "Head instructor Louie Concepcion holds a 3rd Dan black belt certified by the Kukkiwon, with a background in both traditional and Olympic-style Taekwondo. Instructors Samantha Espinosa, Christian White, and Jay lead the kids and adult sessions.",
+      "Kids classes are grouped by experience level on Tuesday and Thursday evenings, with an all-levels class on Saturday morning. Adult classes, for ages 12 and up, run Tuesday and Thursday evenings and Saturday mornings. Your first class is free.",
+    ],
+    highlights: [
+      "Kicking technique, speed, and flexibility",
+      "Blocks, strikes, and stances",
+      "Forms and belt progression",
+      "Balance, coordination, and focus",
+      "Separate kids and adult sessions",
+      "Courtesy, perseverance, and self-control",
+    ],
+    faq: [
+      ["What age can my child start?", "Kids sessions are grouped by experience level, from beginners to intermediate and advanced students. Contact us about the right group and starting age for your child."],
+      ["Are there Taekwondo classes for adults?", "Yes. Adult sessions are for ages 12 and up and run Tuesday and Thursday evenings and Saturday mornings."],
+      ["Do students test for belts?", "Yes. Students progress through belt ranks at the academy. Ask us about testing when you visit."],
+      ["Which class should I attend first?", "Tell us your age and experience when you arrange your visit and we will point you to the right session. Beginners are welcome in every group."],
+    ],
+    photos: [
+      { image: "1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg", alt: "Samantha Espinosa practicing a Taekwondo kick" },
+      { image: "sammy.jpg", alt: "Samantha Espinosa, Taekwondo instructor at Team Cama" },
+      { image: "1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg", alt: "Students and instructors together on the mats at Team Cama" },
+    ],
   },
 ];
-
-export const mapsUrl = "https://www.google.com/maps/search/?api=1&query=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209";

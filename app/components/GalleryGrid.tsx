@@ -26,7 +26,7 @@ const galleryItems: GalleryItem[] = [
   { id: 9, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/CamaEvent.jpg", alt: "Team Cama gathering", category: "events", year: "2022" },
   { id: 10, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/1774454170311-mt.af299f34191e0ac632da.jpg", alt: "Muay Thai class group", category: "team", year: "2021" },
   { id: 11, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/AllieComp.jpg", alt: "Allie at competition", category: "competition", year: "2024" },
-  { id: 12, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/2024.jpg", alt: "Team photo at the current Thornton Avenue gym", category: "team", year: "2024" },
+  { id: 12, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/2024.jpg", alt: "Team photo at the current Thornton Road gym", category: "team", year: "2024" },
   { id: 13, src: "https://preblobaccount.blob.core.windows.net/prerecordedblob/Adniel.jpg", alt: "Black belt Adniel", category: "black belts", year: "2015" },
 ];
 
