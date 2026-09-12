@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import ts from "typescript";
 
@@ -18,6 +18,8 @@ const { makeContactDraft, contactEmail } = await loadModule("../app/lib/contact.
 const { programs, programPath } = await loadModule("../app/lib/programs.ts");
 const { instructors } = await loadModule("../app/lib/instructors.ts");
 const { legacyRedirects } = await loadModule("../app/lib/redirects.ts");
+const { journey } = await loadModule("../app/lib/journey.ts");
+const { parseGalleryFilename, captions, sortGallery } = await loadModule("../app/lib/gallery.ts");
 
 test("inquiry links target the academy and preserve the selected program", () => {
   const draft = makeContactDraft({ name: " New Student ", email: " student@example.com ", program: "Muay Thai", message: " First class " });
@@ -114,6 +116,39 @@ test("every URL Google indexed on the old site lands on a real page", () => {
     const redirect = legacyRedirects.find(item => item.source === normalized);
     const destination = redirect ? redirect.destination : normalized;
     assert.ok(routeExists(destination), `${path} would 404 on the new site`);
+  }
+});
+
+test("gallery filenames carry the year, category, and caption", () => {
+  assert.deepEqual(parseGalleryFilename("2024-competition-allie-winston.jpg"), { src: "/images/gallery/2024-competition-allie-winston.jpg", alt: captions["2024-competition-allie-winston.jpg"], category: "competition", year: "2024" });
+  assert.deepEqual(parseGalleryFilename("team-open-mat-friday.jpg"), { src: "/images/gallery/team-open-mat-friday.jpg", alt: "Open mat friday", category: "team", year: undefined });
+  assert.equal(parseGalleryFilename("2015-black-belts-adniel.jpg").category, "black-belts");
+  assert.equal(parseGalleryFilename("IMG_4021.jpg"), null);
+  assert.equal(parseGalleryFilename("2024-podium-allie.jpg"), null, "unknown category");
+  const sorted = sortGallery([parseGalleryFilename("team-b.jpg"), parseGalleryFilename("2011-team-a.jpg"), parseGalleryFilename("2024-team-c.jpg")]);
+  assert.deepEqual(sorted.map(item => item.src.split("/").pop()), ["2024-team-c.jpg", "2011-team-a.jpg", "team-b.jpg"]);
+});
+
+const galleryDir = new URL("../public/images/gallery/", import.meta.url);
+
+test("every photo in the gallery folder follows the naming convention", () => {
+  const files = readdirSync(galleryDir).filter(file => /\.(jpe?g|png|webp|avif)$/i.test(file));
+  assert.ok(files.length >= 20, "gallery folder looks empty");
+  for (const file of files) assert.ok(parseGalleryFilename(file), `${file} does not match [YYYY-]<category>-<description>`);
+  for (const file of Object.keys(captions)) assert.ok(existsSync(new URL(file, galleryDir)), `caption for missing file ${file}`);
+});
+
+test("every image the site references exists in public/", async () => {
+  const referenced = new Set();
+  for (const program of programs) { referenced.add(program.image); for (const photo of program.photos) referenced.add(photo.image); }
+  for (const person of instructors) referenced.add(person.image);
+  for (const era of journey) referenced.add(era.image);
+  const pages = ["../app/page.tsx", "../app/about/page.tsx", "../app/layout.tsx", "../app/components/Footer.tsx", "../app/components/Navigation.tsx"];
+  for (const page of pages) for (const match of (await readFile(new URL(page, import.meta.url), "utf8")).matchAll(/"(\/(?:images|[^"\/]+\.(?:png|jpe?g|svg)))[^"]*"/g)) referenced.add(match[1]);
+  assert.ok(referenced.size >= 20, "expected more image references");
+  for (const src of referenced) {
+    assert.match(src, /^\/[A-Za-z0-9\/.-]+$/, `${src} should be a local path, not a remote URL`);
+    assert.ok(existsSync(new URL(`../public${src}`, import.meta.url)), `${src} is referenced but missing from public/`);
   }
 });
 

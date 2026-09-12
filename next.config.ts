@@ -4,18 +4,8 @@ import { site } from "./app/lib/site";
 
 const nextConfig: NextConfig = {
   images: {
+    // All photos are served from public/images; no remote hosts are needed.
     qualities: [75, 90],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'preblobaccount.blob.core.windows.net',
-        pathname: '/prerecordedblob/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-    ],
   },
   async redirects() {
     // Once www.teamcama.com points at Vercel, set CANONICAL_HOST_LIVE=1 in the Vercel

@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import TrialButton from "../../components/TrialButton";
 import FirstVisit from "../../components/FirstVisit";
 import JsonLd from "../../components/JsonLd";
-import { imageUrl, programPath, programs } from "../../lib/programs";
+import { programPath, programs } from "../../lib/programs";
 import { instructorsFor, introduction } from "../../lib/instructors";
 import { mapsUrl, site } from "../../lib/site";
 import { breadcrumbSchema, programSchema } from "../../lib/schema";
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${program.seo.title} | ${site.shortName}`,
       description: program.seo.description,
       url: path,
-      images: [{ url: imageUrl(program.image), alt: program.alt }],
+      images: [{ url: program.image, alt: program.alt }],
     },
-    twitter: { title: `${program.seo.title} | ${site.shortName}`, description: program.seo.description, images: [imageUrl(program.image)] },
+    twitter: { title: `${program.seo.title} | ${site.shortName}`, description: program.seo.description, images: [program.image] },
   };
 }
 
@@ -80,7 +80,7 @@ export default async function ProgramPage({ params }: Props) {
       <section className="section-space">
         <div className="site-container grid md:grid-cols-2 gap-7 md:gap-12 lg:gap-20 items-start">
           <figure className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden bg-surface md:sticky md:top-28">
-            <Image src={imageUrl(program.image)} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" priority className="object-cover" />
+            <Image src={program.image} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" priority className="object-cover" />
             <figcaption className="absolute bottom-4 left-4 text-xs bg-background/90 text-ink px-3 py-2">{program.caption} / Team Cama</figcaption>
           </figure>
           <div>
@@ -142,7 +142,7 @@ export default async function ProgramPage({ params }: Props) {
           </div>
           <ul className="grid sm:grid-cols-3 gap-4 md:gap-6">
             {program.photos.map(photo => <li key={photo.image} className="relative aspect-[4/5] overflow-hidden bg-surface-3">
-              <Image src={imageUrl(photo.image)} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
+              <Image src={photo.image} alt={photo.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
             </li>)}
           </ul>
         </div>

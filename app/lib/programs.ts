@@ -11,6 +11,7 @@ export type Program = {
   headline: string;
   description: string;
   focus: string;
+  /** Public path of the hero photo, e.g. /images/programs/muay-thai.jpg */
   image: string;
   alt: string;
   caption: string;
@@ -24,12 +25,6 @@ export type Program = {
   faq: [string, string][];
   photos: { image: string; alt: string }[];
 };
-
-export const imageBase = "https://preblobaccount.blob.core.windows.net/prerecordedblob/";
-
-export function imageUrl(name: string) {
-  return name.startsWith("http") ? name : imageBase + name;
-}
 
 export function programPath(program: Pick<Program, "slug">) {
   return `/classes/${program.slug}`;
@@ -48,7 +43,7 @@ export const programs: Program[] = [
     headline: "Technique over strength.",
     description: "Technique over strength. Learn efficient, leverage-based control, takedowns, escapes, and self-defense. Build a strong foundation on the ground, whether you are stepping onto the mat for the first time or refining your game.",
     focus: "Grappling & ground control",
-    image: "1774454215444-Triangle.04145b8e064b2a6d1bdf.jpg",
+    image: "/images/programs/brazilian-jiu-jitsu.jpg",
     alt: "Thomas Bunn training Brazilian Jiu-Jitsu at Team Cama",
     caption: "Thomas Bunn",
     days: "Mon, Wed, Fri",
@@ -79,9 +74,9 @@ export const programs: Program[] = [
       ["What lineage does Team Cama teach?", "Head instructor Louie Concepcion is a black belt under Charles Gracie. Angelo Garcia and Isaiah Ferguson are black belts who have trained with Louie since 2009."],
     ],
     photos: [
-      { image: "DCS_3602.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
-      { image: "IsaiahAngelo.jpg", alt: "Isaiah Ferguson and Angelo Garcia at a Jiu-Jitsu competition" },
-      { image: "Adniel.jpg", alt: "Team Cama Brazilian Jiu-Jitsu black belt Adniel" },
+      { image: "/images/gallery/training-instructors-on-the-mat.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
+      { image: "/images/gallery/2012-competition-isaiah-angelo.jpg", alt: "Isaiah Ferguson and Angelo Garcia at a Jiu-Jitsu tournament" },
+      { image: "/images/gallery/2022-training-allie-winston-no-gi.jpg", alt: "Allie Winston training no-gi Brazilian Jiu-Jitsu" },
     ],
   },
   {
@@ -93,7 +88,7 @@ export const programs: Program[] = [
     headline: "The art of eight limbs.",
     description: "The art of eight limbs. Develop punches, kicks, knees, and elbows with purposeful training in striking, defense, and conditioning. Find your rhythm, sharpen your technique, and keep getting better.",
     focus: "Striking & conditioning",
-    image: "1774454132127-ChristionKnee.62b6231fcf1572e449cb.jpg",
+    image: "/images/programs/muay-thai.jpg",
     alt: "Christian Orellana training Muay Thai at Team Cama",
     caption: "Christian Orellana",
     days: "Mon, Wed, Fri",
@@ -124,9 +119,9 @@ export const programs: Program[] = [
       ["Can I train Muay Thai and Jiu-Jitsu?", "Yes. The two classes run back to back on the same evenings, so it is easy to train both."],
     ],
     photos: [
-      { image: "1774454118059-AllieWinston.f34e2d843f6ffea4ff03.jpg", alt: "Allie Winston training Muay Thai at Team Cama" },
-      { image: "1774454170311-mt.af299f34191e0ac632da.jpg", alt: "Team Cama Muay Thai class group photo" },
-      { image: "DCS_2379.jpg", alt: "Team Cama Muay Thai athletes at a competition" },
+      { image: "/images/gallery/competition-arath-muay-thai-fight.jpg", alt: "Arath fighting Muay Thai for Team Cama" },
+      { image: "/images/gallery/2021-team-muay-thai-class.jpg", alt: "Team Cama Muay Thai class group photo" },
+      { image: "/images/gallery/training-christian-muay-thai-kick.jpg", alt: "Christian drilling kicks on the pads" },
     ],
   },
   {
@@ -138,7 +133,7 @@ export const programs: Program[] = [
     headline: "Confidence in motion.",
     description: "Confidence in motion. A Korean martial art centered on dynamic kicking, striking, and blocking. Children and adults develop balance, speed, and flexibility alongside courtesy, perseverance, and self-control.",
     focus: "Kicking, balance & confidence",
-    image: "1774454188428-Sammy1.d8998c22e6dc126eb917.jpg",
+    image: "/images/programs/taekwondo.jpg",
     alt: "Samantha Espinosa practicing Taekwondo at Team Cama",
     caption: "Samantha Espinosa",
     days: "Tue, Thu, Sat",
@@ -175,9 +170,9 @@ export const programs: Program[] = [
       ["Which class should I attend first?", "Tell us your age and experience when you arrange your visit and we will point you to the right session. Beginners are welcome in every group."],
     ],
     photos: [
-      { image: "1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg", alt: "Samantha Espinosa practicing a Taekwondo kick" },
-      { image: "sammy.jpg", alt: "Samantha Espinosa, Taekwondo instructor at Team Cama" },
-      { image: "1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg", alt: "Students and instructors together on the mats at Team Cama" },
+      { image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Espinosa demonstrating a Taekwondo kick" },
+      { image: "/images/gallery/2011-training-san-juan-kids-taekwondo.jpg", alt: "Kids Taekwondo class at San Juan Avenue" },
+      { image: "/images/gallery/2011-team-san-juan-taekwondo-group.jpg", alt: "Early Team Cama Taekwondo group photo" },
     ],
   },
 ];

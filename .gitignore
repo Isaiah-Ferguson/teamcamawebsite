@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# full-size photo sources; the web-sized copies live in public/images
+/originals

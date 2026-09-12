@@ -1,5 +1,5 @@
 import { absoluteUrl, mapsUrl, openingHours, site } from "./site";
-import { imageUrl, programPath, programs, type Program } from "./programs";
+import { programPath, programs, type Program } from "./programs";
 
 const businessId = `${site.url}/#business`;
 const city = { "@type": "City", name: site.address.city };
@@ -13,7 +13,7 @@ function serviceNode(program: Program) {
     serviceType: program.name,
     description: program.seo.description,
     url: absoluteUrl(programPath(program)),
-    image: imageUrl(program.image),
+    image: absoluteUrl(program.image),
     provider: { "@id": businessId },
     areaServed: city,
     audience: { "@type": "Audience", audienceType: program.audience },

@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import TrialButton from "./components/TrialButton";
 import Link from "next/link";
 import Image from "next/image";
-import { imageUrl, programPath, programs, type ProgramId } from "./lib/programs";
+import { programPath, programs, type ProgramId } from "./lib/programs";
 import { site } from "./lib/site";
 
 export const metadata: Metadata = {
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 const cards: { id: ProgramId; detail: string; image: string; alt: string }[] = [
-  { id: "bjj", detail: "Technique. Leverage. Control.", image: "DCS_3602.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
-  { id: "muay-thai", detail: "Eight limbs. Endless possibility.", image: "DCS_2379.jpg", alt: "Team Cama Muay Thai athletes at a competition" },
-  { id: "taekwondo", detail: "Build confidence, one kick at a time.", image: "1774454195728-Sammy2.deb1fd8fc4bd4fb9e99b.jpg", alt: "Samantha practicing a Taekwondo kick" },
+  { id: "bjj", detail: "Technique. Leverage. Control.", image: "/images/gallery/training-instructors-on-the-mat.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
+  { id: "muay-thai", detail: "Eight limbs. Endless possibility.", image: "/images/gallery/competition-arath-muay-thai-fight.jpg", alt: "Arath fighting Muay Thai for Team Cama" },
+  { id: "taekwondo", detail: "Build confidence, one kick at a time.", image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Espinosa demonstrating a Taekwondo kick" },
 ];
 
 const disciplines = cards.map(card => ({ ...card, program: programs.find(program => program.id === card.id)! }));
@@ -24,7 +24,7 @@ export default function Home() {
     <Navigation />
     <main id="main" tabIndex={-1}>
       <section className="relative isolate overflow-hidden min-h-[min(820px,100svh)] flex flex-col justify-end pt-36 pb-8 md:pt-48 md:pb-10">
-        <Image alt="Students and instructors together on the mats at Team Cama" src={imageUrl("1774454176462-Promotion1.78f9ff1c10110cc40b48.jpg")} fill sizes="100vw" priority className="object-cover object-[62%_center] grayscale brightness-90 -z-20" />
+        <Image alt="Students and instructors together on the mats at Team Cama" src="/images/gallery/team-belt-promotion-thornton-road.jpg" fill sizes="100vw" priority className="object-cover object-[62%_center] grayscale brightness-90 -z-20" />
         <div className="absolute inset-0 hero-shade -z-10" />
         <div className="site-container">
           <p className="eyebrow flex items-center gap-3 mb-7 md:mb-10"><span className="w-1.5 h-1.5 bg-primary" />{site.address.city}, {site.address.regionName} · Est. {site.founded}</p>
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {disciplines.map((item, i) => <Link key={item.id} href={programPath(item.program)} className="group relative flex items-end min-h-[360px] sm:min-h-[420px] md:min-h-[380px] lg:min-h-[440px] border border-rule overflow-hidden bg-surface">
-              <Image src={imageUrl(item.image)} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale opacity-80 transition-[transform,filter,opacity] duration-700 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:grayscale-0 group-focus-visible:opacity-100 motion-safe:group-hover:scale-[1.04] motion-safe:group-focus-visible:scale-[1.04]" />
+              <Image src={item.image} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover grayscale opacity-80 transition-[transform,filter,opacity] duration-700 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:grayscale-0 group-focus-visible:opacity-100 motion-safe:group-hover:scale-[1.04] motion-safe:group-focus-visible:scale-[1.04]" />
               <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-background via-background/55 via-35% to-transparent" />
               <span className="absolute top-4 left-4 bg-background/80 px-2 py-1 text-xs font-mono">0{i + 1}</span>
               <div className="relative w-full p-5 md:p-6 transition-transform duration-500 motion-safe:group-hover:-translate-y-1 motion-safe:group-focus-visible:-translate-y-1">
@@ -71,7 +71,7 @@ export default function Home() {
             {/* Account for the full landscape image behind the tall object-cover crop,
                 not just the visible column width, so faces stay sharp on Retina screens. */}
             <Image
-              src={imageUrl("2024.jpg")}
+              src="/images/gallery/2024-team-photo-thornton-road.jpg"
               alt="The Team Cama community together at the Stockton gym"
               fill
               quality={90}

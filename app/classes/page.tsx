@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import TrialButton from "../components/TrialButton";
 import ClassSchedule from "../components/ClassSchedule";
 import FirstVisit from "../components/FirstVisit";
-import { imageUrl, programPath, programs } from "../lib/programs";
+import { programPath, programs } from "../lib/programs";
 
 export const metadata: Metadata = {
   title: "Classes & Schedule",
@@ -34,7 +34,7 @@ export default function Classes() {
           {programs.map((program, i) => <article id={program.id} key={program.id} className="grid md:grid-cols-2 gap-7 md:gap-12 lg:gap-20 items-center">
             <figure className={`relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden bg-surface ${i % 2 === 1 ? "md:order-2" : ""}`}>
               <Link href={programPath(program)} aria-label={`${program.name} program details`} className="block absolute inset-0">
-                <Image src={imageUrl(program.image)} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={i === 0 ? "eager" : "lazy"} className="object-cover" />
+                <Image src={program.image} alt={program.alt} fill sizes="(max-width: 768px) 100vw, 50vw" loading={i === 0 ? "eager" : "lazy"} className="object-cover" />
               </Link>
               <figcaption className="absolute bottom-4 left-4 text-xs bg-background/90 text-ink px-3 py-2 pointer-events-none">{program.caption} / Team Cama</figcaption>
             </figure>

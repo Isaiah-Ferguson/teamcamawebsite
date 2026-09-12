@@ -33,7 +33,7 @@ export default function About() {
     <Navigation />
     <main id="main" tabIndex={-1}>
       <section className="relative isolate overflow-hidden pt-40 pb-16 md:pt-52 md:pb-24 border-b border-rule">
-        <Image src="https://preblobaccount.blob.core.windows.net/prerecordedblob/DCS_1674.jpg" alt="A Team Cama competitor celebrating on the mat" fill sizes="100vw" priority className="object-cover object-[center_35%] grayscale -z-20" />
+        <Image src="/images/gallery/2023-competition-christian-hand-raised.jpg" alt="A Team Cama competitor celebrating on the mat" fill sizes="100vw" priority className="object-cover object-[center_35%] grayscale -z-20" />
         <div className="absolute inset-0 bg-background/75 -z-10" />
         <div className="site-container">
           <p className="eyebrow text-primary mb-5">Stockton roots. Shared purpose.</p>
