@@ -30,6 +30,7 @@ export const galleryDirectory = "/images/gallery";
 export const captions: Record<string, string> = {
   "2024-competition-allie-winston.jpg": "Allie Winston at a Brazilian Jiu-Jitsu competition",
   "2024-competition-allie-winston-match.jpg": "Allie Winston competing, seen from above the mat",
+  "2025-team-thornton-taekwondo-group.jpg": "Taekwondo group at the Thornton Road gym",
   "2024-team-photo-thornton-road.jpg": "Team photo at the current Thornton Road gym",
   "2023-competition-christian-hand-raised.jpg": "Christian gets his hand raised after a Jiu-Jitsu match",
   "2023-events-community-picnic.jpg": "Team Cama community gathering at the park",
@@ -54,7 +55,7 @@ export const captions: Record<string, string> = {
   "training-muay-thai-class-lineup.jpg": "Muay Thai class lined up on the mats",
   "team-taekwondo-group.jpg": "Early Taekwondo group at the gym",
   "competition-tina-muay-thai-fight.jpg": "Tina fighting Muay Thai for Team Cama",
-  "training-christian-muay-thai-kick.jpg": "Christian drilling kicks on the pads",
+  "training-christian-muay-thai-kick.jpg": "Christian Orellana drilling kicks on the pads",
 };
 
 const pattern = /^(?:(\d{4})-)?(competition|training|team|events|black-belts)-([a-z0-9-]+)$/;

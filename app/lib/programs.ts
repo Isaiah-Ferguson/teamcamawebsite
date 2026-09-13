@@ -56,7 +56,7 @@ export const programs: Program[] = [
     },
     intro: [
       "Brazilian Jiu-Jitsu at Team Cama is grappling built on leverage, position, and timing rather than size or strength. Classes cover takedowns, guard, passing, escapes, and submissions, with self-defense fundamentals at the core of everything we teach.",
-      "The program is led by head instructor Louie Concepcion, a Brazilian Jiu-Jitsu black belt under Charles Gracie, together with black belts Angelo Garcia and Isaiah Ferguson, both of whom have trained with Louie since 2009. Our instructors train and teach in both the gi and no-gi.",
+      "The program is led by head instructor Louie Concepcion, a Brazilian Jiu-Jitsu black belt under Charles Gracie, together with black belts Angelo Garcia and Isaiah Ferguson, both of whom have trained with Louie since 2009, and instructor Thomas Bunn. Our instructors train and teach in both the gi and no-gi.",
       "Classes run Monday, Wednesday, and Friday evenings at our gym on Thornton Road in Stockton. Beginners train alongside experienced students, and your first class is free.",
     ],
     highlights: [
@@ -101,7 +101,7 @@ export const programs: Program[] = [
     },
     intro: [
       "Muay Thai is the art of eight limbs: punches, kicks, knees, and elbows. Classes at Team Cama build striking technique, defense, footwork, and conditioning through pad work, drilling, and partner training, so you leave each session sharper than you arrived.",
-      "The program is coached by Isaiah Ferguson, who has trained Muay Thai and Jiu-Jitsu under Louie Concepcion since 2009 and has competed in kickboxing, alongside Louie himself, whose background includes kickboxing, Filipino Martial Arts, and Jeet Kune Do Concepts.",
+      "The program is coached by Isaiah Ferguson, who has trained Muay Thai and Jiu-Jitsu under Louie Concepcion since 2009 and has competed in kickboxing, and by Christian Orellana, a competitive Muay Thai fighter, alongside Louie himself, whose background includes kickboxing, Filipino Martial Arts, and Jeet Kune Do Concepts.",
       "Classes run Monday, Wednesday, and Friday evenings, directly after Brazilian Jiu-Jitsu, at our gym on Thornton Road in Stockton. Whether you want kickboxing for fitness or a striking base for competition, your first class is free.",
     ],
     highlights: [
@@ -121,7 +121,7 @@ export const programs: Program[] = [
     photos: [
       { image: "/images/gallery/competition-arath-muay-thai-fight.jpg", alt: "Arath fighting Muay Thai for Team Cama" },
       { image: "/images/gallery/2021-team-muay-thai-class.jpg", alt: "Team Cama Muay Thai class group photo" },
-      { image: "/images/gallery/training-christian-muay-thai-kick.jpg", alt: "Christian drilling kicks on the pads" },
+      { image: "/images/gallery/training-christian-muay-thai-kick.jpg", alt: "Christian Orellana drilling kicks on the pads" },
     ],
   },
   {
