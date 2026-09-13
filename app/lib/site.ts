@@ -38,16 +38,6 @@ export const site = {
 
 export const mapsUrl = "https://www.google.com/maps/search/?api=1&query=8855+Thornton+Rd+suite+b,+Stockton,+CA+95209";
 
-/**
- * Hours the gym is open for classes, in schema.org format.
- * Keep in sync with the schedule rows in ./programs.ts.
- */
-export const openingHours = [
-  { days: ["Monday", "Wednesday", "Friday"], opens: "17:30", closes: "20:15" },
-  { days: ["Tuesday", "Thursday"], opens: "17:15", closes: "20:00" },
-  { days: ["Saturday"], opens: "09:30", closes: "11:30" },
-] as const;
-
 /** Absolute URL on the canonical origin. Root has no trailing slash, matching Next's canonical output. */
 export function absoluteUrl(path: string) {
   return path === "/" ? site.url : `${site.url}${path.startsWith("/") ? path : `/${path}`}`;

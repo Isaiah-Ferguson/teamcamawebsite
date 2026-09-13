@@ -6,6 +6,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import TrialButton from "../../components/TrialButton";
 import FirstVisit from "../../components/FirstVisit";
+import WeekSchedule from "../../components/WeekSchedule";
 import JsonLd from "../../components/JsonLd";
 import { programPath, programs } from "../../lib/programs";
 import { instructorsFor, introduction } from "../../lib/instructors";
@@ -96,19 +97,14 @@ export default async function ProgramPage({ params }: Props) {
       </section>
 
       <section id="schedule" className="section-space border-y border-rule bg-surface">
-        <div className="site-container grid lg:grid-cols-[1fr_1.3fr] gap-8 lg:gap-20">
+        <div className="site-container grid xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-10 xl:gap-16">
           <div>
             <p className="eyebrow text-primary mb-4">Weekly schedule</p>
             <h2 className="section-heading mb-5">{program.shortName} class times.</h2>
             <p className="text-ink-muted text-sm leading-relaxed">{program.audience}. All times Pacific.<br />{site.address.street}, {site.address.city}, {site.address.region}</p>
             <Link href="/classes#schedule" className="text-link mt-5">See every class <span aria-hidden="true">↗</span></Link>
           </div>
-          <ul className="divide-y divide-rule border-y border-rule">
-            {program.schedule.map(row => <li key={row.day + row.group} className="py-4 grid sm:grid-cols-[1fr_auto] gap-x-6 gap-y-1">
-              <div><p className="font-medium">{row.day}</p><p className="text-ink-muted text-sm mt-1">{row.group}</p></div>
-              <p className="tabular-nums text-sm sm:text-right">{row.time}</p>
-            </li>)}
-          </ul>
+          <WeekSchedule program={program} />
         </div>
       </section>
 

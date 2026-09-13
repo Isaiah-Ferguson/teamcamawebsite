@@ -1,5 +1,5 @@
-import { absoluteUrl, mapsUrl, openingHours, site } from "./site";
-import { programPath, programs, type Program } from "./programs";
+import { absoluteUrl, mapsUrl, site } from "./site";
+import { openingHours, programPath, programs, type Program } from "./programs";
 
 const businessId = `${site.url}/#business`;
 const city = { "@type": "City", name: site.address.city };
@@ -46,7 +46,7 @@ export function businessSchema() {
     },
     geo: { "@type": "GeoCoordinates", latitude: site.geo.latitude, longitude: site.geo.longitude },
     hasMap: mapsUrl,
-    openingHoursSpecification: openingHours.map(hours => ({
+    openingHoursSpecification: openingHours().map(hours => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: hours.days,
       opens: hours.opens,

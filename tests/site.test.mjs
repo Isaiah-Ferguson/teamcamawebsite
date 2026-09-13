@@ -15,7 +15,7 @@ async function loadModule(path) {
 }
 
 const { makeContactDraft, contactEmail } = await loadModule("../app/lib/contact.ts");
-const { programs, programPath } = await loadModule("../app/lib/programs.ts");
+const { programs, programPath, formatDays, formatTime, openingHours, weekdays } = await loadModule("../app/lib/programs.ts");
 const { instructors } = await loadModule("../app/lib/instructors.ts");
 const { legacyRedirects } = await loadModule("../app/lib/redirects.ts");
 const { journey } = await loadModule("../app/lib/journey.ts");
@@ -44,9 +44,28 @@ test("all three programs have unique working anchors and schedule rows", () => {
   for (const program of programs) {
     assert.ok(program.summary.length);
     assert.ok(program.schedule.length);
-    assert.equal(new Set(program.schedule.map(row => row.day + row.group)).size, program.schedule.length);
-    for (const row of program.schedule) assert.ok(row.day && row.time && row.group);
+    assert.equal(new Set(program.schedule.map(row => formatDays(row.days) + row.group)).size, program.schedule.length);
+    for (const row of program.schedule) {
+      assert.ok(row.days.length && row.group, "session needs days and a group");
+      for (const day of row.days) assert.ok(weekdays.includes(day), `${day} is not a weekday`);
+      assert.match(row.start, /^\d{1,2}:\d{2} (AM|PM)$/); assert.match(row.end, /^\d{1,2}:\d{2} (AM|PM)$/);
+    }
   }
+});
+
+test("session times render the way the gym writes them", () => {
+  assert.equal(formatTime({ start: "5:30 PM", end: "7:15 PM" }), "5:30–7:15 PM");
+  assert.equal(formatTime({ start: "9:30 AM", end: "10:15 AM" }), "9:30–10:15 AM");
+  assert.equal(formatTime({ start: "11:30 AM", end: "1:00 PM" }), "11:30 AM–1:00 PM");
+  assert.equal(formatDays(["Mon", "Wed", "Fri"]), "Mon, Wed, Fri");
+});
+
+test("opening hours for the structured data follow the class schedule", () => {
+  assert.deepEqual(openingHours(), [
+    { days: ["Monday", "Wednesday", "Friday"], opens: "17:30", closes: "20:15" },
+    { days: ["Tuesday", "Thursday"], opens: "17:15", closes: "20:00" },
+    { days: ["Saturday"], opens: "09:30", closes: "11:30" },
+  ]);
 });
 
 test("Taekwondo publishes its confirmed kids and adult times", () => {

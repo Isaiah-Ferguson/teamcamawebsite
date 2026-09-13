@@ -1,5 +1,11 @@
 export type ProgramId = "bjj" | "muay-thai" | "taekwondo";
 
+export const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const;
+export type Weekday = (typeof weekdays)[number];
+
+/** One class session. Times are 12-hour strings like "5:30 PM" so they render as written. */
+export type Session = { days: Weekday[]; start: string; end: string; group: string };
+
 export type Program = {
   id: ProgramId;
   /** URL segment under /classes. Taekwondo keeps the old site's exact path. */
@@ -18,7 +24,7 @@ export type Program = {
   days: string;
   audience: string;
   summary: string[];
-  schedule: { day: string; time: string; group: string }[];
+  schedule: Session[];
   seo: { title: string; description: string };
   intro: string[];
   highlights: string[];
@@ -28,6 +34,58 @@ export type Program = {
 
 export function programPath(program: Pick<Program, "slug">) {
   return `/classes/${program.slug}`;
+}
+
+export function formatDays(days: Weekday[]) {
+  return days.join(", ");
+}
+
+/** "5:30 PM" + "7:15 PM" -> "5:30–7:15 PM"; "9:30 AM" + "10:15 AM" -> "9:30–10:15 AM". */
+export function formatTime(session: Pick<Session, "start" | "end">) {
+  const [startClock, startPeriod] = session.start.split(" ");
+  const [, endPeriod] = session.end.split(" ");
+  return `${startPeriod === endPeriod ? startClock : session.start}–${session.end}`;
+}
+
+export function sessionsOn(program: Pick<Program, "schedule">, day: Weekday) {
+  return program.schedule.filter(session => session.days.includes(day));
+}
+
+function toMinutes(time: string) {
+  const [clock, period] = time.split(" ");
+  const [hours, minutes] = clock.split(":").map(Number);
+  return ((hours % 12) + (period === "PM" ? 12 : 0)) * 60 + minutes;
+}
+
+function toClock24(minutes: number) {
+  return `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
+}
+
+const weekdayNames: Record<Weekday, string> = { Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday", Sat: "Saturday", Sun: "Sunday" };
+
+export function weekdayName(day: Weekday) {
+  return weekdayNames[day];
+}
+
+/**
+ * Gym opening hours derived from every program's schedule, in schema.org form
+ * (24-hour clock). Days with identical hours are grouped.
+ */
+export function openingHours() {
+  const byDay = weekdays.flatMap(day => {
+    const sessions = programs.flatMap(program => sessionsOn(program, day));
+    if (!sessions.length) return [];
+    const opens = toClock24(Math.min(...sessions.map(session => toMinutes(session.start))));
+    const closes = toClock24(Math.max(...sessions.map(session => toMinutes(session.end))));
+    return [{ day: weekdayNames[day], opens, closes }];
+  });
+  const groups: { days: string[]; opens: string; closes: string }[] = [];
+  for (const entry of byDay) {
+    const group = groups.find(item => item.opens === entry.opens && item.closes === entry.closes);
+    if (group) group.days.push(entry.day);
+    else groups.push({ days: [entry.day], opens: entry.opens, closes: entry.closes });
+  }
+  return groups;
 }
 
 // Draft page copy is grounded in the coach biographies and existing site text.
@@ -49,7 +107,7 @@ export const programs: Program[] = [
     days: "Mon, Wed, Fri",
     audience: "All levels welcome",
     summary: ["Mon, Wed, Fri · 5:30–7:15 PM"],
-    schedule: [{ day: "Mon, Wed, Fri", time: "5:30–7:15 PM", group: "All levels" }],
+    schedule: [{ days: ["Mon", "Wed", "Fri"], start: "5:30 PM", end: "7:15 PM", group: "All levels" }],
     seo: {
       title: "Brazilian Jiu-Jitsu in Stockton, CA",
       description: "Brazilian Jiu-Jitsu classes in Stockton, CA. Black belt instruction in the Charles Gracie lineage, Mon, Wed & Fri evenings at 8855 Thornton Rd. First class free.",
@@ -94,7 +152,7 @@ export const programs: Program[] = [
     days: "Mon, Wed, Fri",
     audience: "All levels welcome",
     summary: ["Mon, Wed, Fri · 7:15–8:15 PM"],
-    schedule: [{ day: "Mon, Wed, Fri", time: "7:15–8:15 PM", group: "All levels" }],
+    schedule: [{ days: ["Mon", "Wed", "Fri"], start: "7:15 PM", end: "8:15 PM", group: "All levels" }],
     seo: {
       title: "Muay Thai & Kickboxing in Stockton, CA",
       description: "Muay Thai and kickboxing classes in Stockton, CA. Learn punches, kicks, knees, and elbows, Mon, Wed & Fri evenings at 8855 Thornton Rd. First class free.",
@@ -140,11 +198,11 @@ export const programs: Program[] = [
     audience: "Kids & adults",
     summary: ["Tue, Thu · Kids 5:15–6:45 PM · Adults 7:00–8:00 PM", "Sat · Kids 9:30–10:15 AM · Adults 10:30–11:30 AM"],
     schedule: [
-      { day: "Tue, Thu", time: "5:15–6:00 PM", group: "Kids · intermediate / advanced" },
-      { day: "Tue, Thu", time: "6:00–6:45 PM", group: "Kids · beginner" },
-      { day: "Tue, Thu", time: "7:00–8:00 PM", group: "Adults · ages 12 and up" },
-      { day: "Sat", time: "9:30–10:15 AM", group: "Kids · all levels" },
-      { day: "Sat", time: "10:30–11:30 AM", group: "Adults · ages 12 and up" },
+      { days: ["Tue", "Thu"], start: "5:15 PM", end: "6:00 PM", group: "Kids · intermediate / advanced" },
+      { days: ["Tue", "Thu"], start: "6:00 PM", end: "6:45 PM", group: "Kids · beginner" },
+      { days: ["Tue", "Thu"], start: "7:00 PM", end: "8:00 PM", group: "Adults · ages 12 and up" },
+      { days: ["Sat"], start: "9:30 AM", end: "10:15 AM", group: "Kids · all levels" },
+      { days: ["Sat"], start: "10:30 AM", end: "11:30 AM", group: "Adults · ages 12 and up" },
     ],
     seo: {
       title: "Taekwondo in Stockton, CA",
