@@ -65,7 +65,7 @@ shorter mobile sections replace the dusty-pink treatment.
 ## Still needs owner input before launch
 
 - Supply biographies for Thomas Bunn, Christian Orellana, Samantha Espinosa,
-  Christian White, and Jay-Jay. Jay-Jay's portrait is only 265px wide; a larger
+  Christian White, and Jay. Jay's portrait is only 265px wide; a larger
   photo would look sharper on the coach cards.
 - Configure an email delivery provider if inquiries should send within the site.
   Until then, the form only prepares an email draft.
