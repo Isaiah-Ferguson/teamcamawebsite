@@ -47,25 +47,38 @@ shorter mobile sections replace the dusty-pink treatment.
 
 ## Launch checklist
 
+Status on 2026-09-15: both `teamcama.com` and `www.teamcama.com` are already
+added to the Vercel project. DNS still points at IONOS (A records
+74.208.236.117 / 74.208.236.233), and the domain also carries IONOS mail
+records (MX + SPF), so only the two web records get changed, never the
+nameservers. The Google listing shows "Own this business?", so it is unclaimed.
+The owner-facing walkthrough lives in the "Team Cama Launch Guide" artifact.
+
 1. Owner reviews the discipline page copy in `app/lib/programs.ts`.
-2. In Vercel, add `www.teamcama.com` and `teamcama.com`; set the bare domain to
-   redirect to `www`. Remove the stale `NEXT_PUBLIC_SITE_URL` variable.
-3. Point DNS at Vercel. Confirm `https://www.teamcama.com/classes/jiu-jitsu/`
-   reaches the Brazilian Jiu-Jitsu page with a 308.
-4. Set `CANONICAL_HOST_LIVE=1` in the Vercel project and redeploy so
-   `teamcamawebsite.vercel.app` redirects to the real domain.
-5. Verify the domain in Google Search Console (DNS record), submit
-   `https://www.teamcama.com/sitemap.xml`, and request indexing for the home
-   page and the three discipline pages.
-6. Google Business Profile: keep the primary category, add the most specific
-   secondary categories available for Jiu-Jitsu, Muay Thai / kickboxing, and
-   Taekwondo, add each program as a service linking to its page, and upload
-   discipline-specific photos.
+2. Owner (IONOS): change the `@` and `www` A records to Vercel's `76.76.21.21`
+   (or set `www` to the CNAME Vercel shows). Leave MX and TXT records alone.
+3. Isaiah (Vercel): confirm both domains read Valid Configuration, set the bare
+   domain to redirect to `www`, remove the stale `NEXT_PUBLIC_SITE_URL`
+   variable, set `CANONICAL_HOST_LIVE=1`, redeploy. Confirm
+   `https://www.teamcama.com/classes/jiu-jitsu/` reaches the Brazilian
+   Jiu-Jitsu page with a 308.
+4. Isaiah: verify the site in Google Search Console with the meta-tag method
+   (`verification.google` in the root layout metadata), submit
+   `https://www.teamcama.com/sitemap.xml`, request indexing for the home page
+   and the three discipline pages.
+5. Owner (Google Business Profile): claim the 8855 Thornton Rd listing with the
+   gym's Google account, add the discipline categories, services, photos,
+   hours, and the new website URL. Report any duplicate listing as a duplicate
+   of the 8855 one.
+6. Owner: fix the old addresses on Yelp (5638 N Pershing), WellnessLiving
+   (8909 Thornton Rd #2), and MapQuest; check Facebook.
+7. After a week live, owner cancels only the IONOS website builder, keeping
+   the domain (renews 2026-12-09) and any @teamcama.com mailbox.
 
 ## Still needs owner input before launch
 
-- Supply biographies for Thomas Bunn, Christian Orellana, Samantha Espinosa,
-  Christian White, and Jay. Jay's portrait is only 265px wide; a larger
+- Supply biographies for Thomas Bunn, Christian Orellana, Samantha Bautista,
+  and Jay. Jay's portrait is only 265px wide; a larger
   photo would look sharper on the coach cards.
 - Configure an email delivery provider if inquiries should send within the site.
   Until then, the form only prepares an email draft.

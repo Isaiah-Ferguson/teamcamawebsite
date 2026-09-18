@@ -47,7 +47,7 @@ export const captions: Record<string, string> = {
   "team-belt-promotion-thornton-road.jpg": "Students and instructors together at a belt promotion",
   "training-instructors-on-the-mat.jpg": "Team Cama Brazilian Jiu-Jitsu instructors on the mat",
   "competition-arath-muay-thai-fight.jpg": "Arath fighting Muay Thai for Team Cama",
-  "training-samantha-taekwondo-kick.jpg": "Samantha Espinosa demonstrating a Taekwondo kick",
+  "training-samantha-taekwondo-kick.jpg": "Samantha Bautista demonstrating a Taekwondo kick",
   "competition-jiu-jitsu-tournament-lathrop.jpg": "Team Cama competitors at a Jiu-Jitsu tournament in Lathrop",
   "team-jiu-jitsu-class-pershing-avenue.jpg": "Brazilian Jiu-Jitsu class at the Pershing Avenue gym",
   "team-jiu-jitsu-group-pershing-avenue.jpg": "Jiu-Jitsu group photo at Pershing Avenue",

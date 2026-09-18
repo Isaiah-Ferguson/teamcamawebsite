@@ -29,7 +29,7 @@ export const site = {
   },
   geo: { latitude: 38.0305987, longitude: -121.3344911 },
   social: {
-    instagram: "https://www.instagram.com/teamcama_209",
+    instagram: "https://www.instagram.com/teamcama209",
     facebook: "https://www.facebook.com/teamcama",
   },
   /** Vercel's default production alias. Once the custom domain is live it redirects to `url`. */

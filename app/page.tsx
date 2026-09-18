@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const cards: { id: ProgramId; detail: string; image: string; alt: string }[] = [
   { id: "bjj", detail: "Technique. Leverage. Control.", image: "/images/gallery/training-instructors-on-the-mat.jpg", alt: "Team Cama Brazilian Jiu-Jitsu instructors on the mat" },
   { id: "muay-thai", detail: "Eight limbs. Endless possibility.", image: "/images/gallery/competition-arath-muay-thai-fight.jpg", alt: "Arath fighting Muay Thai for Team Cama" },
-  { id: "taekwondo", detail: "Build confidence, one kick at a time.", image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Espinosa demonstrating a Taekwondo kick" },
+  { id: "taekwondo", detail: "Build confidence, one kick at a time.", image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Bautista demonstrating a Taekwondo kick" },
 ];
 
 const disciplines = cards.map(card => ({ ...card, program: programs.find(program => program.id === card.id)! }));

@@ -192,8 +192,8 @@ export const programs: Program[] = [
     description: "Confidence in motion. A Korean martial art centered on dynamic kicking, striking, and blocking. Children and adults develop balance, speed, and flexibility alongside courtesy, perseverance, and self-control.",
     focus: "Kicking, balance & confidence",
     image: "/images/programs/taekwondo.jpg",
-    alt: "Samantha Espinosa practicing Taekwondo at Team Cama",
-    caption: "Samantha Espinosa",
+    alt: "Samantha Bautista practicing Taekwondo at Team Cama",
+    caption: "Samantha Bautista",
     days: "Tue, Thu, Sat",
     audience: "Kids & adults",
     summary: ["Tue, Thu · Kids 5:15–6:45 PM · Adults 7:00–8:00 PM", "Sat · Kids 9:30–10:15 AM · Adults 10:30–11:30 AM"],
@@ -210,7 +210,7 @@ export const programs: Program[] = [
     },
     intro: [
       "Taekwondo is a Korean martial art centered on dynamic kicking, striking, and blocking. At Team Cama, children and adults develop balance, speed, and flexibility while practicing the courtesy, perseverance, and self-control the art is built on.",
-      "Head instructor Louie Concepcion holds a 3rd Dan black belt certified by the Kukkiwon, with a background in both traditional and Olympic-style Taekwondo. Instructors Samantha Espinosa, Christian White, and Jay lead the kids and adult sessions.",
+      "Head instructor Louie Concepcion holds a 3rd Dan black belt certified by the Kukkiwon, with a background in both traditional and Olympic-style Taekwondo. Instructors Samantha Bautista and Jay lead the kids and adult sessions.",
       "Kids classes are grouped by experience level on Tuesday and Thursday evenings, with an all-levels class on Saturday morning. Adult classes, for ages 12 and up, run Tuesday and Thursday evenings and Saturday mornings. Your first class is free.",
     ],
     highlights: [
@@ -228,7 +228,7 @@ export const programs: Program[] = [
       ["Which class should I attend first?", "Tell us your age and experience when you arrange your visit and we will point you to the right session. Beginners are welcome in every group."],
     ],
     photos: [
-      { image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Espinosa demonstrating a Taekwondo kick" },
+      { image: "/images/gallery/training-samantha-taekwondo-kick.jpg", alt: "Samantha Bautista demonstrating a Taekwondo kick" },
       { image: "/images/gallery/2011-training-san-juan-kids-taekwondo.jpg", alt: "Kids Taekwondo class at San Juan Avenue" },
       { image: "/images/gallery/2011-team-san-juan-taekwondo-group.jpg", alt: "Early Team Cama Taekwondo group photo" },
     ],
